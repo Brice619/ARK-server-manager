@@ -128,6 +128,36 @@ try
         if (!OperatingSystem.IsWindows()) throw new PlatformNotSupportedException("This check requires Windows.");
         result = await WindowsSnapshotSmoke.RunAsync(snapshotHelper, snapshotEvidence, permissionMode == "--elevate", cancellation.Token);
     }
+    else if (args is ["share-installed-games", var sharedRoot])
+    {
+        sharedRoot = Path.GetFullPath(sharedRoot);
+        var repository = new CatalogRepository(Path.Combine(sharedRoot, "catalog.json"));
+        var inventory = await ServerInstallationPreparation.ReadInventoryAsync(sharedRoot, cancellation.Token);
+        var catalog = await repository.ReadAsync(cancellation.Token);
+        var native = OperatingSystem.IsWindows() ? ServerPlatform.Windows : ServerPlatform.Linux;
+        var sources = inventory.Records.Where(r => r.Phase == ServerInstallationPhase.FilesReady)
+            .SelectMany(r => new[] { (r.StagingDirectory, r.Edition, r.Platform), (r.FinalDirectory, r.Edition, r.Platform) })
+            .Concat(catalog.Servers.Select(s => (s.Directory, s.Edition, native))).Distinct().ToArray();
+        var shared = new List<string>();
+        foreach (var (directory, edition, platform) in sources)
+        {
+            if (!Directory.Exists(directory)) continue;
+            if ((await new InstallationStopGuard().CheckAsync(directory, cancellation.Token)).State != InstallationStopState.Stopped)
+                throw new IOException("Stop the selected installation before converting its game files.");
+            if (!string.Equals(Path.GetDirectoryName(directory), Path.Combine(sharedRoot, "servers"), StringComparison.OrdinalIgnoreCase)) continue;
+            await new SharedServerFiles(sharedRoot, edition, platform).RegisterAsync(directory, cancellation.Token);
+            shared.Add(directory);
+        }
+        result = new { Converted = shared, PreservedServerState = true };
+    }
+    else if (args is ["confirm-installed-update", var confirmedApp, var confirmedJournal])
+    {
+        result = await AppUpdateTransaction.ConfirmAsync(confirmedJournal, confirmedApp, async ct =>
+        {
+            await new LocalManagerClient(confirmedApp).CallAsync<CatalogDocument>("catalog", null, TimeSpan.FromSeconds(15), ct);
+            return true;
+        }, cancellation.Token);
+    }
     else if (args is ["install-payload", var payloadFolder, var installationFolder, var payloadRuntime])
         result = await VerifiedPayloadInstaller.InstallAsync(payloadFolder, installationFolder, payloadRuntime, cancellation.Token);
     else if (args is ["stage-app-update", var updatePackage, var stagingParent, var updateRuntime])

@@ -8,6 +8,8 @@ Choose a parent folder and a new dedicated installation folder. The app includes
 
 ## Create a server or cluster
 
+Game files downloaded during installation are reused. New maps share the physical game files while keeping their own saves, configuration, logs, and downloaded mods. If the chosen ARK edition is missing, its package is downloaded once. Shared files live under `GameFiles` in your management folder; do not edit or remove them manually. File Explorer may count linked game files in each folder's logical size even though the disk stores those files once.
+
 Use **Create Server / Cluster**, choose a standalone server or cluster, then choose ASA or ASE. A map runs as its own server process. A cluster connects several maps from the same edition; ASA and ASE cannot share a cluster.
 
 Choose a map, enter its name and player limit, and set PvE/PvP and local-network or internet access. Enter or generate an administrator password. A join password and welcome message are optional. Gameplay, access, networking and mods have separate setup categories.

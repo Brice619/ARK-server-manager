@@ -18,7 +18,7 @@ The interface uses spacious, scrolling cards and separate settings pages. Additi
 
 ## Installation and updates
 
-The intended distribution is a standalone installer. The .NET runtime and application files are bundled; the installer checks required tools and asks about their installation. Server files download separately into the chosen management folder. ASA on Linux requires the managed Windows compatibility environment.
+The intended distribution is a standalone installer. The .NET runtime and application files are bundled; the installer checks required tools and asks about their installation. Each ARK edition's game package downloads once into the chosen management folder and is reused for new servers. Large game files share physical disk storage; each server has separate saves, settings, logs, backups, and downloaded mods. ASA on Linux requires the managed Windows compatibility environment. See [0.1.1 changes](docs/RELEASE-0.1.1.md).
 
 The public repository is `Brice619/ARK-server-manager`. Automatic updates use stable three-part version tags such as `v0.1.0`, and these assets:
 

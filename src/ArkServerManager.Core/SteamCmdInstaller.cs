@@ -57,6 +57,9 @@ public sealed class SteamCmdInstaller
             var scanStarted = DateTimeOffset.UtcNow;
             var installerProcesses = await new SteamCmdProcessDiscovery().ScanAsync(cancellationToken);
             SteamCmdProcessSafety.RequireIdle(executable, installerProcesses, scanStarted, DateTimeOffset.UtcNow);
+            // Steam may overwrite files in place. Detach this stopped server before any writes
+            // so an update/repair cannot alter the bytes another running server is using.
+            await SharedServerFiles.DetachBeforeWriteAsync(request.Directory, cancellationToken);
             Directory.CreateDirectory(request.Directory);
             Directory.CreateDirectory(logsDirectory);
             var id = AppId(request.Edition);
@@ -85,6 +88,7 @@ public sealed class SteamCmdInstaller
             var candidate = evaluated.Candidates.FirstOrDefault(c => c.Edition == request.Edition && c.Platform == platform);
             if (candidate is null || new FileInfo(candidate.Executable).Length == 0)
                 return new(id, request.Directory, exit.ExitCode, false, "SteamCMD finished, but the expected server executable is missing or empty.");
+            await SharedServerFiles.RefreshAfterWriteAsync(request, cancellationToken);
             return new(id, request.Directory, exit.ExitCode, true, "Server files installed. Runtime compatibility still requires a startup check.");
         }
         finally { gate.Release(); }

@@ -9,7 +9,7 @@ public sealed record ServerInstallationRecord(int SchemaVersion, Guid ServerId, 
 public sealed record ServerInstallationStatus(ServerInstallationRecord? Record);
 public sealed record ServerInstallationRecordInventory(IReadOnlyList<ServerInstallationRecord> Records, int UnreadableRecords);
 
-/// <summary>Installs a new server package into its own staging folder; never registers or starts a server.</summary>
+/// <summary>Reuses shared game files in a separate server staging folder; downloads a missing game package once.</summary>
 public sealed class ServerInstallationPreparation(CatalogRepository repository,
     Func<SteamInstallRequest, IProgress<IReadOnlyList<ProcessLine>>?, CancellationToken, Task<SteamInstallResult>> install)
 {
@@ -141,12 +141,16 @@ public sealed class ServerInstallationPreparation(CatalogRepository repository,
             record = record with { Phase = ServerInstallationPhase.Downloading };
             await store.SaveAsync(record, ct);
             var request = new SteamInstallRequest(record.Edition, record.Platform, record.StagingDirectory, true);
-            var result = await install(request, progress, ct);
+            var sharedFiles = new SharedServerFiles(Path.GetDirectoryName(Path.GetDirectoryName(record.FinalDirectory))!, record.Edition, record.Platform);
+            var reused = await sharedFiles.AdoptExistingAsync(repository, record.StagingDirectory, ct);
+            var result = reused ? new SteamInstallResult(SteamCmdInstaller.AppId(record.Edition), record.StagingDirectory, 0, true, "Reused installed game files.")
+                : await install(request, progress, ct);
             if (!result.Success || result.ExitCode != 0 || result.AppId != SteamCmdInstaller.AppId(record.Edition)
                 || !Path.GetFullPath(result.Directory).Equals(record.StagingDirectory, OperatingSystem.IsWindows()
                     ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal))
                 throw new IOException("The server package did not confirm installation completion.");
             ValidatePackage(record);
+            if (!reused) await sharedFiles.RegisterAsync(record.StagingDirectory, ct);
             ct.ThrowIfCancellationRequested();
             record = record with { Phase = ServerInstallationPhase.FilesReady };
             await store.SaveAsync(record, ct);

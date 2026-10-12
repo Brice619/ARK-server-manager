@@ -56,7 +56,7 @@ public sealed class ServerInstallationManagerOperations(string managementRoot, B
             {
                 progress(new("Checking required installation tools."));
                 var preparation = await createPreparation(token);
-                progress(new(selection.Resume ? "Checking and resuming recorded server files." : "Downloading and validating server files."));
+                progress(new(selection.Resume ? "Checking and resuming recorded server files." : "Reusing installed game files, or downloading a missing game package."));
                 // Do not stream raw tool output into the user-facing progress summary.
                 ServerInstallationRecord result;
                 if (selection.Resume)

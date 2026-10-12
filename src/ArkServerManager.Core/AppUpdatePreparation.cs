@@ -75,7 +75,7 @@ public static class AppUpdatePreparation
     internal static void ValidateOwnedPath(string relative)
     {
         var first = relative.Split('/')[0];
-        if (new[] { "Servers", "Clusters", "Dependencies", "State", "app-settings", "logs", "catalog.json", "installation.json", AppFileLease.FileName, AppBootstrapLayout.FolderName, AppBootstrapLayout.PayloadFolderName }
+        if (new[] { "Servers", "Clusters", "GameFiles", "Dependencies", "State", "app-settings", "logs", "catalog.json", "installation.json", AppFileLease.FileName, AppBootstrapLayout.FolderName, AppBootstrapLayout.PayloadFolderName }
             .Contains(first, StringComparer.OrdinalIgnoreCase))
             throw new InvalidDataException("Application update ownership includes managed data.");
     }

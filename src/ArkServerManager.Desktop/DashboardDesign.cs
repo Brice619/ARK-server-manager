@@ -4,6 +4,7 @@ using Avalonia.Layout;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia.Platform;
+using Avalonia.VisualTree;
 using ArkServerManager.Core;
 
 namespace ArkServerManager.Desktop;
@@ -24,8 +25,44 @@ public sealed partial class MainWindow
     private Control BuildHeader()
     {
         var header = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"), RowDefinitions = new RowDefinitions("64,0"),
-            Height = 64, Margin = new Thickness(26, 0, 24, 0) };
-        if (OperatingSystem.IsWindows()) Avalonia.Controls.Chrome.WindowDecorationProperties.SetElementRole(header, Avalonia.Input.WindowDecorationsElementRole.TitleBar);
+            Height = 64, Background = Brushes.Transparent, Margin = new Thickness(26, 0, 24, 0) };
+        if (OperatingSystem.IsWindows())
+        {
+            Avalonia.Controls.Chrome.WindowDecorationProperties.SetElementRole(header, Avalonia.Input.WindowDecorationsElementRole.User);
+            PixelPoint? dragStart = null;
+            PixelPoint windowStart = default;
+            header.PointerPressed += (_, e) =>
+            {
+                if (!e.GetCurrentPoint(header).Properties.IsLeftButtonPressed || e.Source is not Visual source
+                    || source.GetVisualAncestors().Prepend(source).Any(element => element is Button)) return;
+                if (e.ClickCount == 2)
+                    WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+                else
+                {
+                    var pointerPosition = this.PointToScreen(e.GetPosition(this));
+                    if (WindowState == WindowState.Maximized)
+                    {
+                        var horizontalFraction = e.GetPosition(this).X / Bounds.Width;
+                        WindowState = WindowState.Normal;
+                        Position = new PixelPoint(pointerPosition.X - (int)(Width * RenderScaling * horizontalFraction),
+                            pointerPosition.Y - (int)(30 * RenderScaling));
+                    }
+                    dragStart = pointerPosition;
+                    windowStart = Position;
+                    e.Pointer.Capture(header);
+                }
+                e.Handled = true;
+            };
+            header.PointerMoved += (_, e) =>
+            {
+                if (dragStart is not { } start || !e.GetCurrentPoint(header).Properties.IsLeftButtonPressed) return;
+                var pointerPosition = this.PointToScreen(e.GetPosition(this));
+                Position = new PixelPoint(windowStart.X + pointerPosition.X - start.X,
+                    windowStart.Y + pointerPosition.Y - start.Y);
+            };
+            header.PointerReleased += (_, e) => { dragStart = null; e.Pointer.Capture(null); };
+            header.PointerCaptureLost += (_, _) => dragStart = null;
+        }
         var brand = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 13, VerticalAlignment = VerticalAlignment.Center };
         brand.Children.Add(VectorIcon("M2,32 L18,2 L34,32 M9,22 L27,22", Brush.Parse("#8DD5E4"), 32));
         brand.Children.Add(Label("ARK Server Manager", 19, true)); header.Children.Add(brand);

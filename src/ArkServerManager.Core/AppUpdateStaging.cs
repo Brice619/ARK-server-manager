@@ -30,7 +30,7 @@ public static class AppUpdateStaging
                     || ((entry.ExternalAttributes >> 16) & 0xF000) == 0xA000)
                     throw new InvalidDataException("Unsupported update package entry.");
                 var first = fileName.Split('/')[0];
-                if (new[] { "Servers", "Clusters", "Dependencies", "State", "app-settings", "logs", "catalog.json", "installation.json", AppFileLease.FileName, AppBootstrapLayout.FolderName }.Contains(first, StringComparer.OrdinalIgnoreCase))
+                if (new[] { "Servers", "Clusters", "GameFiles", "Dependencies", "State", "app-settings", "logs", "catalog.json", "installation.json", AppFileLease.FileName, AppBootstrapLayout.FolderName }.Contains(first, StringComparer.OrdinalIgnoreCase))
                     throw new InvalidDataException("An app update cannot contain managed data or installation settings.");
                 var path = Path.Combine(directory, fileName);
                 if (name.EndsWith('/')) { Directory.CreateDirectory(path); continue; }

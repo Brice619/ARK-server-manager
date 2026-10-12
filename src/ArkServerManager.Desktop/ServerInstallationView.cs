@@ -127,12 +127,12 @@ public sealed partial class MainWindow
             var body = new StackPanel { Margin = new Thickness(32), Spacing = 22 };
             body.Children.Add(Label(dialog.Title!, 27, true));
             body.Children.Add(Label(name + " · " + selection.Edition, 19, true));
-            body.Children.Add(Label("These server files are needed to run your server. Missing SteamCMD tools will be installed in Dependencies. The server package will be downloaded and checked.", 17));
+            body.Children.Add(Label("Existing game files will be reused. A game package is downloaded only when it is missing. Each server keeps its own saves, settings, and downloaded mods.", 17));
             body.Children.Add(Label("You can install later. Once the files are ready, continue with configuration and create your server before starting it.", 16));
             if (selection.Resume) body.Children.Add(Label("The recorded partial download will be reused after the staged server and installer are verified as stopped.", 15));
             var actions = new WrapPanel();
             actions.Children.Add(ActionButton("Later", () => dialog.Close(false)));
-            var install = ActionButton(selection.Resume ? "Resume installation" : "Install server files", () => dialog.Close(true), true);
+            var install = ActionButton(selection.Resume ? "Resume setup" : "Prepare server files", () => dialog.Close(true), true);
             install.Margin = new Thickness(14, 0, 0, 0); actions.Children.Add(install); body.Children.Add(actions);
             dialog.Content = new ScrollViewer { Content = body };
             if (await dialog.ShowDialog<bool>(this) && !lifetime.IsCancellationRequested)

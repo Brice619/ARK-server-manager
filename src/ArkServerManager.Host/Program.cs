@@ -191,6 +191,7 @@ var runtimeFactory = new RegisteredRconRuntimeFactory(repository,
         }
         var queuedUpdate = await pendingServerUpdates.OnStoppedAsync(server.Id, ct);
         if (queuedUpdate.Queued) throw new IOException(queuedUpdate.Message);
+        await SharedServerFiles.RefreshBeforeStartAsync(root, current, nativePlatform, ct);
         await pendingConfiguration.ApplyBeforeStartAsync(server.Id, ct);
         await ApplyPendingPresetAsync(server.Id, ct);
         await pendingSettings.ApplyBeforeStartAsync(server.Id, ct);
@@ -423,6 +424,8 @@ pendingServerUpdates = new ServerUpdateWorkflow(Path.Combine(root, "app-settings
         var selected = (await repository.ReadAsync(ct)).Servers.Single(s => s.Id == id);
         if ((await new InstallationStopGuard().CheckAsync(selected.Directory, ct)).State != InstallationStopState.Stopped)
             throw new InvalidOperationException("Server updates require a verified stopped installation.");
+        await SharedServerFiles.RefreshBeforeStartAsync(root, selected, nativePlatform, ct);
+        if (await ServerUpdateManagerOperations.InstalledBuildAsync(selected, ct) == build) return true;
         var tool = await EnsureSteamCmdAsync(ct);
         var installed = await new SteamCmdInstaller(tool, Path.Combine(root, "logs", "updates"))
             .InstallOrUpdateAsync(new(selected.Edition, nativePlatform, selected.Directory, false), cancellationToken: ct);
