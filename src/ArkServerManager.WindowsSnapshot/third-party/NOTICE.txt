@@ -1,0 +1,14 @@
+Windows snapshot helper dependencies
+
+AlphaVSS and AlphaVSS.Native.NetCore 2.0.3
+Copyright Peter Palotas / alphaleonis.
+Package license: Apache-2.0. See AlphaVSS-LICENSE.txt.
+Source: https://github.com/alphaleonis/AlphaVSS/tree/2.0.3
+NuGet package repository commit: 2800471697f06364d7a57ff891a96f343a044a21.
+The packages are used without modifying their source.
+
+The packaged Ijwhost.dll is a Microsoft .NET native hosting component.
+Its version identifies dotnet/coreclr commit 65f04fb6db7a5e198d05dbebd5c4ad21eb018f89.
+Its source license and notices are included as Ijwhost-DotNet-LICENSE.txt and
+Ijwhost-DotNet-THIRD-PARTY-NOTICES.txt from that commit.
+Final redistribution and installer notice verification remain required.

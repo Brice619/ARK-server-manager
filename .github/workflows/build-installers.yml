@@ -1,0 +1,42 @@
+name: Build installer candidates
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Three-part release version, for example 1.0.0'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: windows-latest
+    timeout-minutes: 60
+    env:
+      ARK_RELEASE_VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Build and check both platform candidates
+        shell: pwsh
+        run: ./scripts/Build-ReleaseArtifacts.ps1 -Version $env:ARK_RELEASE_VERSION -Destination (Join-Path $env:RUNNER_TEMP 'ark-release')
+      - name: Save installer and updater candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: ark-release-candidates
+          path: ${{ runner.temp }}/ark-release/release/*
+          if-no-files-found: error
+          compression-level: 0
+      - name: Save test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: candidate-test-results
+          path: ${{ runner.temp }}/ark-release/test-results
+          if-no-files-found: warn
+

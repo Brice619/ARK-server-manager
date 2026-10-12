@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ArkServerManager.Desktop/ArkServerManager.Desktop.csproj" />
+    <Project Path="src/ArkServerManager.Core/ArkServerManager.Core.csproj" />
+    <Project Path="src/ArkServerManager.Host/ArkServerManager.Host.csproj" />
+    <Project Path="src/ArkServerManager.Setup/ArkServerManager.Setup.csproj" />
+    <Project Path="src/ArkServerManager.WindowsSnapshot/ArkServerManager.WindowsSnapshot.csproj" />
+    <Project Path="src/ArkServerManager.Updater/ArkServerManager.Updater.csproj" />
+    <Project Path="src/ArkServerManager.Launcher/ArkServerManager.Launcher.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ArkServerManager.Core.Tests/ArkServerManager.Core.Tests.csproj" />
+    <Project Path="tests/ArkServerManager.ProcessFixture/ArkServerManager.ProcessFixture.csproj" />
+  </Folder>
+  <Folder Name="/tools/">
+    <Project Path="tools/ArkServerManager.Diagnostics/ArkServerManager.Diagnostics.csproj" />
+  </Folder>
+</Solution>

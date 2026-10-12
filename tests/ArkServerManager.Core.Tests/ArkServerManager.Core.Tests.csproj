@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.4" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\ArkServerManager.Core\ArkServerManager.Core.csproj" />
+    <ProjectReference Include="../ArkServerManager.ProcessFixture/ArkServerManager.ProcessFixture.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="../../src/ArkServerManager.Host/ArkServerManager.Host.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="../../src/ArkServerManager.Updater/ArkServerManager.Updater.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <Target Name="CopyProcessFixture" AfterTargets="Build">
+    <ItemGroup>
+      <FixtureFiles Include="../ArkServerManager.ProcessFixture/bin/$(Configuration)/net10.0/ArkServerManager.ProcessFixture*" />
+      <HostFiles Include="../../src/ArkServerManager.Host/bin/$(Configuration)/net10.0/**/*" />
+      <UpdaterFiles Include="../../src/ArkServerManager.Updater/bin/$(Configuration)/net10.0/**/*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(FixtureFiles)" DestinationFolder="$(OutDir)fixture" />
+    <Copy SourceFiles="@(HostFiles)" DestinationFolder="$(OutDir)host-fixture/%(RecursiveDir)" />
+    <Copy SourceFiles="@(UpdaterFiles)" DestinationFolder="$(OutDir)updater-fixture/%(RecursiveDir)" />
+  </Target>
+
+</Project>

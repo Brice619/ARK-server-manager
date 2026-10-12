@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup Condition="'$(ARK_RELEASE_VERSION)' != ''">
+    <Version>$(ARK_RELEASE_VERSION)</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" Link="licenses/ARKServerManager.LICENSE.txt"
+          CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

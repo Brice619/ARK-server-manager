@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ArkServerManager.Core/ArkServerManager.Core.csproj" />
+    <ProjectReference Include="../ArkServerManager.WindowsSnapshot/ArkServerManager.WindowsSnapshot.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+  <Target Name="CopyWindowsSnapshotHelper" AfterTargets="Build">
+    <ItemGroup>
+      <SnapshotHelperFiles Include="../ArkServerManager.WindowsSnapshot/bin/$(Configuration)/$(TargetFramework)/$(RuntimeIdentifier)/**/*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(SnapshotHelperFiles)" DestinationFolder="$(OutDir)WindowsSnapshot/%(RecursiveDir)" />
+  </Target>
+  <Target Name="PublishWindowsSnapshotHelper" AfterTargets="ComputeFilesToPublish" Condition="'$(RuntimeIdentifier)' == 'win-x64'">
+    <PropertyGroup>
+      <SnapshotPublishDirectory>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/$(IntermediateOutputPath)snapshot-publish/'))</SnapshotPublishDirectory>
+    </PropertyGroup>
+    <MSBuild Projects="../ArkServerManager.WindowsSnapshot/ArkServerManager.WindowsSnapshot.csproj" Targets="Publish"
+             RemoveProperties="PublishProfile;PublishUrl"
+             Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework);RuntimeIdentifier=$(RuntimeIdentifier);SelfContained=$(SelfContained);PublishDir=$(SnapshotPublishDirectory)" />
+    <ItemGroup>
+      <SnapshotPublishFiles Include="$(SnapshotPublishDirectory)**/*" />
+      <ResolvedFileToPublish Include="@(SnapshotPublishFiles)">
+        <RelativePath>WindowsSnapshot/%(RecursiveDir)%(Filename)%(Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+</Project>
