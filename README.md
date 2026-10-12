@@ -49,13 +49,13 @@ For a new release-candidate folder outside the source tree:
 
 The script restores, builds and runs Windows checks before packaging both platforms. It produces the four assets, a release manifest and checksum list. Linux is cross-built without native execution. Building candidates does not publish them or certify an installed release.
 
-GitHub Actions workflows provide Windows checks on changes and a manually requested candidate build. The workflows are prepared locally and have not yet run in the planned public repository.
+GitHub Actions provides Windows checks on changes; the tagged 0.1.0 source passed its public checks. A separate workflow provides manually requested installer candidate builds.
 
 ## Current verification limits
 
 The installed Windows app has opened and connected to its background manager, and its creation guide has been exercised through location/port review. Additional installer/update, live privileged backup, interruption and full game/player/mod/platform checks are recorded in [Deferred work](docs/DEFERRED-WORK.md). Native Linux runtime behavior is unverified by user choice. Windows session shutdown has targeted native message checks; an actual computer shutdown with live game servers has not been exercised.
 
-The parent product documents contain the agreed requirements, approved screen references, current development status and decisions. Historical development entries are milestones, not current feature absence or a release certification.
+The docs folder contains setup instructions, release notes and deferred work. The desktop layout and included original map artwork follow the approved visual direction.
 
 ## License
 
