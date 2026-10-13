@@ -50,7 +50,11 @@ public sealed class SharedServerFiles(string managementRoot, ArkEdition edition,
             {
                 ct.ThrowIfCancellationRequested();
                 var relative = Path.GetRelativePath(source, file).Replace('\\', '/');
-                await using var input = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read);
+                await using var input = new FileStream(file, new FileStreamOptions
+                {
+                    Mode = FileMode.Open, Access = FileAccess.Read, Share = FileShare.Read,
+                    BufferSize = 1024 * 1024, Options = FileOptions.Asynchronous | FileOptions.SequentialScan
+                });
                 var bytes = input.Length;
                 var hash = Convert.ToHexString(await SHA256.HashDataAsync(input, ct)).ToLowerInvariant();
                 var shared = CanShare(relative);
@@ -297,10 +301,16 @@ public static class NativeGameFileLinks
     }
     public static void Create(string destination, string source)
     {
-        var success = OperatingSystem.IsWindows() ? CreateHardLink(destination, source, IntPtr.Zero)
+        var success = OperatingSystem.IsWindows() ? CreateHardLink(ExtendedWindowsPath(destination), ExtendedWindowsPath(source), IntPtr.Zero)
             : OperatingSystem.IsLinux() ? Link(source, destination) == 0 : throw new PlatformNotSupportedException();
         if (!success) throw new IOException("Game-file sharing requires a filesystem with hard-link support on the same drive.",
             new System.ComponentModel.Win32Exception(Marshal.GetLastPInvokeError()));
+    }
+    private static string ExtendedWindowsPath(string path)
+    {
+        var absolute = Path.GetFullPath(path);
+        if (absolute.StartsWith(@"\\?\", StringComparison.Ordinal)) return absolute;
+        return absolute.StartsWith(@"\\", StringComparison.Ordinal) ? @"\\?\UNC\" + absolute[2..] : @"\\?\" + absolute;
     }
     public static uint Count(string path)
     {

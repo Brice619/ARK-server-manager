@@ -5,6 +5,28 @@ namespace ArkServerManager.Core.Tests;
 public sealed class SharedServerFilesTests
 {
     [Fact]
+    public async Task LongArkAssetPathsAndTemporaryLinkNamesShareWithoutAnotherDownload()
+    {
+        var root = TemporaryRoot();
+        try
+        {
+            var source = Path.Combine(root, "servers", Guid.NewGuid().ToString("N"));
+            var target = Path.Combine(root, "servers", Guid.NewGuid().ToString("N"));
+            await PackageAsync(source, "original", default);
+            var relative = Path.Combine("ShooterGame", "Content", new string('a', 80), new string('b', 80), new string('c', 100) + ".uasset");
+            var longAsset = Path.Combine(source, relative);
+            Assert.True(longAsset.Length > 260);
+            Directory.CreateDirectory(Path.GetDirectoryName(longAsset)!);
+            await File.WriteAllTextAsync(longAsset, "long asset path");
+            var store = new SharedServerFiles(root, ArkEdition.ASE, ServerPlatform.Windows);
+            await store.RegisterAsync(source);
+            Assert.True(await store.ReuseAsync(target));
+            Assert.True(NativeGameFileLinks.SameFile(longAsset, Path.Combine(target, relative)));
+            Assert.Equal(3u, NativeGameFileLinks.Count(longAsset));
+        }
+        finally { Directory.Delete(root, true); }
+    }
+    [Fact]
     public async Task FilesDownloadedByPreviousInstallerAreAdoptedWithoutAnotherDownload()
     {
         var root = TemporaryRoot();
