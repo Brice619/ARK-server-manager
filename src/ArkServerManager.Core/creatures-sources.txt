@@ -1,0 +1,9 @@
+Catalog data: factual names, class names, spawn tags, spawnability and taming metadata maintained by ARK Server Manager, Bletch1971/ServerManagers, source commit ac438da3376540f04bbe8c96ab70496e8ce3eec9 plus current Genesis, Genesis2 and LostIsland map datasets.
+https://github.com/Bletch1971/ServerManagers/tree/ac438da3376540f04bbe8c96ab70496e8ce3eec9/src/ARKServerManager/GameData
+https://github.com/Bletch1971/ServerManagers/tree/master/GameData/Maps
+Late ASE additions and corrected Tek creature name tags cross-checked with the official community wiki:
+https://ark.wiki.gg/wiki/Creature_ID
+Spawn tags and class-specific taming settings:
+https://ark.wiki.gg/wiki/Server_Config
+
+519 ASE entries, including variants and existing custom entries from the selected server. The bundled data excludes Aquatica and ASA-exclusive additions. Missing documented spawn tags and non-spawnable variants remain visible with unavailable spawn-weight controls. Naturally untameable creatures cannot be made tameable by removing a taming prevention entry. Editing shared spawn tags updates the matching rows together. Only changed values are saved.

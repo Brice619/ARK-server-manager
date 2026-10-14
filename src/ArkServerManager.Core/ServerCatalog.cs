@@ -34,6 +34,7 @@ public sealed record ServerDefinition(Guid Id, ArkEdition Edition, string Map, s
     public ServerNetworkScope NetworkScope { get; init; } = ServerNetworkScope.LocalNetwork;
     public AseClientAccess AseClients { get; init; } = AseClientAccess.Steam;
     public AsaClientPlatforms AsaClients { get; init; } = AsaClientPlatforms.All;
+    public ServerLaunchPreferences LaunchPreferences { get; init; } = new();
 }
 
 public sealed record ClusterDefinition(Guid Id, string Name, ArkEdition Edition, ServerSettings Settings)
@@ -173,6 +174,13 @@ public sealed class ServerCatalog
         var replacement = servers[serverId] with { Settings = settings.Copy() };
         EnsurePortsAvailable(replacement, serverId);
         servers[serverId] = replacement;
+    }
+    public void UpdateLaunchPreferences(ServerLaunchPreferencesEdit edit)
+    {
+        if(!Enum.IsDefined(edit.Scope))throw new ArgumentException("Choose a supported network scope.");
+        var server=servers[edit.Expected.ServerId];
+        if(server.LaunchPreferences!=edit.Expected.Preferences||server.NetworkScope!=edit.Expected.Scope)throw new InvalidOperationException("Launch preferences changed. Reload before saving.");
+        edit.Desired.Tokens();servers[server.Id]=server with {LaunchPreferences=edit.Desired,NetworkScope=edit.Scope};
     }
     public void SetClusterOverrides(Guid serverId, IReadOnlyList<ClusterSettingOverride> overrides, bool maxPlayers, bool mods)
     {

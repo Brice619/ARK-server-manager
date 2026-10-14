@@ -1,0 +1,646 @@
+[
+  {
+    "Label": "ServerPassword",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "ServerPassword",
+    "Kind": "documented"
+  },
+  {
+    "Label": "ServerAdminPassword",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "ServerAdminPassword",
+    "Kind": "documented"
+  },
+  {
+    "Label": "ServerPVE",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "ServerPVE",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DifficultyOffset",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DifficultyOffset",
+    "Kind": "documented"
+  },
+  {
+    "Label": "OverrideOfficialDifficulty",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "OverrideOfficialDifficulty",
+    "Kind": "documented"
+  },
+  {
+    "Label": "AllowThirdPersonPlayer",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "AllowThirdPersonPlayer",
+    "Kind": "documented"
+  },
+  {
+    "Label": "ServerCrosshair",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "ServerCrosshair",
+    "Kind": "documented"
+  },
+  {
+    "Label": "AutoSavePeriodMinutes",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "AutoSavePeriodMinutes",
+    "Kind": "documented"
+  },
+  {
+    "Label": "XPMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "XPMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "TamingSpeedMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "TamingSpeedMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "HarvestAmountMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "HarvestAmountMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "HarvestHealthMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "HarvestHealthMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "ResourcesRespawnPeriodMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "ResourcesRespawnPeriodMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PlayerCharacterFoodDrainMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PlayerCharacterFoodDrainMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PlayerCharacterWaterDrainMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PlayerCharacterWaterDrainMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PlayerCharacterStaminaDrainMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PlayerCharacterStaminaDrainMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DinoCharacterFoodDrainMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DinoCharacterFoodDrainMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PlayerDamageMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PlayerDamageMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PlayerResistanceMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PlayerResistanceMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PlayerCharacterHealthRecoveryMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PlayerCharacterHealthRecoveryMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DinoDamageMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DinoDamageMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DinoResistanceMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DinoResistanceMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "TamedDinoDamageMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "TamedDinoDamageMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DinoCountMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DinoCountMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "MaxTamedDinos",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "MaxTamedDinos",
+    "Kind": "documented"
+  },
+  {
+    "Label": "AllowFlyerCarryPvE",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "AllowFlyerCarryPvE",
+    "Kind": "documented"
+  },
+  {
+    "Label": "StructureDamageMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "StructureDamageMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "StructureResistanceMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "StructureResistanceMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerPlatformMaxStructuresMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PerPlatformMaxStructuresMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DisableStructureDecayPvE",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DisableStructureDecayPvE",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PvEStructureDecayPeriodMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "PvEStructureDecayPeriodMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "TheMaxStructuresInRange",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "TheMaxStructuresInRange",
+    "Kind": "documented"
+  },
+  {
+    "Label": "MaxPlatformSaddleStructureLimit",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "MaxPlatformSaddleStructureLimit",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DayCycleSpeedScale",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DayCycleSpeedScale",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DayTimeSpeedScale",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "DayTimeSpeedScale",
+    "Kind": "documented"
+  },
+  {
+    "Label": "NightTimeSpeedScale",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "NightTimeSpeedScale",
+    "Kind": "documented"
+  },
+  {
+    "Label": "StructurePreventResourceRadiusMultiplier",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "StructurePreventResourceRadiusMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "RCONPort",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "RCONPort",
+    "Kind": "documented"
+  },
+  {
+    "Label": "RCONEnabled",
+    "File": 0,
+    "Section": "ServerSettings",
+    "Key": "RCONEnabled",
+    "Kind": "documented"
+  },
+  {
+    "Label": "SessionName",
+    "File": 0,
+    "Section": "SessionSettings",
+    "Key": "SessionName",
+    "Kind": "documented"
+  },
+  {
+    "Label": "Port",
+    "File": 0,
+    "Section": "SessionSettings",
+    "Key": "Port",
+    "Kind": "documented"
+  },
+  {
+    "Label": "QueryPort",
+    "File": 0,
+    "Section": "SessionSettings",
+    "Key": "QueryPort",
+    "Kind": "documented"
+  },
+  {
+    "Label": "MaxPlayers",
+    "File": 0,
+    "Section": "/Script/Engine.GameSession",
+    "Key": "MaxPlayers",
+    "Kind": "documented"
+  },
+  {
+    "Label": "bDisableFriendlyFire",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "bDisableFriendlyFire",
+    "Kind": "documented"
+  },
+  {
+    "Label": "MatingIntervalMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "MatingIntervalMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "MatingSpeedMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "MatingSpeedMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "EggHatchSpeedMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "EggHatchSpeedMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "LayEggIntervalMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "LayEggIntervalMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "BabyMatureSpeedMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "BabyMatureSpeedMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "BabyFoodConsumptionSpeedMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "BabyFoodConsumptionSpeedMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "BabyCuddleIntervalMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "BabyCuddleIntervalMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "BabyImprintAmountMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "BabyImprintAmountMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "BabyImprintingStatScaleMultiplier",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "BabyImprintingStatScaleMultiplier",
+    "Kind": "documented"
+  },
+  {
+    "Label": "bAllowAnyoneBabyImprintCuddle",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "bAllowAnyoneBabyImprintCuddle",
+    "Kind": "documented"
+  },
+  {
+    "Label": "bDisableStructurePlacementCollision",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "bDisableStructurePlacementCollision",
+    "Kind": "documented"
+  },
+  {
+    "Label": "ResourceNoReplenishRadiusPlayers",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "ResourceNoReplenishRadiusPlayers",
+    "Kind": "documented"
+  },
+  {
+    "Label": "ResourceNoReplenishRadiusStructures",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "ResourceNoReplenishRadiusStructures",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[0]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[0]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[1]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[1]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[3]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[3]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[4]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[4]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[5]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[5]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[7]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[7]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[8]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[8]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[9]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[9]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[10]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[10]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_Player[11]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_Player[11]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[0]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[0]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[1]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[1]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[3]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[3]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[4]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[4]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[7]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[7]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[8]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[8]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed[9]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed[9]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[0]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[0]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[1]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[1]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[3]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[3]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[4]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[4]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[7]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[7]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[8]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[8]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Add[9]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Add[9]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[0]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[0]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[1]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[1]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[3]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[3]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[4]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[4]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[7]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[7]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[8]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[8]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PerLevelStatsMultiplier_DinoTamed_Affinity[9]",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PerLevelStatsMultiplier_DinoTamed_Affinity[9]",
+    "Kind": "documented"
+  },
+  {
+    "Label": "DinoSpawnWeightMultipliers",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "DinoSpawnWeightMultipliers",
+    "Kind": "documented"
+  },
+  {
+    "Label": "PreventDinoTameClassNames",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "PreventDinoTameClassNames",
+    "Kind": "documented"
+  },
+  {
+    "Label": "bAutoUnlockAllEngrams",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "bAutoUnlockAllEngrams",
+    "Kind": "documented"
+  },
+  {
+    "Label": "OverrideNamedEngramEntries",
+    "File": 1,
+    "Section": "/Script/ShooterGame.ShooterGameMode",
+    "Key": "OverrideNamedEngramEntries",
+    "Kind": "documented"
+  }
+]

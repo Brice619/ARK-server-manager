@@ -10,6 +10,13 @@ public static class BackgroundActivityRecorder
         var severity = operation.State == BackgroundOperationState.Failed ? ActivitySeverity.Error
             : operation.State == BackgroundOperationState.Canceled ? ActivitySeverity.Warning : ActivitySeverity.Information;
         var message = operation.Error ?? $"{operation.Kind} operation {operation.State.ToString().ToLowerInvariant()}.";
+        Guid? owner=null;var category=operation.Kind;
+        if(operation.State==BackgroundOperationState.Succeeded&&operation.Result is {} value&&value.ValueKind==JsonValueKind.Object&&value.TryGetProperty("ServerId",out var id)&&id.TryGetGuid(out var server)&&server!=Guid.Empty)
+        {
+            owner=server;
+            if(operation.Kind=="server-configuration-save"){category="settings";message="Settings saved";}
+            if(operation.Kind=="server-mod-order-save"){category="mods";message="Mod list saved";}
+        }
         IReadOnlyList<MemberOperationResult> failures = [];
         if (operation.State == BackgroundOperationState.Succeeded && operation.Kind is "server-lifecycle" or "server-member-lifecycle" or "server-shutdown" or "server-automatic-startup")
         {
@@ -29,7 +36,7 @@ public static class BackgroundActivityRecorder
                 message = "The server job finished, but its member results could not be read. Check server status before trying again.";
             }
         }
-        await journal.AppendAsync(new(Guid.NewGuid(), time, operation.Kind, severity, message, OperationId: operation.Id));
+        await journal.AppendAsync(new(Guid.NewGuid(), time, category, severity, message, ServerId:owner, OperationId: operation.Id));
         foreach (var member in failures)
             await journal.AppendAsync(new(Guid.NewGuid(), time, "server", ActivitySeverity.Error,
                 member.Error ?? "The server action failed. Check its status and console.", member.ServerId,

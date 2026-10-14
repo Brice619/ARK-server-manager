@@ -36,7 +36,7 @@ public static class WindowsAppShortcuts
             foreach (dynamic shortcut in shortcuts)
             {
                 shortcut.TargetPath = launcher; shortcut.Arguments = arguments; shortcut.WorkingDirectory = Path.GetFullPath(application);
-                shortcut.Description = "Open ARK Server Manager"; shortcut.Save();
+                shortcut.IconLocation = launcher + ",0"; shortcut.Description = "Open ARK Server Manager"; shortcut.Save();
             }
             foreach (var path in paths)
             {

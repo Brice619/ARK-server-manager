@@ -85,7 +85,9 @@ public sealed class IniDocument
 
     private static void ValidateToken(string value, string argument)
     {
-        if (string.IsNullOrWhiteSpace(value) || value.IndexOfAny(['\r', '\n', '[', ']', '=']) >= 0)
+        var brackets=value.IndexOfAny(['[',']'])>=0;
+        var indexedKey=argument=="key"&&System.Text.RegularExpressions.Regex.IsMatch(value,@"^[^\[\]\r\n=]+(?:\[[0-9]+\])+$");
+        if (string.IsNullOrWhiteSpace(value) || value.Any(char.IsControl) || value.Contains('=') || brackets&&!indexedKey || argument=="key"&&(value.TrimStart().StartsWith(';')||value.TrimStart().StartsWith('#')))
             throw new ArgumentException("Invalid configuration name.", argument);
     }
 

@@ -12,18 +12,20 @@ public sealed partial class MainWindow
     private Guid advancedSaveId;
     private ServerConfigurationEdit? advancedPendingEdit;
     private SaveChoice advancedSaveChoice;
+    private bool lastAdvancedSaveSucceeded;
 
     private async Task SaveAdvancedConfigurationAsync(ServerDefinition server, int file, string name, string text)
     {
         if (client is null || advancedSaveBusy || lifetime.IsCancellationRequested) return;
         advancedSaveBusy = true;
+        lastAdvancedSaveSucceeded = false;
         var key = (server.Id, file);
         advancedReadNoticeKey = key;
         try
         {
             if (advancedPendingEdit is null)
             {
-                if (!advancedLoadedFiles.TryGetValue(key, out var loaded) || loaded.SourceSHA256 is null) return;
+                if (!advancedLoadedFiles.TryGetValue(key, out var loaded) || loaded.Text is not null && loaded.SourceSHA256 is null) return;
                 var dialog = new Window { Title = "Save configuration?", Width = 580, Height = 340,
                     CanResize = false, WindowStartupLocation = WindowStartupLocation.CenterOwner,
                     Background = Brush.Parse("#0F1921"), FontFamily = FontFamily };
@@ -35,7 +37,7 @@ public sealed partial class MainWindow
                 body.Children.Add(ActionButton("Cancel", () => dialog.Close(SaveChoice.Cancel))); dialog.Content = new ScrollViewer { Content = body };
                 advancedSaveChoice = await dialog.ShowDialog<SaveChoice>(this);
                 if (advancedSaveChoice == SaveChoice.Cancel) return;
-                advancedPendingEdit = new(server.Id, name, loaded.SourceSHA256, text);
+                advancedPendingEdit = new(server.Id, name, loaded.SourceSHA256 ?? SettingsConfigurationBinding.MissingFileHash, text);
                 advancedSaveId = Guid.NewGuid(); advancedSaveAccepted = false;
             }
             var pending = advancedPendingEdit;
@@ -60,6 +62,7 @@ public sealed partial class MainWindow
                         : current.Text == pending.Text ? "The file matches your saved text. The original restart outcome is unavailable; check the server state."
                         : "The original save result is unavailable. Your draft is retained; reload current configuration before saving again.";
                     advancedLoadedFiles.Remove((pending.ServerId, pending.FileName == "Game.ini" ? 1 : 0));
+                    lastAdvancedSaveSucceeded=saved.Any(s=>s.Id==advancedSaveId&&s.FileName==pending.FileName)||current.Text==pending.Text;
                     advancedPendingEdit = null; advancedSaveAccepted = false; break;
                 }
                 if (job.Id != advancedSaveId || job.Kind != "server-configuration-save" || !Enum.IsDefined(job.State)) throw new InvalidDataException();
@@ -71,6 +74,7 @@ public sealed partial class MainWindow
                     if (result.Save is { } save && (!save.Saved || save.Pending && save.Restarted)) throw new InvalidDataException();
                     var savedKey = (pending.ServerId, pending.FileName == "Game.ini" ? 1 : 0);
                     advancedLoadedFiles.Remove(savedKey); advancedPreviewDrafts[savedKey] = pending.Text;
+                    lastAdvancedSaveSucceeded=true;
                     advancedPendingEdit = null; advancedSaveAccepted = false;
                     advancedReadNotice = (result.Save?.Message ?? "Configuration saved.") + " Read it again before further edits."; break;
                 }

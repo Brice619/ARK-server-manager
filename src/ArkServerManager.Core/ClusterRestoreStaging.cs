@@ -7,6 +7,8 @@ public enum ClusterRestorePhase { Preparing, Staged, Replacing, Restored, Rollin
 public sealed record ClusterRestoreRecord(int SchemaVersion, Guid OperationId, Guid ClusterId, ArkEdition Edition,
     long RuntimeHour, SnapshotCapture Capture, List<Guid> Maps, ClusterRestorePhase Phase)
 {
+    public bool Scoped { get; init; }
+    public bool IncludesShared { get; init; } = true;
     public List<ClusterStageChecksum> StageChecksums { get; init; } = [];
     public List<ClusterOriginalFolder>? OriginalFolders { get; init; }
 }
@@ -19,21 +21,27 @@ public static class ClusterRestoreStaging
     public static async Task<ClusterRestoreRecord> StageAsync(CatalogDocument catalog, string root,
         CoordinatedClusterRestoreRequest request, Guid operationId, CancellationToken ct = default)
     {
-        if (operationId == Guid.Empty) throw new ArgumentException("Choose a restore operation identity.");
-        await ClusterRestoreRecords.RequireConsistentAsync(catalog, request.ClusterId, root, ct);
         var prepared = await CoordinatedClusterRestoreSelection.PrepareAsync(catalog, root, request, ct);
+        return await StagePreparedAsync(catalog,root,prepared,operationId,false,ct);
+    }
+    public static async Task<ClusterRestoreRecord> StagePreparedAsync(CatalogDocument catalog,string root,
+        PreparedClusterRestore prepared,Guid operationId,bool scoped,CancellationToken ct=default)
+    {
+        if(operationId==Guid.Empty)throw new ArgumentException("Choose a restore operation identity.");
+        var request=new CoordinatedClusterRestoreRequest(prepared.Point.ClusterId,prepared.Point.RuntimeHour,prepared.Point.Capture.Id,true);
+        await ClusterRestoreRecords.RequireConsistentAsync(catalog,request.ClusterId,root,ct);
         var storage = ManagedClusterStorage.Resolve(catalog, request.ClusterId, root);
         var journal = Path.Combine(storage.Backups, "cluster-restore-transactions", operationId.ToString("N") + ".json");
         var targets = prepared.Maps.Select(map => (Archive: map, Stage: Path.Combine(map.Server!.Directory,
             ".cluster-restore-stage-" + operationId.ToString("N"))))
-            .Append((Archive: prepared.Shared, Stage: Path.Combine(storage.Directory, ".cluster-restore-stage-" + operationId.ToString("N")))).ToArray();
+            .Concat(prepared.Shared is null ? [] : new[]{(Archive: prepared.Shared, Stage: Path.Combine(storage.Directory, ".cluster-restore-stage-" + operationId.ToString("N")))}).ToArray();
         foreach (var path in targets.Select(target => target.Stage).Append(journal))
         {
             CheckPath(path);
             if (Path.Exists(path)) throw new InvalidOperationException("This cluster restore has already been attempted. Review its recorded outcome.");
         }
         var record = new ClusterRestoreRecord(1, operationId, request.ClusterId, prepared.Point.Edition,
-            request.RuntimeHour, prepared.Point.Capture, prepared.Point.Maps, ClusterRestorePhase.Preparing);
+            request.RuntimeHour, prepared.Point.Capture, prepared.Point.Maps, ClusterRestorePhase.Preparing){Scoped=scoped,IncludesShared=prepared.Shared is not null};
         var store = new AtomicJsonStore<ClusterRestoreRecord>(journal);
         await store.SaveAsync(record, ct);
         var checksums = new List<ClusterStageChecksum>();
@@ -56,12 +64,14 @@ public static class ClusterRestoreStaging
         Guid operationId, CancellationToken ct = default)
     {
         var record = (await ClusterRestoreRecords.ReadAsync(catalog, clusterId, root, ct)).Single(r => r.OperationId == operationId);
-        var members = catalog.Servers.Where(s => s.ClusterId == clusterId).OrderBy(s => s.Id).ToArray();
-        if (record.Phase != ClusterRestorePhase.Staged || !record.Maps.OrderBy(id => id).SequenceEqual(members.Select(s => s.Id))
-            || record.StageChecksums is null || record.StageChecksums.Count != members.Length + 1
+        var allMembers = catalog.Servers.Where(s => s.ClusterId == clusterId).OrderBy(s => s.Id).ToArray();
+        var members = allMembers.Where(s=>record.Maps.Contains(s.Id)).ToArray();
+        var sharedCount=record.IncludesShared?1:0;
+        if (record.Phase != ClusterRestorePhase.Staged || !record.Maps.OrderBy(id => id).SequenceEqual(members.Select(s => s.Id)) || !record.Scoped && members.Length!=allMembers.Length
+            || record.StageChecksums is null || record.StageChecksums.Count != members.Length + sharedCount
             || record.StageChecksums.Any(c => c is null || c.Sha256 is null || c.Sha256.Length != 64 || !c.Sha256.All(Uri.IsHexDigit))
-            || record.StageChecksums.Select(c => c.ServerId).Distinct().Count() != members.Length + 1
-            || !record.StageChecksums.Select(c => c.ServerId).OrderBy(id => id).SequenceEqual(members.Select(s => (Guid?)s.Id).Append(null).OrderBy(id => id)))
+            || record.StageChecksums.Select(c => c.ServerId).Distinct().Count() != members.Length + sharedCount
+            || !record.StageChecksums.Select(c => c.ServerId).OrderBy(id => id).SequenceEqual(members.Select(s => (Guid?)s.Id).Concat(record.IncludesShared?new Guid?[]{null}:[]).OrderBy(id => id)))
             throw new InvalidDataException("The staged cluster inventory is incomplete or its membership changed.");
         var storage = ManagedClusterStorage.Resolve(catalog, clusterId, root);
         foreach (var checksum in record.StageChecksums)

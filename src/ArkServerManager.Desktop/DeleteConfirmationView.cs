@@ -160,7 +160,7 @@ public sealed partial class MainWindow
 
     private void ForgetDeletedServerViews(Guid id)
     {
-        welcomeEditors.Remove(id); commandConsoles.Remove(id); playerObservations.Remove(id); announcements.Remove(id);
+        welcomeEditors.Remove(id); commandConsoles.Remove(id); playerObservations.Remove(id);
         basicEditors.Remove(id);
         modOrderDrafts.Remove(id);
         foreach (var key in advancedLoadedFiles.Keys.Where(k => k.Server == id).ToArray()) advancedLoadedFiles.Remove(key);

@@ -5,13 +5,54 @@ namespace ArkServerManager.Desktop;
 public sealed partial class MainWindow
 {
     /// <summary>Offscreen review fixtures use actual production controls with no manager connection.</summary>
+    public IReadOnlyList<SettingsBindingReview> CaptureSettingsBindingsForReview()
+    {
+        if(!designPreview)throw new InvalidOperationException("Use the isolated review fixture.");var result=new List<SettingsBindingReview>();var previous=settingsCategory;
+        for(var category=0;category<10;category++){settingsCategory=category;Render();result.AddRange(settingsBindingReview);}settingsCategory=previous;Render();return result.Distinct().ToList();
+    }
+    public IReadOnlyList<SettingsBindingReview> CurrentSettingsBindingsForReview()=>designPreview?settingsBindingReview.ToArray():throw new InvalidOperationException();
+    public string? SavedSettingForReview(int file,string section,string key)=>designPreview?new IniDocument(advancedLoadedFiles.GetValueOrDefault((ReviewServerId,file))?.Text??"").GetValues(section,key).LastOrDefault():throw new InvalidOperationException();
+    public IReadOnlyList<string> SavedSettingValuesForReview(int file,string section,string key)=>designPreview?new IniDocument(advancedLoadedFiles.GetValueOrDefault((ReviewServerId,file))?.Text??"").GetValues(section,key):throw new InvalidOperationException();
+    public ServerLaunchPreferences SavedLaunchForReview()=>designPreview?loadedLaunchPreferences[ReviewServerId].Preferences:throw new InvalidOperationException();
+    public void SeedCreatureOverrideForReview()
+    {
+        if(!designPreview)throw new InvalidOperationException();var loaded=advancedLoadedFiles[(ReviewServerId,1)];advancedLoadedFiles[(ReviewServerId,1)]=loaded with {Text=SettingsDraft.Apply(loaded.Text??"",[new(GameSection,"DinoSpawnWeightMultipliers",["(DinoNameTag=Rex,SpawnWeightMultiplier=1.0,OverrideSpawnLimitPercentage=True,SpawnLimitPercentage=0.2)"])])};creatureClassBindings[ReviewServerId]=new(){["Rex"]="Rex_Character_BP_C"};
+    }
     public static MainWindow CreateDesignReview(string screen)
     {
         var window = new MainWindow(["--design-preview"]);
+        if(screen=="approved-management-actions")
+        {window.reviewServerVisible=true;window.selectedServer=ReviewServerId;window.managementTab=3;window.Render();return window;}
+        if(screen is "approved-backups" or "approved-players" or "approved-console")
+        {window.reviewServerVisible=true;window.selectedServer=ReviewServerId;window.managementTab=screen=="approved-backups"?3:screen=="approved-players"?4:5;window.SeedApprovedManagementReview();window.Render();return window;}
+        if(screen.StartsWith("approved-settings-",StringComparison.Ordinal)&&int.TryParse(screen[18..],out var category)){window.reviewServerVisible=true;window.selectedServer=ReviewServerId;window.managementTab=1;window.settingsCategory=category;window.Render();return window;}
+        if (screen is "approved-settings" or "approved-mods" or "approved-editor-actions" or "approved-settings-bindings" or "approved-engram-actions" or "approved-creature-actions") { window.reviewServerVisible = true; window.selectedServer = ReviewServerId; window.managementTab = screen == "approved-mods" ? 2 : 1; window.settingsCategory=screen=="approved-engram-actions"?7:screen=="approved-creature-actions"?3:0;window.Render(); return window; }
+        if (screen is "approved-solo" or "approved-solo-actions") { window.reviewServerVisible = true; window.selectedServer = ReviewServerId; window.Render(); return window; }
+        if (screen is "approved-cluster" or "approved-cluster-actions" or "approved-cluster-activity" or "approved-cluster-activity-actions" or "approved-cluster-transfers" or "approved-cluster-transfers-actions" or "approved-cluster-backups" or "approved-cluster-backups-actions")
+        {
+            var cluster = window.catalog!.Clusters[0];
+            window.catalog.Clusters[0] = cluster with { Name = "Explorer Cluster", Settings = cluster.Settings with { MaxPlayers = 5, Values = new() { ["ServerPVE"] = "True" } } };
+            var members = window.catalog.Servers.Where(s => s.ClusterId == cluster.Id).ToArray();
+            var maps = new[] { "TheIsland", "ScorchedEarth", "Aberration", "Ragnarok" };
+            for (var i = 0; i < members.Length; i++) { var index = window.catalog.Servers.IndexOf(members[i]); window.catalog.Servers[index] = members[i] with { Map = maps[i], Settings = members[i].Settings with { MaxPlayers = 5 } }; }
+            if(screen is "approved-cluster-backups" or "approved-cluster-backups-actions" or "approved-cluster-transfers" or "approved-cluster-transfers-actions" or "approved-cluster-activity" or "approved-cluster-activity-actions")window.catalog.Servers.Add(members[0] with{Id=Guid.NewGuid(),Map="Fjordur",Directory=members[0].Directory+"-fjordur",Settings=members[0].Settings.Copy() with{GamePort=7877,QueryPort=27115,RconPort=32430}});
+            window.overviewPreviewRunning.Add(members[0].Id); window.selectedCluster = cluster.Id;
+            if(screen.StartsWith("approved-cluster-activity")){window.managementTab=6;window.SeedApprovedClusterActivityReview(window.catalog.Clusters[0],window.catalog.Servers.Where(s=>s.ClusterId==cluster.Id).ToArray());}
+            if(screen.StartsWith("approved-cluster-transfers"))window.managementTab=1;
+            if(screen.StartsWith("approved-cluster-backups")){window.managementTab=3;window.SeedApprovedClusterBackupsReview(window.catalog.Clusters[0],window.catalog.Servers.Where(s=>s.ClusterId==cluster.Id).ToArray());}
+            window.Render(); return window;
+        }
+        if (screen == "dashboard") { window.Render(); return window; }
+        if (screen == "dashboard-fit-actions")
+        {
+            var solo=window.catalog!.Servers.First(s=>s.ClusterId is null);var cluster=window.catalog.Clusters[0];
+            for(var i=0;i<6;i++){window.catalog.Servers.Add(solo with {Id=Guid.NewGuid()});window.catalog.Clusters.Add(cluster with {Id=Guid.NewGuid()});}
+            window.Render();return window;
+        }
         if (screen == "startup-settings") { window.settingsPage = true; window.applicationCategory = 1; window.Render(); return window; }
         if (screen is "notification-indicator" or "window-controls")
         {
-            window.newActivityCount = 3; window.UpdateNotificationBadge();
+            window.newActivityCount = 3; window.UpdateActivityMenu();
             window.Render(); return window;
         }
         if (screen == "notification-settings")
@@ -228,7 +269,7 @@ public sealed partial class MainWindow
         if (screen == "command-console")
         {
             var server = window.catalog!.Servers.First();
-            window.selectedServer = server.Id; window.managementTab = 5; window.reviewCommandConsole = true;
+            window.selectedServer = server.Id; window.managementTab = 5;
             window.commandConsoles[server.Id] = new CommandConsoleState
             {
                 Responses = [new(server.Id, DateTimeOffset.Now, "Illustrative server response\nNo Players Connected")],
@@ -239,7 +280,7 @@ public sealed partial class MainWindow
         if (screen == "reported-players")
         {
             var server = window.catalog!.Servers.First();
-            window.selectedServer = server.Id; window.managementTab = 4; window.reviewLivePlayers = true;
+            window.selectedServer = server.Id; window.managementTab = 4;
             window.playerObservations[server.Id] = new PlayerObservationView
             {
                 Result = new(server.Id, DateTimeOffset.Now, [new("River", "illustrative-account-42"), new("Survivor", "illustrative-account-77")]),

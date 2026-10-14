@@ -1,0 +1,11 @@
+Engram catalog sources and scope
+
+Factual item names, class names, required levels and point costs: ASE vanilla game-data catalog maintained by ARK Server Manager (Bletch1971/ServerManagers), commit ac438da3376540f04bbe8c96ab70496e8ce3eec9, SurvivalEvolved, ScorchedEarth, Aberration, Extinction, Genesis, Genesis2 and map game-data files. No source code or artwork was copied.
+https://github.com/Bletch1971/ServerManagers/tree/ac438da3376540f04bbe8c96ab70496e8ce3eec9/src/ARKServerManager/GameData
+
+Later ASE additions cross-checked against the official community wiki: Amargasaurus, Andrewsarchus, Desmodus, Carcharo and Rhyniognatha saddles.
+https://ark.wiki.gg/wiki/Engram_Classnames
+
+615 distinct class names. Includes existing custom/modded overrides loaded from the selected server's Game.ini. This bundled list does not yet contain Aquatica-specific or ASA-exclusive classes; it must not be described as covering every ARK edition/DLC. Original four-item sample remains only as an audit fixture, not the UI catalog.
+
+Re-imported BOM-prefixed source files explicitly and included current Genesis, Genesis2 and LostIsland map datasets; recovered 30 previously omitted entries.

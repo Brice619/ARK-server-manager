@@ -195,6 +195,20 @@ public sealed class AutomaticBackupService
         finally { historyGate.Release(); }
     }
 
+
+    public static async Task<AutomaticBackupState> DeleteRecordedAsync(ServerDefinition server,long hour,CancellationToken ct=default)
+    {
+        var folder=Path.GetFullPath(Path.Combine(server.Directory,"backups"));ManagedBackupStore.RejectLinks(folder);
+        var historyGate=Gates.GetOrAdd(folder,_=>new(1,1));await historyGate.WaitAsync(ct);
+        try
+        {
+            var index=new AtomicJsonStore<AutomaticBackupState>(Path.Combine(folder,"backup-history.json"));var state=await ReadStateAsync(server.Id,server.Edition,folder,index,ct);var entry=state.History.Single(h=>h.RuntimeHour==hour);
+            var path=Path.Combine(folder,entry.FileName);ManagedBackupStore.RejectLinks(path);var manifest=await new SnapshotArchive().VerifyAsync(path,ct);
+            if(manifest.ServerId!=server.Id||manifest.Edition!=server.Edition||manifest.RuntimeHour!=hour||manifest.Scope!=SnapshotScope.Server)throw new InvalidDataException("Backup belongs to another server.");
+            var removed=path+".removed-"+Guid.NewGuid().ToString("N");File.Move(path,removed);var next=state with{History=state.History.Where(h=>h.RuntimeHour!=hour).ToList()};
+            try{await index.SaveAsync(next,ct);}catch{File.Move(removed,path);throw;}File.Delete(removed);return next;
+        }finally{historyGate.Release();}
+    }
     public static async Task<AutomaticBackupState> ReadRecordedClusterAsync(CatalogDocument catalog, Guid clusterId,
         string managementRoot, CancellationToken ct = default)
     {

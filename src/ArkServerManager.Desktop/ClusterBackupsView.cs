@@ -16,7 +16,7 @@ public sealed partial class MainWindow
     private bool sharedHistoryLoading;
     private string sharedHistoryNotice = "";
     private long sharedHistoryRevision;
-    private bool reviewSharedClusterHistory;
+    private bool reviewSharedClusterHistory = false;
     private sealed class SharedArchiveCheck
     {
         public Guid? OperationId;
@@ -242,4 +242,3 @@ public sealed partial class MainWindow
         note.Foreground = Muted; content.Children.Add(note);
     }
 }
-

@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="engrams-ase.json" />
+    <EmbeddedResource Include="creatures-ase.json" />
     <PackageReference Include="Mono.Nat" Version="3.0.4" />
     <EmbeddedResource Include="licenses/Mono.Nat.LICENSE.md" />
     <None Update="licenses/Mono.Nat.LICENSE.md" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />

@@ -31,123 +31,12 @@ public sealed partial class MainWindow
             modPageServer = server.Id; modBrowser = false; modSearch = lookupId = lookupMessage = "";
             lookedUpMod = null; configuredMod = null; modOrderConfirmation = false;
             modPreview?.Dispose(); modPreview = null;
-            if (!designPreview && client is not null) _ = LoadQueuedModOrderAsync(server.Id);
+            if (!designPreview && !IsReviewServer(server.Id) && client is not null) _ = LoadQueuedModOrderAsync(server.Id);
         }
         if (modOrderConfirmation) { RenderModOrderConfirmation(server); return; }
-        if (configuredMod is { } modId) { RenderModConfiguration(server, modId); return; }
-        if (modBrowser) { RenderModBrowser(server); return; }
-        content.Children.Add(Label("Mods", 32, true));
-        var subtitle = Label(designPreview ? "Design preview · Illustrative mod IDs for reviewing this screen."
-            : "Manage the mods recorded for this server.", 17); subtitle.Foreground = Muted;
-        content.Children.Add(subtitle);
-        var toolbar = new Grid { ColumnDefinitions = new ColumnDefinitions("*,Auto"), Margin = new Thickness(0, 20, 18, 12) };
-        toolbar.Children.Add(Label("Load order", 24, true));
-        var add = ActionButton("+  Add mods", () => { modBrowser = true; Render(); }, true);
-        Grid.SetColumn(add, 1); toolbar.Children.Add(add); content.Children.Add(toolbar);
-        var search = new TextBox { Text = modSearch, PlaceholderText = "Find a mod name or ID", MaxWidth = 520,
-            HorizontalAlignment = HorizontalAlignment.Left, FontSize = 16, Padding = new Thickness(12, 10) };
-        Avalonia.Automation.AutomationProperties.SetName(search, "Find recorded mods");
-        var rows = new StackPanel { Spacing = 12 };
-        void Populate()
-        {
-            rows.Children.Clear();
-            var queued = queuedModOrders.GetValueOrDefault(server.Id);
-            var ordered = modOrderDrafts.GetValueOrDefault(server.Id, queued ?? server.Mods);
-            if (!replacingModSelections.Contains(server.Id) && (!ordered.ToHashSet().SetEquals(server.Mods) || ordered.Count != server.Mods.Count))
-            { modOrderDrafts.Remove(server.Id); ordered = server.Mods; }
-            for (var i = 0; i < ordered.Count; i++)
-            {
-                var index = i;
-                var id = ordered[i];
-                var key = (server.Edition, id);
-                var metadata = modDetails.GetValueOrDefault(key);
-                if (!designPreview && metadata is null && !modDetailsLoading.Contains(key)
-                    && DateTimeOffset.UtcNow - modDetailsAttempts.GetValueOrDefault(key) > TimeSpan.FromMinutes(2))
-                    _ = LoadRecordedModDetailsAsync(server.Edition, id);
-                if (!id.Contains(modSearch, StringComparison.OrdinalIgnoreCase)
-                    && !(metadata?.Name.Contains(modSearch, StringComparison.OrdinalIgnoreCase) ?? false)) continue;
-                var row = new Grid { ColumnDefinitions = new ColumnDefinitions("44,96,*,Auto"), MinHeight = 78 };
-                var order = Label((i + 1).ToString(), 16); order.Foreground = Muted; order.VerticalAlignment = VerticalAlignment.Center;
-                row.Children.Add(order);
-                var art = new Border { Width = 76, Height = 68, CornerRadius = new CornerRadius(5),
-                    Background = Brush.Parse("#101C26"), Child = VectorIcon(BoxIcon, Muted, 30) };
-                Grid.SetColumn(art, 1); row.Children.Add(art);
-                var info = new StackPanel { Spacing = 8, VerticalAlignment = VerticalAlignment.Center };
-                info.Children.Add(Label(metadata?.Name ?? "Mod ID: " + id, 19, true));
-                var detail = Label(metadata is not null ? "ID: " + id : modDetailsLoading.Contains(key) ? "Finding mod details…"
-                    : "Details unavailable · ID remains selected", 14); detail.Foreground = Muted;
-                info.Children.Add(detail); Grid.SetColumn(info, 2); row.Children.Add(info);
-                var actions = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 12, VerticalAlignment = VerticalAlignment.Center };
-                var configure = ActionButton("Configure", () => { configuredMod = id; modConfigurationText = false; Render(); });
-                Avalonia.Automation.AutomationProperties.SetName(configure, "Configure mod " + id);
-                actions.Children.Add(configure);
-                void Move(int offset)
-                {
-                    var draft = ordered.ToList();
-                    (draft[index], draft[index + offset]) = (draft[index + offset], draft[index]);
-                    if (draft.SequenceEqual(server.Mods)) modOrderDrafts.Remove(server.Id);
-                    else modOrderDrafts[server.Id] = draft;
-                    Render();
-                }
-                var details = new MenuItem { Header = "View details" };
-                details.Click += (_, _) =>
-                {
-                    lookupId = id; modBrowser = true; lookedUpMod = metadata; lookupMessage = "";
-                    modPreview?.Dispose(); modPreview = null; Render();
-                    if (metadata is null) _ = LookupModAsync(server);
-                    else if (metadata.PreviewImage is { } picture) _ = LoadModPreviewAsync(metadata, picture);
-                };
-                var up = new MenuItem { Header = "Move earlier", IsEnabled = index > 0 };
-                up.Click += (_, _) => Move(-1);
-                var down = new MenuItem { Header = "Move later", IsEnabled = index < ordered.Count - 1 };
-                down.Click += (_, _) => Move(1);
-                var menu = new ContextMenu { ItemsSource = new object[] { details, new Separator(), up, down } };
-                if ((server.Edition == ArkEdition.ASE || OperatingSystem.IsWindows() || OperatingSystem.IsLinux()) && !designPreview && client is not null)
-                {
-                    var remove = new MenuItem { Header = "Remove mod" };
-                    remove.Click += (_, _) =>
-                    {
-                        modOrderDrafts[server.Id] = ordered.Where(value => value != id).ToList();
-                        replacingModSelections.Add(server.Id); modOrderConfirmation = true; Render();
-                    };
-                    menu.Items.Add(new Separator()); menu.Items.Add(remove);
-                }
-                var more = ActionButton("•••  ▾");
-                more.IsEnabled = true;
-                more.ContextMenu = menu;
-                Avalonia.Automation.AutomationProperties.SetName(more, "More actions for mod " + id);
-                more.Click += (_, _) => menu.Open(more);
-                actions.Children.Add(more);
-                Grid.SetColumn(actions, 3); row.Children.Add(actions);
-                rows.Children.Add(Surface(row, new Thickness(18, 12)));
-            }
-            if (rows.Children.Count == 0)
-            {
-                var empty = new StackPanel { Spacing = 12 };
-                empty.Children.Add(Label(server.Mods.Count == 0 ? "No mods recorded" : "No matching mod IDs", 24, true));
-                empty.Children.Add(Label(server.Mods.Count == 0 ? "Choose Add mods to inspect a mod before adding it." : "Try another ID.", 16));
-                rows.Children.Add(Surface(empty, new Thickness(30)));
-            }
-        }
-        search.TextChanged += (_, _) => { modSearch = search.Text ?? ""; Populate(); };
-        content.Children.Add(search); Populate(); content.Children.Add(rows);
-        if (modOrderDrafts.ContainsKey(server.Id))
-        {
-            var draftActions = new WrapPanel();
-            draftActions.Children.Add(ActionButton("Revert changes", () =>
-            { modOrderDrafts.Remove(server.Id); if (!queuedModReplacements.Contains(server.Id)) replacingModSelections.Remove(server.Id); Render(); }));
-            draftActions.Children.Add(ActionButton(replacingModSelections.Contains(server.Id) ? "Save changes" : "Save order", designPreview || client is not null ? () => { modOrderConfirmation = true; Render(); } : null, true));
-            content.Children.Add(draftActions);
-            content.Children.Add(Label("Unsaved mod changes · Server files and the recorded list are unchanged.", 14));
-        }
-        if (queuedModOrders.ContainsKey(server.Id))
-        {
-            content.Children.Add(Label("Saved changes · Applied or retried at the next startup or restart.", 15));
-            content.Children.Add(ActionButton("Refresh saved changes", () => { _ = LoadQueuedModOrderAsync(server.Id); }));
-        }
-        if (queuedModOrderNotices.TryGetValue(server.Id, out var savedNotice)) content.Children.Add(Label(savedNotice, 15));
-        var note = Label("New mods download during startup. Removed mod files are deleted when the change is applied.", 13);
-        note.Foreground = Muted; note.Margin = new Thickness(0, 20); content.Children.Add(note);
+        if (configuredMod is { } modId) { if(IsReviewServer(server.Id))RenderReviewModDestination(server,false);else RenderModConfiguration(server, modId); return; }
+        if (modBrowser) { if(IsReviewServer(server.Id))RenderReviewModDestination(server,true);else RenderModBrowser(server); return; }
+        ApprovedSelectedMods(server);
     }
 
     private void RenderModOrderConfirmation(ServerDefinition server)
@@ -294,7 +183,11 @@ public sealed partial class MainWindow
                 modDetailsGate.Release();
             }
             modDetailsLoading.Remove(key);
-            if (!lifetime.IsCancellationRequested && IsModsViewVisible) Render();
+            if (!lifetime.IsCancellationRequested && IsModsViewVisible)
+            {
+                if(!modBrowser&&configuredMod is null&&selectedModRowRefresh.TryGetValue(key,out var update))update();
+                else Render();
+            }
         }
     }
 
@@ -310,4 +203,3 @@ public sealed partial class MainWindow
         finally { bitmap?.Dispose(); }
     }
 }
-

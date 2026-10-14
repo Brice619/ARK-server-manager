@@ -19,10 +19,12 @@ public static class ClusterRestoreReplacement
                     Path.Combine(server.Directory, ".cluster-restore-stage-" + operationId.ToString("N"), folder),
                     Path.Combine(server.Directory, ".cluster-restore-previous-" + operationId.ToString("N"), folder)));
         }
+        if(record.IncludesShared){
         await SharedTransferRestore.RequireConsistentAsync(catalog, clusterId, root, ct);
         items.Add((null, "Transfers", storage.Transfers,
             Path.Combine(storage.Directory, ".cluster-restore-stage-" + operationId.ToString("N")),
             Path.Combine(storage.Directory, ".cluster-restore-previous-" + operationId.ToString("N"), "Transfers")));
+        }
         foreach (var item in items)
         {
             CheckTree(item.Current); CheckTree(item.Stage); CheckTree(item.Previous);

@@ -2,7 +2,7 @@ namespace ArkServerManager.Core;
 
 public sealed record CoordinatedClusterRestoreRequest(Guid ClusterId, long RuntimeHour, Guid CaptureId, bool Confirmed);
 public sealed record PreparedClusterRestore(CoordinatedRestorePoint Point, List<SelectedCoordinatedArchive> Maps,
-    SelectedCoordinatedArchive Shared);
+    SelectedCoordinatedArchive? Shared);
 
 /// <summary>Caller holds the verified stopped-cluster scope. Preparation verifies all archives without modifying state.</summary>
 public static class CoordinatedClusterRestoreSelection

@@ -38,5 +38,13 @@ public sealed class BackgroundActivityRecorderTests : IDisposable
         Assert.Equal(ActivitySeverity.Error, Assert.Single((await journal.ReadRecentAsync(10)).Entries).Severity);
     }
 
+    [Theory]
+    [InlineData("server-configuration-save","settings","Settings saved")]
+    [InlineData("server-mod-order-save","mods","Mod list saved")]
+    public async Task SavedSettingsAndModsAreAttributedToActualMap(string kind,string category,string message)
+    {
+        var server=Guid.NewGuid();var operation=new BackgroundOperation(Guid.NewGuid(),kind,BackgroundOperationState.Succeeded,DateTimeOffset.UtcNow,DateTimeOffset.UtcNow,null,JsonSerializer.SerializeToElement(new{ServerId=server,Saved=true}),null);
+        var journal=new ActivityJournal(Path.Combine(root,"activity.jsonl"));await BackgroundActivityRecorder.RecordAsync(journal,operation);var entry=Assert.Single((await journal.ReadRecentAsync(10)).Entries);Assert.Equal(server,entry.ServerId);Assert.Equal(category,entry.Category);Assert.Equal(message,entry.Message);
+    }
     public void Dispose() { if (Directory.Exists(root)) Directory.Delete(root, true); }
 }

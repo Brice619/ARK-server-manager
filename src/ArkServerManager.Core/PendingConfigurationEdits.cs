@@ -114,6 +114,7 @@ public sealed class PendingConfigurationEdits(CatalogRepository repository, stri
         {
             var server = (await repository.ReadAsync(ct)).Servers.Single(s => s.Id == edit.ServerId);
             var record = new PendingConfigurationEdit(operationId, server, edit); Validate(record);
+            if(edit.FileName=="GameUserSettings.ini")SettingsConfigurationBinding.ValidateBasic(await repository.ReadAsync(ct),server.Id,edit.Text);
             var document = await LoadAsync(ct);
             var previous = document.Changes.SingleOrDefault(p => p.Server.Id == edit.ServerId && p.Edit.FileName == edit.FileName);
             if (previous is not null)
@@ -122,7 +123,8 @@ public sealed class PendingConfigurationEdits(CatalogRepository repository, stri
                 throw new InvalidOperationException("This file already has a saved change. Apply or review it before saving another.");
             }
             var source = await ServerConfigurationReader.ReadAsync(repository, new(edit.ServerId, edit.FileName), ct);
-            if (source.SourceSHA256 != edit.SourceSHA256) throw new InvalidOperationException("The configuration changed. Reload it before saving.");
+            if(source.Text is null && edit.SourceSHA256==SettingsConfigurationBinding.MissingFileHash)record=record with {SourceMissing=true};
+            else if (source.SourceSHA256 != edit.SourceSHA256) throw new InvalidOperationException("The configuration changed. Reload it before saving.");
             await store.SaveAsync(document with { Changes = [.. document.Changes, record] }, ct);
         }
         finally { gate.Release(); }
@@ -152,6 +154,7 @@ public sealed class PendingConfigurationEdits(CatalogRepository repository, stri
                 var current = (await repository.ReadAsync(ct)).Servers.Single(s => s.Id == serverId);
                 RequireBinding(recorded.Server, current);
                 await requireStopped(current, ct);
+                if(recorded.Edit.FileName=="GameUserSettings.ini")SettingsConfigurationBinding.ValidateBasic(await repository.ReadAsync(ct),serverId,recorded.Edit.Text);
                 var source = await ServerConfigurationReader.ReadAsync(repository, new(serverId, recorded.Edit.FileName), ct);
                 var alreadyApplied = recorded.Started && source.Text == recorded.Edit.Text;
                 if (!alreadyApplied)
@@ -170,6 +173,7 @@ public sealed class PendingConfigurationEdits(CatalogRepository repository, stri
                         await ServerConfigurationWriter.CreateAsync(repository, serverId, recorded.Edit.FileName, recorded.Edit.Text, VerifiedStopped, ct);
                     else await ServerConfigurationWriter.WriteAsync(repository, recorded.Edit, VerifiedStopped, ct);
                 }
+                if(recorded.Edit.FileName=="GameUserSettings.ini")await SettingsConfigurationBinding.SynchronizeBasicAsync(repository,serverId,recorded.Edit.Text,ct);
                 document = document with { Changes = document.Changes.Where(p => p.Id != recorded.Id).ToList() };
                 await store.SaveAsync(document, ct);
             }

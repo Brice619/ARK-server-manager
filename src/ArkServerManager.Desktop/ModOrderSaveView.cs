@@ -6,7 +6,7 @@ namespace ArkServerManager.Desktop;
 
 public sealed partial class MainWindow
 {
-    private bool reviewLiveModOrder;
+    private bool reviewLiveModOrder = false;
     private sealed class ModOrderJob(ModOrderEdit selection)
     {
         public readonly Guid Id = Guid.NewGuid();

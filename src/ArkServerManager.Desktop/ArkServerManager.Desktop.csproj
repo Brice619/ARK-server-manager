@@ -1,21 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
+    <ApplicationIcon>Assets/ark-logo.ico</ApplicationIcon>
     <TargetFramework>net10.0</TargetFramework>
+    <DefineConstants Condition="'$(EnableDesignReview)' == 'true'">$(DefineConstants);DESIGN_REVIEW</DefineConstants>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj/**;bin/**</DefaultItemExcludes>
   </PropertyGroup>
   <ItemGroup>
-    <AvaloniaResource Include="Assets/**" />
+    <AvaloniaResource Include="Assets/**" Exclude="Assets/approved-mods.png" />
+    <AvaloniaResource Include="Assets/approved-mods.png" Condition="'$(EnableDesignReview)' == 'true'" />
+    <Compile Remove="DesignReview.cs;ApprovedManagementReview.cs;ApprovedClusterActivityReview.cs;ApprovedClusterBackupsReview.cs" Condition="'$(EnableDesignReview)' != 'true'" />
     <PackageReference Include="Avalonia.Desktop" Version="12.1.3" />
     <PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.3" />
-    <ProjectReference Include="../ArkServerManager.Core/ArkServerManager.Core.csproj" />
-    <ProjectReference Include="../ArkServerManager.Host/ArkServerManager.Host.csproj" ReferenceOutputAssembly="false" />
-    <ProjectReference Include="../ArkServerManager.Updater/ArkServerManager.Updater.csproj" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="../ArkServerManager.Core/ArkServerManager.Core.csproj" RemoveProperties="EnableDesignReview" />
+    <ProjectReference Include="../ArkServerManager.Host/ArkServerManager.Host.csproj" ReferenceOutputAssembly="false" RemoveProperties="EnableDesignReview" />
+    <ProjectReference Include="../ArkServerManager.Updater/ArkServerManager.Updater.csproj" ReferenceOutputAssembly="false" RemoveProperties="EnableDesignReview" />
   </ItemGroup>
   <Target Name="BundleManagerForDesktopBuild" AfterTargets="Build">
     <MSBuild Projects="../ArkServerManager.Host/ArkServerManager.Host.csproj" Targets="GetTargetPath"
-             Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework)">
+             Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework)" RemoveProperties="EnableDesignReview">
       <Output TaskParameter="TargetOutputs" ItemName="ManagerBuildEntry" />
     </MSBuild>
     <ItemGroup>
@@ -26,7 +31,7 @@
   </Target>
   <Target Name="BundleUpdaterForDesktopBuild" AfterTargets="Build">
     <MSBuild Projects="../ArkServerManager.Updater/ArkServerManager.Updater.csproj" Targets="GetTargetPath"
-             Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework)">
+             Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework)" RemoveProperties="EnableDesignReview">
       <Output TaskParameter="TargetOutputs" ItemName="UpdaterBuildEntry" />
     </MSBuild>
     <ItemGroup>
@@ -40,7 +45,7 @@
       <UpdaterPublishDirectory>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/$(IntermediateOutputPath)updater-publish/'))</UpdaterPublishDirectory>
     </PropertyGroup>
     <MSBuild Projects="../ArkServerManager.Updater/ArkServerManager.Updater.csproj" Targets="Publish"
-             RemoveProperties="PublishProfile;PublishUrl"
+             RemoveProperties="EnableDesignReview;PublishProfile;PublishUrl"
              Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework);RuntimeIdentifier=$(RuntimeIdentifier);SelfContained=$(SelfContained);PublishDir=$(UpdaterPublishDirectory)" />
     <ItemGroup>
       <UpdaterPublishFiles Include="$(UpdaterPublishDirectory)**/*" />
@@ -55,7 +60,7 @@
       <ManagerPublishDirectory>$([System.IO.Path]::GetFullPath('$(MSBuildProjectDirectory)/$(IntermediateOutputPath)manager-publish/'))</ManagerPublishDirectory>
     </PropertyGroup>
     <MSBuild Projects="../ArkServerManager.Host/ArkServerManager.Host.csproj" Targets="Publish"
-             RemoveProperties="PublishProfile;PublishUrl"
+             RemoveProperties="EnableDesignReview;PublishProfile;PublishUrl"
              Properties="Configuration=$(Configuration);TargetFramework=$(TargetFramework);RuntimeIdentifier=$(RuntimeIdentifier);SelfContained=$(SelfContained);PublishDir=$(ManagerPublishDirectory)">
     </MSBuild>
     <ItemGroup>

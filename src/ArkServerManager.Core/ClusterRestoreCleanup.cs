@@ -13,9 +13,9 @@ public static class ClusterRestoreCleanup
         foreach (var record in (await ClusterRestoreRecords.ReadAsync(catalog, clusterId, root, ct))
             .Where(r => r.Phase is ClusterRestorePhase.Restored or ClusterRestorePhase.Started))
         {
-            if (!record.Maps.OrderBy(id => id).SequenceEqual(members.Select(s => s.Id)))
+            if (!record.Maps.OrderBy(id => id).SequenceEqual(members.Where(s=>record.Maps.Contains(s.Id)).Select(s => s.Id)) || !record.Scoped && record.Maps.Count!=members.Length)
                 throw new InvalidOperationException("Cluster membership changed after restoration. Previous data needs cleanup review.");
-            var paths = members.Select(s => s.Directory).Append(storage.Directory).SelectMany(directory => new[]
+            var paths = members.Where(s=>record.Maps.Contains(s.Id)).Select(s => s.Directory).Concat(record.IncludesShared?new[]{storage.Directory}:[]).SelectMany(directory => new[]
             {
                 Path.Combine(directory, ".cluster-restore-previous-" + record.OperationId.ToString("N")),
                 Path.Combine(directory, ".cluster-restore-stage-" + record.OperationId.ToString("N"))

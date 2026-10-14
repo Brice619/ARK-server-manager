@@ -18,16 +18,12 @@ public sealed partial class MainWindow
     private bool notificationPolling;
     private string notificationPreferenceNotice = "";
     private int newActivityCount;
-    private Border? notificationBadge;
-    private TextBlock? notificationBadgeText;
-    private Button? notificationEntry;
-    private void UpdateNotificationBadge()
+    private MenuItem? activityMenuEntry;
+    private void UpdateActivityMenu()
     {
-        if (notificationBadge is null || notificationBadgeText is null) return;
-        notificationBadge.IsVisible = notificationPreferences.InApp && newActivityCount > 0;
-        notificationBadgeText.Text = newActivityCount >= 100 ? "99+" : newActivityCount.ToString();
-        if (notificationEntry is not null) Avalonia.Automation.AutomationProperties.SetName(notificationEntry,
-            notificationBadge.IsVisible ? "Open activity and notifications · " + notificationBadgeText.Text + " new events" : "Open activity and notifications");
+        if (activityMenuEntry is not null)
+            activityMenuEntry.Header = notificationPreferences.InApp && newActivityCount > 0
+                ? "Activity · " + (newActivityCount >= 100 ? "99+" : newActivityCount.ToString()) + " new events" : "Activity";
     }
     private AtomicJsonStore<NotificationPreferences> NotificationStore() => new(
         Path.Combine(managerRoot ?? throw new InvalidOperationException("Choose a management folder first."), "app-settings", "notifications.json"), true);
@@ -87,7 +83,7 @@ public sealed partial class MainWindow
         if (events.Count == 0) return;
         if (notificationPreferences.InApp)
         {
-            newActivityCount = Math.Min(100, newActivityCount + events.Count); UpdateNotificationBadge();
+            newActivityCount = Math.Min(100, newActivityCount + events.Count); UpdateActivityMenu();
         }
         if (activityPage && IsActive) return;
         var errors = events.Count(e => e.Severity == ActivitySeverity.Error);
@@ -162,7 +158,7 @@ public sealed partial class MainWindow
             await NotificationStore().SaveAsync(desired, lifetime.Token);
             notificationPreferences = desired; notificationPreferenceNotice = "Notification settings saved.";
             if (!desired.InApp) newActivityCount = 0;
-            UpdateNotificationBadge();
+            UpdateActivityMenu();
             if (!desired.OperatingSystem) { desktopNotifications?.Dispose(); desktopNotifications = null; }
             else if (OperatingSystem.IsLinux() && client is not null)
             {

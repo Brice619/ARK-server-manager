@@ -27,7 +27,7 @@ public sealed partial class MainWindow
             if (latest.Entries is null || latest.UnreadableEntries < 0) throw new InvalidDataException("Invalid activity history.");
             NotifyNewActivity(latest);
             history = latest; activityStale = false;
-            if (activityPage) { newActivityCount = 0; UpdateNotificationBadge(); }
+            if (activityPage) { newActivityCount = 0; UpdateActivityMenu(); }
             activityMessage = latest.Entries.Count == 0 ? "No recorded activity yet." : "Recent recorded activity";
         }
         catch (OperationCanceledException) when (lifetime.IsCancellationRequested) { }

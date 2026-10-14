@@ -1,0 +1,3635 @@
+[
+  {
+    "Name": "Aberrant Achatina",
+    "ClassName": "Achatina_Character_BP_Aberrant_C",
+    "NameTag": "Achatina",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Achatina",
+    "ClassName": "Achatina_Character_BP_C",
+    "NameTag": "Achatina",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Allosaurus",
+    "ClassName": "Allo_Character_BP_C",
+    "NameTag": "Allo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant R-Allosaurus (Mashup)",
+    "ClassName": "Allo_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant R-Allosaurus (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "R_Allosaurus",
+    "ClassName": "Allo_Character_BP_Rockwell_C",
+    "NameTag": "R_Allosaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant R-Allosaurus (Summoned)",
+    "ClassName": "Allo_Character_BP_Rockwell_Summoned_C",
+    "NameTag": "Variant R-Allosaurus (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant R-Allosaurus (Gauntlet2)",
+    "ClassName": "Allo_Character_BP_STA_C",
+    "NameTag": "Variant R-Allosaurus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Allosaurus",
+    "ClassName": "Allo_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Allosaurus",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Leedsichthys",
+    "ClassName": "Alpha_Leedsichthys_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Amargasaurus",
+    "ClassName": "Amargasaurus_Character_BP_C",
+    "NameTag": "Amarga",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ammonite",
+    "ClassName": "Ammonite_Character_C",
+    "NameTag": "Ammonite",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Andrewsarchus",
+    "ClassName": "Andrewsarchus_Character_BP_C",
+    "NameTag": "Andrewsarchus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Anglerfish",
+    "ClassName": "Angler_Character_BP_Aberrant_C",
+    "NameTag": "Angler",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Anglerfish",
+    "ClassName": "Angler_Character_BP_C",
+    "NameTag": "Angler",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Ankylosaurus",
+    "ClassName": "Ankylo_Character_BP_Aberrant_C",
+    "NameTag": "Ankylo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ankylosaurus",
+    "ClassName": "Ankylo_Character_BP_C",
+    "NameTag": "Anky",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Titanomyrma Drone",
+    "ClassName": "Ant_Character_BP_C",
+    "NameTag": "Ant",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Archaeopteryx",
+    "ClassName": "Archa_Character_BP_C",
+    "NameTag": "Archa",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Argentavis",
+    "ClassName": "Argent_Character_BP_C",
+    "NameTag": "Argent",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Argentavis (Mashup)",
+    "ClassName": "Argent_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Argentavis (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Argentavis (LifeSupport)",
+    "ClassName": "Argent_Character_BP_LifeSupport_C",
+    "NameTag": "Variant VR Argentavis (LifeSupport)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Argentavis (Gauntlet2)",
+    "ClassName": "Argent_Character_BP_STA_C",
+    "NameTag": "Variant Argentavis (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Argentavis (Summoned)",
+    "ClassName": "Argent_Character_BP_Summoned_C",
+    "NameTag": "Variant Argentavis (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Arthropluera",
+    "ClassName": "Arthro_Character_BP_Aberrant_C",
+    "NameTag": "Arthro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Arthropluera",
+    "ClassName": "Arthro_Character_BP_C",
+    "NameTag": "Arthro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Arthropluera",
+    "ClassName": "Arthro_Character_BP_Corrupt",
+    "NameTag": "Artho",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Baryonyx",
+    "ClassName": "Baryonyx_Character_BP_Aberrant_C",
+    "NameTag": "Baryonyx",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Baryonyx",
+    "ClassName": "Baryonyx_Character_BP_C",
+    "NameTag": "Baryonyx",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Basilisk",
+    "ClassName": "Basilisk_Character_BP_C",
+    "NameTag": "Basilisk",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Basilosaurus",
+    "ClassName": "Basilosaurus_Character_BP_C",
+    "NameTag": "Basilosaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Onyc",
+    "ClassName": "Bat_Character_BP_C",
+    "NameTag": "Bat",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Onyc (Maze)",
+    "ClassName": "Bat_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Onyc (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Onyc (Mashup)",
+    "ClassName": "Bat_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Onyc (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Onyc (Gauntlet2)",
+    "ClassName": "Bat_Character_BP_STA_C",
+    "NameTag": "Variant Onyc (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Onyc (Summoned)",
+    "ClassName": "Bat_Character_BP_Summoned_C",
+    "NameTag": "Variant Onyc (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Castoroides",
+    "ClassName": "Beaver_Character_BP_C",
+    "NameTag": "Beaver",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Giant Bee",
+    "ClassName": "Bee_Character_BP_C",
+    "NameTag": "Bee",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Queen Bee",
+    "ClassName": "Bee_Queen_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Gigantopithecus",
+    "ClassName": "BigFoot_Character_BP_Aberrant_C",
+    "NameTag": "Bigfoot",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Gigantopithecus",
+    "ClassName": "BigFoot_Character_BP_C",
+    "NameTag": "Bigfoot",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Tek Parasaur",
+    "ClassName": "BionicPara_Character_BP_C",
+    "NameTag": "Para",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Tek Quetzal",
+    "ClassName": "BionicQuetz_Character_BP_C",
+    "NameTag": "Quetz",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Tek Raptor",
+    "ClassName": "BionicRaptor_Character_BP_C",
+    "NameTag": "Raptor",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Malfunctioned Tek Raptor (LifeSupport)",
+    "ClassName": "BionicRaptor_Character_BP_Malfunctioned_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Tek Raptor (LifeSupport)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Tek Rex",
+    "ClassName": "BionicRex_Character_BP_C",
+    "NameTag": "Rex",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Tek Stegosaurus",
+    "ClassName": "BionicStego_Character_BP_C",
+    "NameTag": "Stego",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Malfunctioned Tek Stegosaurus (LifeSupport)",
+    "ClassName": "BionicStego_Character_BP_Malfunctioned_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Tek Stegosaurus (LifeSupport)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Malfunctioned Tek Triceratops (LifeSupport)",
+    "ClassName": "BionicTrike_Character_BP_Malfunctioned_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Tek Triceratops (LifeSupport)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Titanoboa",
+    "ClassName": "BoaFrill_Character_BP_Aberrant_C",
+    "NameTag": "Titanboa",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Titanoboa",
+    "ClassName": "BoaFrill_Character_BP_C",
+    "NameTag": "Titanboa",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Titanoboa (Maze)",
+    "ClassName": "BoaFrill_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Titanoboa (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Titanoboa (Gauntlet2)",
+    "ClassName": "BoaFrill_Character_BP_STA_C",
+    "NameTag": "Variant Titanoboa (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Titanoboa (Summoned)",
+    "ClassName": "BoaFrill_Character_BP_Summoned_C",
+    "NameTag": "Variant Titanoboa (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "X-Parasaur",
+    "ClassName": "Bog_Para_Character_BP_C",
+    "NameTag": "Para",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Paraceratherium",
+    "ClassName": "Bog_Paracer_Character_BP_C",
+    "NameTag": "Paracer",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Raptor",
+    "ClassName": "Bog_Raptor_Character_BP_C",
+    "NameTag": "Raptor",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Spino",
+    "ClassName": "Bog_Spino_Character_BP_C",
+    "NameTag": "Spino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Tapejara",
+    "ClassName": "Bog_Tapejara_Character_BP_C",
+    "NameTag": "Tapejara",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Bloodstalker",
+    "ClassName": "BogSpider_Character_BP_C",
+    "NameTag": "Bloodstalker",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Bloodstalker (Summoned)",
+    "ClassName": "BogSpider_Character_BP_Summoned_C",
+    "NameTag": "Variant Bloodstalker (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Bloodstalker (Gauntlet2)",
+    "ClassName": "BogSpider_Character_STA_C",
+    "NameTag": "Variant Bloodstalker (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Bloodstalker (Gauntlet2)",
+    "ClassName": "BogSpider_Character_TameSTA_C",
+    "NameTag": "Variant VR Bloodstalker (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Noglin",
+    "ClassName": "BrainSlug_Character_BP_C",
+    "NameTag": "Noglin",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Morellatops",
+    "ClassName": "camelsaurus_Character_BP_C",
+    "NameTag": "Camelsaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Carcharodontosaurus",
+    "ClassName": "Carcha_Character_BP_C",
+    "NameTag": "Carcha",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Carnotaurus",
+    "ClassName": "Carno_Character_BP_Aberrant_C",
+    "NameTag": "Carno",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Carnotaurus",
+    "ClassName": "Carno_Character_BP_C",
+    "NameTag": "Carno",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Corrupted Carnotaurus (Maze)",
+    "ClassName": "Carno_Character_BP_CorrMaze_C",
+    "NameTag": "Variant Corrupted Carnotaurus (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Carnotaurus",
+    "ClassName": "Carno_Character_BP_Corrupt_C",
+    "NameTag": "Carno",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Corrupted Carnotaurus (Mashup)",
+    "ClassName": "Carno_Character_BP_ExpG_C",
+    "NameTag": "Variant Corrupted Carnotaurus (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "R_Carno",
+    "ClassName": "Carno_Character_BP_Rockwell_C",
+    "NameTag": "R_Carno",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant R-Carnotaurus (Summoned)",
+    "ClassName": "Carno_Character_BP_Rockwell_Summoned_C",
+    "NameTag": "Variant R-Carnotaurus (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Carnotaurus (Gauntlet2)",
+    "ClassName": "Carno_Character_BP_STA_C",
+    "NameTag": "Variant Carnotaurus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Corrupted Carnotaurus (Gauntlet2)",
+    "ClassName": "Carno_Character_BP_STA_Corrupted_C",
+    "NameTag": "Variant Corrupted Carnotaurus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Ravager",
+    "ClassName": "CaveWolf_Character_BP_C",
+    "NameTag": "CaveWolf",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Ravager (Gauntlet2)",
+    "ClassName": "CaveWolf_Character_BP_STA_C",
+    "NameTag": "Variant Ravager (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Ravager (Summoned)",
+    "ClassName": "CaveWolf_Character_BP_Summoned_C",
+    "NameTag": "Variant Ravager (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Ravager (Gauntlet2)",
+    "ClassName": "CaveWolf_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Ravager (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Chalicotherium",
+    "ClassName": "Chalico_Character_BP_C",
+    "NameTag": "Chalico",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Chalicotherium",
+    "ClassName": "Chalico_Character_BP_Corrupt_C",
+    "NameTag": "Chalico",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Chalicotherium (Mashup)",
+    "ClassName": "Chalico_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Chalicotherium (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Chalicotherium (Mashup)",
+    "ClassName": "Chalico_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant Chalicotherium (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Chalicotherium (Gauntlet2)",
+    "ClassName": "Chalico_Character_BP_STA_C",
+    "NameTag": "Variant Chalicotherium (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Chalk Golem",
+    "ClassName": "ChalkGolem_Character_BP_C",
+    "NameTag": "ChalkRockElemental",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Magmasaur",
+    "ClassName": "Cherufe_Character_BP_C",
+    "NameTag": "LavaLizard",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Nameless",
+    "ClassName": "ChupaCabra_Character_BP_C",
+    "NameTag": "Chupacabra",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Nameless (Minion)",
+    "ClassName": "ChupaCabra_Character_BP_Minion_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Nameless (Surface)",
+    "ClassName": "ChupaCabra_Character_BP_Surface_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Cnidaria",
+    "ClassName": "Cnidaria_Character_BP_Aberrant_C",
+    "NameTag": "Cnidaria",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Cnidaria",
+    "ClassName": "Cnidaria_Character_BP_C",
+    "NameTag": "Cnidaria",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Coelacanth",
+    "ClassName": "Coel_Character_BP_Aberrant_C",
+    "NameTag": "Coel",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Coelacanth",
+    "ClassName": "Coel_Character_BP_C",
+    "NameTag": "Coel",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Coelacanth (Ocean)",
+    "ClassName": "Coel_Character_BP_Ocean_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Compy",
+    "ClassName": "Compy_Character_BP_C",
+    "NameTag": "Compy",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Corrupted Survivor",
+    "ClassName": "CorruptHuman_Character_BP_BASE_C",
+    "NameTag": "Variant Corrupted Survivor",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupt Tumor",
+    "ClassName": "CorruptTumor_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Karkinos",
+    "ClassName": "Crab_Character_BP_C",
+    "NameTag": "CaveCrab",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Karkinos (Gauntlet2)",
+    "ClassName": "Crab_Character_BP_STA_C",
+    "NameTag": "Variant Karkinos (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Karkinos (Summoned)",
+    "ClassName": "Crab_Character_BP_Summoned_C",
+    "NameTag": "Variant Karkinos (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Karkinos (Gauntlet2)",
+    "ClassName": "Crab_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Karkinos (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Daeodon",
+    "ClassName": "Daeodon_Character_BP_C",
+    "NameTag": "Daeodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Daeodon",
+    "ClassName": "Daeodon_Character_BP_Eden_C",
+    "NameTag": "E_Daeodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Deathworm",
+    "ClassName": "Deathworm_Character_BP_C",
+    "NameTag": "Deathworm",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Deathworm",
+    "ClassName": "Deathworm_Character_BP_Corrupt_C",
+    "NameTag": "Deathworm",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Defense Unit",
+    "ClassName": "Defender_Character_BP_C",
+    "NameTag": "Defender",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Deinonychus",
+    "ClassName": "Deinonychus_Character_BP_C",
+    "NameTag": "Deinonychus",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Desert Titan",
+    "ClassName": "DesertKaiju_Character_BP_C",
+    "NameTag": "DesertTitan",
+    "Spawnable": false,
+    "Tameable": true
+  },
+  {
+    "Name": "Desmodus",
+    "ClassName": "Desmodus_Character_BP_C",
+    "NameTag": "Desmodus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dilophosaurus",
+    "ClassName": "Dilo_Character_BP_C",
+    "NameTag": "Dilo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Dilophosaur",
+    "ClassName": "Dilo_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Dilophosaur",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Dilophosaur",
+    "ClassName": "Dilo_Character_BP_Corrupt_C",
+    "NameTag": "Dilo",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Dilophosaur (Mashup)",
+    "ClassName": "Dilo_Character_BP_ExpG_C",
+    "NameTag": "Variant Dilophosaur (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Dilophosaur (Hunt)",
+    "ClassName": "Dilo_Character_BP_Hunt_C",
+    "NameTag": "Variant Dilophosaur (Hunt)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "R_Dilo",
+    "ClassName": "Dilo_Character_BP_Rockwell_C",
+    "NameTag": "R_Dilo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant R-Dilophosaur (Summoned)",
+    "ClassName": "Dilo_Character_BP_Rockwell_Summoned_C",
+    "NameTag": "Variant R-Dilophosaur (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Dilophosaur (Gauntlet2)",
+    "ClassName": "Dilo_Character_BP_STA_C",
+    "NameTag": "Variant Dilophosaur (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Dimetrodon",
+    "ClassName": "Dimetro_Character_BP_Aberrant_C",
+    "NameTag": "Dimetro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dimetrodon",
+    "ClassName": "Dimetro_Character_BP_C",
+    "NameTag": "Dimetro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Dimorphodon",
+    "ClassName": "Dimorph_Character_BP_Aberrant_C",
+    "NameTag": "Dimorph",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dimorphodon",
+    "ClassName": "Dimorph_Character_BP_C",
+    "NameTag": "Dimorph",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Dimorphodon",
+    "ClassName": "Dimorph_Character_BP_Corrupt_C",
+    "NameTag": "Dimorph",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Dimorphodon (Gauntlet2)",
+    "ClassName": "Dimorph_Character_BP_STA_C",
+    "NameTag": "Variant Dimorphodon (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Dimorphodon (Gauntlet2)",
+    "ClassName": "Dimorph_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Dimorphodon (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dinopithecus",
+    "ClassName": "Dinopithecus_Character_BP_C",
+    "NameTag": "Dinopithecus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Diplocaulus",
+    "ClassName": "Diplocaulus_Character_BP_Aberrant_C",
+    "NameTag": "Diplocaulus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Diplocalus",
+    "ClassName": "Diplocaulus_Character_BP_C",
+    "NameTag": "Diplocaulus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Diplodocus",
+    "ClassName": "Diplodocus_Character_BP_Aberrant_C",
+    "NameTag": "Diplo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Diplodocus",
+    "ClassName": "Diplodocus_Character_BP_C",
+    "NameTag": "Diplo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Direbear",
+    "ClassName": "Direbear_Character_BP_Aberrant_C",
+    "NameTag": "Direbear",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Direbear",
+    "ClassName": "Direbear_Character_BP_C",
+    "NameTag": "Direbear",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Polar Bear",
+    "ClassName": "Direbear_Character_Polar_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Direwolf",
+    "ClassName": "Direwolf_Character_BP_C",
+    "NameTag": "Direwolf",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_DireWolf",
+    "ClassName": "Direwolf_Character_BP_Eden_C",
+    "NameTag": "E_DireWolf",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Dodo",
+    "ClassName": "Dodo_Character_BP_Aberrant_C",
+    "NameTag": "Dodo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dodo",
+    "ClassName": "Dodo_Character_BP_C",
+    "NameTag": "Dodo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant DodoRex (Gauntlet2)",
+    "ClassName": "DodoRex_Character_BP_STA_C",
+    "NameTag": "Variant DodoRex (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Doedicurus",
+    "ClassName": "Doed_Character_BP_Aberrant_C",
+    "NameTag": "Doed",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Doedicurus",
+    "ClassName": "Doed_Character_BP_C",
+    "NameTag": "Doed",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ichthy",
+    "ClassName": "Dolphin_Character_BP_C",
+    "NameTag": "Dolphin",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dragon",
+    "ClassName": "Dragon_Character_BP_Boss_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon (Easy Variant)",
+    "ClassName": "Dragon_Character_BP_Boss_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon (Easy Variant)",
+    "ClassName": "Dragon_Character_BP_Boss_Easy_Ragnarok_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon (Hard Variant)",
+    "ClassName": "Dragon_Character_BP_Boss_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon (Hard Variant)",
+    "ClassName": "Dragon_Character_BP_Boss_Hard_Ragnarok_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon (Medium Variant)",
+    "ClassName": "Dragon_Character_BP_Boss_Medium_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon (Medium Variant)",
+    "ClassName": "Dragon_Character_BP_Boss_Medium_Ragnarok_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Meganeura",
+    "ClassName": "Dragonfly_Character_BP_Aberrant_C",
+    "NameTag": "Dragonfly",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Meganeura",
+    "ClassName": "Dragonfly_Character_BP_C",
+    "NameTag": "Dragonfly",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Dung Beetle",
+    "ClassName": "DungBeetle_Character_BP_Aberrant_C",
+    "NameTag": "Beetle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dung Beetle",
+    "ClassName": "DungBeetle_Character_BP_C",
+    "NameTag": "Beetle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dunkleosteus",
+    "ClassName": "Dunkle_Character_BP_C",
+    "NameTag": "Dunkle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Electrophorus",
+    "ClassName": "Eel_Character_BP_Aberrant_C",
+    "NameTag": "Eel",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Electrophorus",
+    "ClassName": "Eel_Character_BP_C",
+    "NameTag": "Eel",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Moeder, Master of the Ocean (Easy Variant)",
+    "ClassName": "EelBoss_Character_BP_Easy_C",
+    "NameTag": "EelBoss",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Moeder, Master of the Ocean (Hard Variant)",
+    "ClassName": "EelBoss_Character_BP_Hard_C",
+    "NameTag": "EelBoss",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Moeder, Master of the Ocean (Medium Variant)",
+    "ClassName": "EelBoss_Character_BP_Medium_C",
+    "NameTag": "EelBoss",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Overseer",
+    "ClassName": "EndBoss_Character_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Overseer (Easy Variant)",
+    "ClassName": "EndBoss_Character_Easy_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Overseer (Hard Variant)",
+    "ClassName": "EndBoss_Character_Hard_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Overseer (Medium Variant)",
+    "ClassName": "EndBoss_Character_Medium_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Dragon Guardian",
+    "ClassName": "EndBossDragon_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon Guardian (Easy Variant)",
+    "ClassName": "EndBossDragon_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon Guardian (Hard Variant)",
+    "ClassName": "EndBossDragon_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Dragon Guardian (Medium Variant)",
+    "ClassName": "EndBossDragon_Character_BP_Medium_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus Guardian",
+    "ClassName": "EndBossGorilla_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus Guardian (Easy Variant)",
+    "ClassName": "EndBossGorilla_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus Guardian (Hard Variant)",
+    "ClassName": "EndBossGorilla_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus Guardian (Medium Variant)",
+    "ClassName": "EndBossGorilla_Character_BP_Medium_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Guardian",
+    "ClassName": "EndBossSpiderL_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Guardian (Easy Variant)",
+    "ClassName": "EndBossSpiderL_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Guardian (Hard Variant)",
+    "ClassName": "EndBossSpiderL_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Guardian (Medium Variant)",
+    "ClassName": "EndBossSpiderL_Character_BP_Medium_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Attack Drone",
+    "ClassName": "EndDrone_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Attack Drone (Hard Variant)",
+    "ClassName": "EndDrone_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Malfunctioned Attack Drone",
+    "ClassName": "EndDrone_Character_BP_Malfunctioned_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Attack Drone",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Attack Drone (Medium Variant)",
+    "ClassName": "EndDrone_Character_BP_Med_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant attack drone",
+    "ClassName": "EndDrone_Character_BP_STA_C",
+    "NameTag": "Variant attack drone",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Attack Drone (Shmup)",
+    "ClassName": "EndDrone_Character_BP_WhaleRescue_C",
+    "NameTag": "Variant Attack Drone (Shmup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Defense Unit",
+    "ClassName": "EndTank_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Defense Unit (Mashup)",
+    "ClassName": "EndTank_Character_BP_ExpG_C",
+    "NameTag": "Variant Defense Unit (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Defense Unit (Hard Variant)",
+    "ClassName": "EndTank_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Malfunctioned Defense Unit",
+    "ClassName": "EndTank_Character_BP_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Defense Unit",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Defense Unit (Medium Variant)",
+    "ClassName": "EndTank_Character_BP_Med_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Defense Unit",
+    "ClassName": "EndTank_Character_BP_STA_C",
+    "NameTag": "Variant Defense Unit",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Enforcer",
+    "ClassName": "Enforcer_Character_BP_C",
+    "NameTag": "Enforcer",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Malfunctioned Enforcer",
+    "ClassName": "Enforcer_Character_BP_Malfunctioned_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Enforcer",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Enforcer (Race2)",
+    "ClassName": "Enforcer_Character_BP_Race_C",
+    "NameTag": "Variant Enforcer (Race2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Enforcer",
+    "ClassName": "Enforcer_Character_BP_STA_C",
+    "NameTag": "Variant Enforcer",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Enforcer",
+    "ClassName": "Enforcer_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Enforcer",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Equus",
+    "ClassName": "Equus_Character_BP_Aberrant_C",
+    "NameTag": "Equus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Equus",
+    "ClassName": "Equus_Character_BP_C",
+    "NameTag": "Equus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Equus",
+    "ClassName": "Equus_Character_BP_Eden_C",
+    "NameTag": "E_Equus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Unicorn",
+    "ClassName": "Equus_Character_BP_Unicorn_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Eurypterid",
+    "ClassName": "Euryp_Character_C",
+    "NameTag": "Euryp",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Exo-Mek",
+    "ClassName": "Exosuit_Character_BP_C",
+    "NameTag": "Variant Exo-Mek",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Exo-Mek (Final Battle)",
+    "ClassName": "Exosuit_Character_BP_FinalFight_C",
+    "NameTag": "Variant Exo-Mek (Final Battle)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Fenrir",
+    "ClassName": "Fenrir_Character_BP_C",
+    "NameTag": "Fenrir Wolf",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Fjordhawk",
+    "ClassName": "Fjordhawk_Character_BP_C",
+    "NameTag": "Fjordhawk",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Titanomyrma Soldier",
+    "ClassName": "FlyingAnt_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Forest Titan",
+    "ClassName": "ForestKaiju_Character_BP_C",
+    "NameTag": "ForestTitan",
+    "Spawnable": false,
+    "Tameable": true
+  },
+  {
+    "Name": "Gacha",
+    "ClassName": "Gacha_Character_BP_C",
+    "NameTag": "Gacha",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Gallimimus",
+    "ClassName": "Galli_Character_BP_C",
+    "NameTag": "Galli",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "GasBags",
+    "ClassName": "GasBags_Character_BP_C",
+    "NameTag": "GasBags",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_GasBags",
+    "ClassName": "GasBags_Character_BP_Eden_C",
+    "NameTag": "E_GasBags",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Megachelon",
+    "ClassName": "GiantTurtle_Character_BP_C",
+    "NameTag": "GiantTurtle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Giganotosaurus",
+    "ClassName": "Gigant_Character_BP_C",
+    "NameTag": "Gigant",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Giganotosaurus",
+    "ClassName": "Gigant_Character_BP_Corrupt_C",
+    "NameTag": "Gigant",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Experimental Giganotosaurus",
+    "ClassName": "Gigant_Character_BP_ExpG_C",
+    "NameTag": "Experimental Giganotosaurus",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "R_Giga",
+    "ClassName": "Gigant_Character_BP_Rockwell_C",
+    "NameTag": "R_Giga",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Giganotosaurus (Tek Cave)",
+    "ClassName": "Gigant_Character_BP_TekCave_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus",
+    "ClassName": "Gorilla_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus (Easy Variant)",
+    "ClassName": "Gorilla_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus (Hard Variant)",
+    "ClassName": "Gorilla_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapithecus (Medium Variant)",
+    "ClassName": "Gorilla_Character_BP_Medium_C",
+    "NameTag": "Megapithecus",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Griffin",
+    "ClassName": "Griffin_Character_BP_C",
+    "NameTag": "Griffin",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Griffin (Gauntlet2)",
+    "ClassName": "Griffin_Character_BP_STA_C",
+    "NameTag": "Variant Griffin (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Hesperornis",
+    "ClassName": "Hesperornis_Character_BP_C",
+    "NameTag": "Hesperornis",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Hyaenodon",
+    "ClassName": "Hyaenodon_Character_BP_C",
+    "NameTag": "Hyaenodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ice Golem",
+    "ClassName": "IceGolem_Character_BP_C",
+    "NameTag": "IceRockElemental",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Managarmr",
+    "ClassName": "IceJumper_Character_BP_C",
+    "NameTag": "Managarmr",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ice Titan",
+    "ClassName": "IceKaiju_Character_BP_C",
+    "NameTag": "IceTitan",
+    "Spawnable": false,
+    "Tameable": true
+  },
+  {
+    "Name": "Iceworm",
+    "ClassName": "Iceworm_Character_Minion_BP_smaller_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Iceworm Queen",
+    "ClassName": "Iceworm_Queen_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Ichthyornis",
+    "ClassName": "Ichthyornis_Character_BP_C",
+    "NameTag": "Ichthyornis",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Iguanodon",
+    "ClassName": "Iguanodon_Character_BP_Aberrant_C",
+    "NameTag": "Iguanodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Iguanodon",
+    "ClassName": "Iguanodon_Character_BP_C",
+    "NameTag": "Iguanodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Jerboa",
+    "ClassName": "Jerboa_Character_BP_C",
+    "NameTag": "Jerboa",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Oil Jug Bug",
+    "ClassName": "Jugbug_Oil_Character_BP_C",
+    "NameTag": "JugBug",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Water Jug Bug",
+    "ClassName": "Jugbug_Water_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Kairuku",
+    "ClassName": "Kairuku_Character_BP_C",
+    "NameTag": "Kairu",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Kaprosuchus",
+    "ClassName": "Kaprosuchus_Character_BP_C",
+    "NameTag": "Kaprosuchus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Kaprosuchus (Mashup)",
+    "ClassName": "Kaprosuchus_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Kaprosuchus (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Kaprosuchus (Mashup)",
+    "ClassName": "Kaprosuchus_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant Kaprosuchus (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Kaprosuchus (Gauntlet2)",
+    "ClassName": "Kaprosuchus_Character_BP_STA_C",
+    "NameTag": "Variant Kaprosuchus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Kaprosuchus (Summoned)",
+    "ClassName": "Kaprosuchus_Character_BP_Summoned_C",
+    "NameTag": "Variant Kaprosuchus (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Kaprosuchus (Gauntlet2)",
+    "ClassName": "Kaprosuchus_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Kaprosuchus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Kentrosaurus",
+    "ClassName": "Kentro_Character_BP_C",
+    "NameTag": "Kentro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "King Titan (Alpha)",
+    "ClassName": "KingKaiju_Character_BP_Alpha_C",
+    "NameTag": "KingTitanAlpha",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "King Titan (Beta)",
+    "ClassName": "KingKaiju_Character_BP_Beta_C",
+    "NameTag": "King Titan",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "King Titan (Gamma)",
+    "ClassName": "KingKaiju_Character_BP_C",
+    "NameTag": "King Titan",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Lamprey",
+    "ClassName": "Lamprey_Character_C",
+    "NameTag": "Lamprey",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Featherlight",
+    "ClassName": "LanternBird_Character_BP_C",
+    "NameTag": "Lantern Bird",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Shinehorn",
+    "ClassName": "LanternGoat_Character_BP_C",
+    "NameTag": "Lantern Goat",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Glowtail",
+    "ClassName": "LanternLizard_Character_BP_C",
+    "NameTag": "Lantern Lizard",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Bulbdog",
+    "ClassName": "LanternPug_Character_BP_C",
+    "NameTag": "Pug",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Lava Golem",
+    "ClassName": "LavaGolem_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Leech",
+    "ClassName": "Leech_Character_C",
+    "NameTag": "Leech",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Diseased Leech",
+    "ClassName": "Leech_Character_Diseased_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Leedsichthys",
+    "ClassName": "Leedsichthys_Character_BP_C",
+    "NameTag": "Leedsichthys",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Glowbug",
+    "ClassName": "Lightbug_Character_BaseBP_C",
+    "NameTag": "Lightbug",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Shadowmane",
+    "ClassName": "LionfishLion_Character_BP_C",
+    "NameTag": "Shadowmane",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Shadowmane (Hunt2 Alpha)",
+    "ClassName": "LionfishLion_Character_BP_Hunt_Alpha_C",
+    "NameTag": "Variant Shadowmane (Hunt2 Alpha)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Shadowmane (Hunt2)",
+    "ClassName": "LionfishLion_Character_BP_Hunt_C",
+    "NameTag": "Variant Shadowmane (Hunt2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Shadowmane (Gauntlet2)",
+    "ClassName": "LionfishLion_Character_BP_STA_C",
+    "NameTag": "Variant Shadowmane (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Shadowmane (Summoned)",
+    "ClassName": "LionfishLion_Character_BP_Summoned_C",
+    "NameTag": "Variant Shadowmane (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Shadowmane (Gauntlet2)",
+    "ClassName": "LionfishLion_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Shadowmane (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Liopleurodon",
+    "ClassName": "Liopleurodon_Character_BP_C",
+    "NameTag": "Liopleurodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Sabertooth Salmon",
+    "ClassName": "Lunar_Salmon_Character_BP_C",
+    "NameTag": "Salmon",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Lystrosaurus",
+    "ClassName": "Lystro_Character_BP_Aberrant_C",
+    "NameTag": "Lystro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Lystrosaurus",
+    "ClassName": "Lystro_Character_BP_C",
+    "NameTag": "Lystro",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "MacrophageSwarm",
+    "ClassName": "Macrophage_Swarm_Character_BP_C",
+    "NameTag": "Macrophage_Swarm",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Mammoth",
+    "ClassName": "Mammoth_Character_BP_C",
+    "NameTag": "Mammoth",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Manta",
+    "ClassName": "Manta_Character_BP_Aberrant_C",
+    "NameTag": "Manta",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Manta",
+    "ClassName": "Manta_Character_BP_C",
+    "NameTag": "Manta",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Manticore",
+    "ClassName": "Manticore_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Manticore (Easy Variant)",
+    "ClassName": "Manticore_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Manticore (Easy Variant)",
+    "ClassName": "Manticore_Character_BP_Easy_Ragnarok_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Manticore (Hard Variant)",
+    "ClassName": "Manticore_Character_BP_Hard_C",
+    "NameTag": "Manticore",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Manticore (Hard Variant)",
+    "ClassName": "Manticore_Character_BP_Hard_Ragnarok_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Manticore (Medium Variant)",
+    "ClassName": "Manticore_Character_BP_Medium_C",
+    "NameTag": "Manticore",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Manticore (Medium Variant)",
+    "ClassName": "Manticore_Character_BP_Medium_Ragnarok_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Mantis",
+    "ClassName": "Mantis_Character_BP_C",
+    "NameTag": "Mantis",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Mantis (Maze)",
+    "ClassName": "Mantis_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Mantis (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Mantis (Gauntlet2)",
+    "ClassName": "Mantis_Character_BP_STA_C",
+    "NameTag": "Variant Mantis (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Mantis (Summoned)",
+    "ClassName": "Mantis_Character_BP_Summoned_C",
+    "NameTag": "Variant Mantis (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Mantis (Gauntlet2)",
+    "ClassName": "Mantis_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Mantis (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Tusoteuthis",
+    "ClassName": "Mega_Tusoteuthis_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Basilisk",
+    "ClassName": "MegaBasilisk_Character_BP_C",
+    "NameTag": "Elite Basilisk",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Carnotaurus",
+    "ClassName": "MegaCarno_Character_BP_C",
+    "NameTag": "Elite Carno",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Karkinos",
+    "ClassName": "MegaCrab_Character_BP_C",
+    "NameTag": "Elite CaveCrab",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Deathworm",
+    "ClassName": "MegaDeathworm_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Megalania",
+    "ClassName": "Megalania_Character_BP_Aberrant_C",
+    "NameTag": "Megalania",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Megalania",
+    "ClassName": "Megalania_Character_BP_C",
+    "NameTag": "Megalania",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Megalania (Maze)",
+    "ClassName": "Megalania_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Megalania (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Megalania (Gauntlet2)",
+    "ClassName": "Megalania_Character_BP_STA_C",
+    "NameTag": "Variant Megalania (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Megalodon",
+    "ClassName": "Megalodon_Character_BP_C",
+    "NameTag": "Mega",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Megalosaurus",
+    "ClassName": "Megalosaurus_Character_BP_Aberrant_C",
+    "NameTag": "Megalosaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Megalosaurus",
+    "ClassName": "Megalosaurus_Character_BP_C",
+    "NameTag": "Megalosaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Megalosaurus (Tek Cave)",
+    "ClassName": "Megalosaurus_Character_BP_TekCave_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Megalodon",
+    "ClassName": "MEgaMegalodon_Character_BP_C",
+    "NameTag": "Elite Mega",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Mega Mek",
+    "ClassName": "MegaMek_Character_BP_C",
+    "NameTag": "MegaMek",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Raptor",
+    "ClassName": "MegaRaptor_Character_BP_C",
+    "NameTag": "Elite Raptor",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha T-Rex",
+    "ClassName": "MegaRex_Character_BP_C",
+    "NameTag": "Elite Rex",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Enraged Corrupted Rex",
+    "ClassName": "MegaRex_Character_BP_Corrupt_C",
+    "NameTag": "MegaRex",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Megatherium",
+    "ClassName": "Megatherium_Character_BP_C",
+    "NameTag": "Megatherium",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Megatherium",
+    "ClassName": "Megatherium_Character_BP_Eden_C",
+    "NameTag": "E_Megatherium",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant R-Megatherium (Summoned)",
+    "ClassName": "Megatherium_Character_BP_Eden_Summoned_C",
+    "NameTag": "Variant R-Megatherium (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Megatherium (Mashup)",
+    "ClassName": "Megatherium_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Megatherium (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant R-Megatherium (Mashup)",
+    "ClassName": "Megatherium_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant R-Megatherium (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Megatherium (Gauntlet2)",
+    "ClassName": "Megatherium_Character_BP_STA_C",
+    "NameTag": "Variant Megatherium (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Enraged Triceratops",
+    "ClassName": "MegaTrike_Character_BP_Corrupt_C",
+    "NameTag": "MegaTrike",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Wyvern",
+    "ClassName": "MegaWyvern_Character_BP_Fire_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Surface Reaper King",
+    "ClassName": "MegaXenomorph_Character_BP_Male_Surface_C",
+    "NameTag": "Elite Xenomorph",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Mek",
+    "ClassName": "Mek_Character_BP_C",
+    "NameTag": "Mek",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Malfunctioned Mek Knight",
+    "ClassName": "Mek_Character_BP_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Mek Knight",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Mek",
+    "ClassName": "Mek_Character_BP_STA_C",
+    "NameTag": "Variant Mek",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Microraptor",
+    "ClassName": "Microraptor_Character_BP_C",
+    "NameTag": "Microraptor",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Maewing",
+    "ClassName": "MilkGlider_Character_BP_C",
+    "NameTag": "Maewing",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Roll Rat",
+    "ClassName": "MoleRat_Character_BP_C",
+    "NameTag": "MoleRat",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Mesopithecus",
+    "ClassName": "Monkey_Character_BP_C",
+    "NameTag": "Monkey",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Mosasaurus",
+    "ClassName": "Mosa_Character_BP_C",
+    "NameTag": "Mosasaur",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Mosasaurus (Cave)",
+    "ClassName": "Mosa_Character_BP_Cave_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Mosasaurus",
+    "ClassName": "Mosa_Character_BP_Mega_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Alpha Mosasaurus (Cave)",
+    "ClassName": "Mosa_Character_BP_Mega_Cave_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Moschops",
+    "ClassName": "Moschops_Character_BP_Aberrant_C",
+    "NameTag": "Moschops",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Moschops",
+    "ClassName": "Moschops_Character_BP_C",
+    "NameTag": "Moschops",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Lymantria",
+    "ClassName": "Moth_Character_BP_C",
+    "NameTag": "Moth",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Lymantria (Maze)",
+    "ClassName": "Moth_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Lymantria (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Lymantria (Mashup)",
+    "ClassName": "Moth_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Lymantria (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Lymantria (Gauntlet2)",
+    "ClassName": "Moth_Character_BP_STA_C",
+    "NameTag": "Variant Lymantria (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Lymantria (Gauntlet2)",
+    "ClassName": "Moth_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Lymantria (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "X-Basilosaurus",
+    "ClassName": "Ocean_Basilosaurus_Character_BP_C",
+    "NameTag": "Basilosaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Ichthyosaurus",
+    "ClassName": "Ocean_Dolphin_Character_BP_C",
+    "NameTag": "Dolphin",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Dunkleosteus",
+    "ClassName": "Ocean_Dunkle_Character_BP_C",
+    "NameTag": "Dunkle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Megalodon",
+    "ClassName": "Ocean_Megalodon_Character_BP_C",
+    "NameTag": "Mega",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Mosasaurus",
+    "ClassName": "Ocean_Mosa_Character_BP_C",
+    "NameTag": "Mosasaur",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Otter",
+    "ClassName": "Otter_Character_BP_Aberrant_C",
+    "NameTag": "Otter",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Otter",
+    "ClassName": "Otter_Character_BP_C",
+    "NameTag": "Otter",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Oviraptor",
+    "ClassName": "Oviraptor_Character_BP_C",
+    "NameTag": "Ovi",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Snow Owl",
+    "ClassName": "Owl_Character_BP_C",
+    "NameTag": "Owl",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Owl",
+    "ClassName": "Owl_Character_BP_Eden_C",
+    "NameTag": "E_Owl",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Pachy",
+    "ClassName": "Pachy_Character_BP_C",
+    "NameTag": "Pachy",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Pachy",
+    "ClassName": "Pachy_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Pachy",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Pachy (Gauntlet2)",
+    "ClassName": "Pachy_Character_BP_STA_C",
+    "NameTag": "Variant Pachy (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Pachyrhinosaurus",
+    "ClassName": "Pachyrhino_Character_BP_C",
+    "NameTag": "Pachyrhino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Parasaur",
+    "ClassName": "Para_Character_BP_Aberrant_C",
+    "NameTag": "Para",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Parasaur",
+    "ClassName": "Para_Character_BP_C",
+    "NameTag": "Para",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Parasaur",
+    "ClassName": "Para_Character_BP_Eden_C",
+    "NameTag": "E_Parasaur",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Parasaur (Mashup)",
+    "ClassName": "Para_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Parasaur (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant R-Parasaur (Mashup)",
+    "ClassName": "Para_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant R-Parasaur (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Parasaur (LifeSupport)",
+    "ClassName": "Para_Character_BP_LifeSupport_C",
+    "NameTag": "Variant VR Parasaur (LifeSupport)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Paraceratherium",
+    "ClassName": "Paracer_Character_BP_Aberrant_C",
+    "NameTag": "Paracer",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Paraceratherium",
+    "ClassName": "Paracer_Character_BP_C",
+    "NameTag": "Paracer",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Paraceratherium",
+    "ClassName": "Paracer_Character_BP_Corrupt_C",
+    "NameTag": "Paracer",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Pegomastax",
+    "ClassName": "Pegomastax_Character_BP_C",
+    "NameTag": "Pegomastax",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Pelagornis",
+    "ClassName": "Pela_Character_BP_C",
+    "NameTag": "Pela",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Phiomia",
+    "ClassName": "Phiomia_Character_BP_C",
+    "NameTag": "Phiomia",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Phoenix",
+    "ClassName": "Phoenix_Character_BP_C",
+    "NameTag": "Phoenix",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Phoenix (Gauntlet2)",
+    "ClassName": "Phoenix_Character_BP_STA_C",
+    "NameTag": "Variant Phoenix (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Piranha",
+    "ClassName": "Piranha_Character_BP_Aberrant_C",
+    "NameTag": "Piranha",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Megapiranha",
+    "ClassName": "Piranha_Character_BP_C",
+    "NameTag": "Piranha",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Female Human",
+    "ClassName": "PlayerPawnTest_Female_C",
+    "NameTag": "Variant Female Human",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Male Human",
+    "ClassName": "PlayerPawnTest_Male_C",
+    "NameTag": "Variant Male Human",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Plesiosaur",
+    "ClassName": "Plesiosaur_Character_BP_C",
+    "NameTag": "Plesiosaur",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Polar Bear",
+    "ClassName": "Polar_Bear_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Procoptodon",
+    "ClassName": "Procoptodon_Character_BP_C",
+    "NameTag": "Kangaroo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Procoptodon",
+    "ClassName": "Procoptodon_Character_BP_Eden_C",
+    "NameTag": "E_Procoptodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Pteranodon",
+    "ClassName": "Ptero_Character_BP_C",
+    "NameTag": "Ptera",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Pteranodon",
+    "ClassName": "Ptero_Character_BP_Corrupt_C",
+    "NameTag": "Ptero",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Seeker",
+    "ClassName": "Pteroteuthis_Char_BP_C",
+    "NameTag": "Bat",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Seeker (Surface)",
+    "ClassName": "Pteroteuthis_Char_BP_Surface_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Purlovia",
+    "ClassName": "Purlovia_Character_BP_Aberrant_C",
+    "NameTag": "Purlovia",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Purlovia",
+    "ClassName": "Purlovia_Character_BP_C",
+    "NameTag": "Purlovia",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Purlovia (Snow Cave)",
+    "ClassName": "Purlovia_Character_BP_Polar_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Quetzal",
+    "ClassName": "Quetz_Character_BP_C",
+    "NameTag": "Quetz",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "R_Quetzal",
+    "ClassName": "Quetz_Character_BP_Rockwell_C",
+    "NameTag": "R_Quetzal",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ice Wyvern",
+    "ClassName": "Ragnarok_Wyvern_Override_Ice_C",
+    "NameTag": "Ice Wyvern",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Raptor",
+    "ClassName": "Raptor_Character_BP_Aberrant_C",
+    "NameTag": "Raptor",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Raptor",
+    "ClassName": "Raptor_Character_BP_C",
+    "NameTag": "Raptor",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Raptor (Maze)",
+    "ClassName": "Raptor_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Raptor (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Raptor",
+    "ClassName": "Raptor_Character_BP_Corrupt_C",
+    "NameTag": "Raptor",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Raptor (Mashup)",
+    "ClassName": "Raptor_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Raptor (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Raptor (Mashup)",
+    "ClassName": "Raptor_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant Raptor (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant X-Raptor (Hunt2)",
+    "ClassName": "Raptor_Character_BP_Hunt_Enemy_C",
+    "NameTag": "Variant X-Raptor (Hunt2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Raptor (Gauntlet2)",
+    "ClassName": "Raptor_Character_BP_STA_C",
+    "NameTag": "Variant Raptor (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Corrupted Raptor (Gauntlet2)",
+    "ClassName": "Raptor_Character_BP_STA_Corrupted_C",
+    "NameTag": "Variant Corrupted Raptor (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Raptor (Gauntlet2)",
+    "ClassName": "Raptor_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Raptor (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "X-Sabertooth Salmon",
+    "ClassName": "Rare_Lunar_Salmon_Character_BP_C",
+    "NameTag": "Salmon",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Rex",
+    "ClassName": "Rex_Character_BP_C",
+    "NameTag": "Rex",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Rex",
+    "ClassName": "Rex_Character_BP_Corrupt_C",
+    "NameTag": "Rex",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Rex (Mashup)",
+    "ClassName": "Rex_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Rex (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Rex (Mashup)",
+    "ClassName": "Rex_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant Rex (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Rex (Hunt2)",
+    "ClassName": "Rex_Character_BP_Hunt_Enemy_C",
+    "NameTag": "Variant Rex (Hunt2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Rex (LifeSupport)",
+    "ClassName": "Rex_Character_BP_LifeSupport_C",
+    "NameTag": "Variant VR Rex (LifeSupport)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Rex (Gauntlet2)",
+    "ClassName": "Rex_Character_BP_STA_C",
+    "NameTag": "Variant Rex (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Corrupted Rex (Gauntlet2)",
+    "ClassName": "Rex_Character_BP_STA_Corrupted_C",
+    "NameTag": "Variant Corrupted Rex (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Rex (Summoned)",
+    "ClassName": "Rex_Character_BP_Summoned_C",
+    "NameTag": "Variant Rex (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Woolly Rhino",
+    "ClassName": "Rhino_Character_BP_C",
+    "NameTag": "Rhino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Rhyniognatha",
+    "ClassName": "Rhynio_Character_BP_C",
+    "NameTag": "Rhynio",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Rock Drake",
+    "ClassName": "RockDrake_Character_BP_C",
+    "NameTag": "RockDrake",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Rock Drake",
+    "ClassName": "RockDrake_Character_BP_Corrupt_C",
+    "NameTag": "RockDrake",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Rock Drake (Summoned)",
+    "ClassName": "RockDrake_Character_BP_Summoned_C",
+    "NameTag": "Variant Rock Drake (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rock Elemental",
+    "ClassName": "RockGolem_Character_BP_C",
+    "NameTag": "RockElemental",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Rockwell",
+    "ClassName": "Rockwell_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell (Easy Variant)",
+    "ClassName": "Rockwell_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell (Hard Variant)",
+    "ClassName": "Rockwell_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell (Medium Variant)",
+    "ClassName": "Rockwell_Character_BP_Medium_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell Prime",
+    "ClassName": "RockwellNode_Character_BP_FinalFight_C",
+    "NameTag": "Rockwell Prime",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell Tentacle (Hard Variant)",
+    "ClassName": "RockwellTentacle_Character_BP_Alpha_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell Tentacle (Medium Variant)",
+    "ClassName": "RockwellTentacle_Character_BP_Beta_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell Tentacle",
+    "ClassName": "RockwellTentacle_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rockwell Tentacle (Easy Variant)",
+    "ClassName": "RockwellTentacle_Character_BP_Gamma_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Rubble Golem",
+    "ClassName": "RubbleGolem_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Sabertooth",
+    "ClassName": "Saber_Character_BP_C",
+    "NameTag": "Sabertooth",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Salmon",
+    "ClassName": "Salmon_Character_Aberrant_C",
+    "NameTag": "Salmon",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Sabertooth Salmon",
+    "ClassName": "Salmon_Character_BP_C",
+    "NameTag": "Salmon",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Sarco",
+    "ClassName": "Sarco_Character_BP_Aberrant_C",
+    "NameTag": "Sarco",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Sarco",
+    "ClassName": "Sarco_Character_BP_C",
+    "NameTag": "Sarco",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Bronto",
+    "ClassName": "Sauropod_Character_BP_C",
+    "NameTag": "Bronto",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "R_Bronto",
+    "ClassName": "Sauropod_Character_BP_Rockwell_C",
+    "NameTag": "R_Bronto",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Pulmonoscorpius",
+    "ClassName": "Scorpion_Character_BP_Aberrant_C",
+    "NameTag": "Scorpion",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Pulmonoscorpius",
+    "ClassName": "Scorpion_Character_BP_C",
+    "NameTag": "Scorpion",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Pulmonoscorpius (Mashup)",
+    "ClassName": "Scorpion_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Pulmonoscorpius (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Pulmonoscorpius (Gauntlet2)",
+    "ClassName": "Scorpion_Character_BP_STA_C",
+    "NameTag": "Variant Pulmonoscorpius (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Scout",
+    "ClassName": "Scout_Character_BP_C",
+    "NameTag": "Scout",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Brute ferox",
+    "ClassName": "Shapeshifter_Large_Character_BP_Hunt_C",
+    "NameTag": "Brute ferox",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Ferox (Gauntlet2)",
+    "ClassName": "Shapeshifter_Large_Character_BP_STA_C",
+    "NameTag": "Variant Ferox (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Ferox (Large) (Summoned)",
+    "ClassName": "Shapeshifter_Large_Character_BP_Summoned_C",
+    "NameTag": "Variant Ferox (Large) (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Ferox (Large) (Gauntlet2)",
+    "ClassName": "Shapeshifter_Large_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Ferox (Large) (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Ferox",
+    "ClassName": "Shapeshifter_Small_Character_BP_C",
+    "NameTag": "Gremlin",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Ovis",
+    "ClassName": "Sheep_Character_BP_Aberrant_C",
+    "NameTag": "Sheep",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Ovis (Sheep)",
+    "ClassName": "Sheep_Character_BP_C",
+    "NameTag": "Sheep",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Sinomacrops",
+    "ClassName": "Sinomacrops_Character_BP_C",
+    "NameTag": "Sino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Argentavis",
+    "ClassName": "Snow_Argent_Character_BP_C",
+    "NameTag": "Argent",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Otter",
+    "ClassName": "Snow_Otter_Character_BP_C",
+    "NameTag": "Otter",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Woolly Rhino",
+    "ClassName": "Snow_Rhino_Character_BP_C",
+    "NameTag": "Rhino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Sabertooth",
+    "ClassName": "Snow_Saber_Character_BP_C",
+    "NameTag": "Sabertooth",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Yutyrannus",
+    "ClassName": "Snow_Yutyrannus_Character_BP_C",
+    "NameTag": "Yutyrannus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Astrodelphis",
+    "ClassName": "SpaceDolphin_Character_BP_C",
+    "NameTag": "Astrodelphis",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Astrodelphis (Race2)",
+    "ClassName": "SpaceDolphin_Character_BP_Race_C",
+    "NameTag": "Variant Astrodelphis (Race2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Astrodelphis (Gauntlet2)",
+    "ClassName": "SpaceDolphin_Character_BP_STA_C",
+    "NameTag": "Variant Astrodelphis (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Astrodelphis (Gauntlet2)",
+    "ClassName": "SpaceDolphin_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Astrodelphis (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Astrodelphis (Shmup bot)",
+    "ClassName": "SpaceDolphin_Character_BP_WhaleRescue_Bot_C",
+    "NameTag": "Variant Astrodelphis (Shmup bot)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Astrodelphis (Shmup)",
+    "ClassName": "SpaceDolphin_Character_BP_WhaleRescue_C",
+    "NameTag": "Variant Astrodelphis (Shmup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Astrocetus",
+    "ClassName": "SpaceWhale_Character_BP_C",
+    "NameTag": "Space Whale",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Broodmother Lysrix",
+    "ClassName": "SpiderL_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Lysrix (Easy Variant)",
+    "ClassName": "SpiderL_Character_BP_Easy_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Lysrix (Hard Variant)",
+    "ClassName": "SpiderL_Character_BP_Hard_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Lysrix (Medium Variant)",
+    "ClassName": "SpiderL_Character_BP_Medium_C",
+    "NameTag": null,
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Broodmother Lysrix",
+    "ClassName": "SpiderL_VAL_Character_BP_C",
+    "NameTag": "BroodmotherLysrix",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Araneo",
+    "ClassName": "SpiderS_Character_BP_Aberrant_C",
+    "NameTag": "Spider",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Araneo",
+    "ClassName": "SpiderS_Character_BP_C",
+    "NameTag": "Spider",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Araneo (Maze)",
+    "ClassName": "SpiderS_Character_BP_CorrMaze_C",
+    "NameTag": "Variant VR Araneo (Maze)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Araneo (Mashup)",
+    "ClassName": "SpiderS_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Araneo (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Araneo (Gauntlet2)",
+    "ClassName": "SpiderS_Character_BP_STA_C",
+    "NameTag": "Variant Araneo (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Araneo (Summoned)",
+    "ClassName": "SpiderS_Character_BP_Summoned_C",
+    "NameTag": "Variant Araneo (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Velonasaur",
+    "ClassName": "Spindles_Character_BP_C",
+    "NameTag": "Velonasaur",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "R_Velonasaur",
+    "ClassName": "Spindles_Character_BP_Rockwell_C",
+    "NameTag": "R_Velonasaur",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant R-Velonasaur (Hunt2 Alpha)",
+    "ClassName": "Spindles_Character_BP_Rockwell_Hunt_Alpha_C",
+    "NameTag": "Variant R-Velonasaur (Hunt2 Alpha)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant R-Velonasaur (Hunt2)",
+    "ClassName": "Spindles_Character_BP_Rockwell_Hunt_C",
+    "NameTag": "Variant R-Velonasaur (Hunt2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Velonasaur (Gauntlet2)",
+    "ClassName": "Spindles_Character_BP_STA_C",
+    "NameTag": "Variant VR Velonasaur (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Thorny Dragon",
+    "ClassName": "SpineyLizard_Character_BP_C",
+    "NameTag": "SpineyLizard",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Spino",
+    "ClassName": "Spino_Character_BP_Aberrant_C",
+    "NameTag": "Spino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Spinosaurus",
+    "ClassName": "Spino_Character_BP_C",
+    "NameTag": "Spino",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Spino",
+    "ClassName": "Spino_Character_BP_Corrupt_C",
+    "NameTag": "Spino",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Megaloceros",
+    "ClassName": "Stag_Character_BP_C",
+    "NameTag": "Stag",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Stegosaurus",
+    "ClassName": "Stego_Character_BP_Aberrant_C",
+    "NameTag": "Stego",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Stego",
+    "ClassName": "Stego_Character_BP_C",
+    "NameTag": "Stego",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Stegosaurus",
+    "ClassName": "Stego_Character_BP_Corrupt_C",
+    "NameTag": "Stego",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Stegosaurus (Gauntlet2)",
+    "ClassName": "Stego_Character_BP_STA_C",
+    "NameTag": "Variant Stegosaurus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Stegosaurus (Summoned)",
+    "ClassName": "Stego_Character_BP_Summoned_C",
+    "NameTag": "Variant Stegosaurus (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Stegosaurus (Gauntlet2)",
+    "ClassName": "Stego_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Stegosaurus (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Summoner",
+    "ClassName": "Summoner_Character_BP_C",
+    "NameTag": "Summoner",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Tapejara",
+    "ClassName": "Tapejara_Character_BP_C",
+    "NameTag": "Tapejara",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Tapejara (Mashup)",
+    "ClassName": "Tapejara_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Tapejara (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Tapejara (Mashup)",
+    "ClassName": "Tapejara_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant Tapejara (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Tapejara (Gauntlet2)",
+    "ClassName": "Tapejara_Character_BP_STA_C",
+    "NameTag": "Variant Tapejara (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Hover Skiff",
+    "ClassName": "TekHoverSkiff_Character_BP_C",
+    "NameTag": "HoverSkiff",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "TekStryder",
+    "ClassName": "TekStrider_Character_BP_C",
+    "NameTag": "Stryder",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant Malfunctioned Tek Stryder (Life Support)",
+    "ClassName": "TekStrider_Character_BP_LifeSupport_C",
+    "NameTag": "Variant Malfunctioned Tek Stryder (Life Support)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Tek Stryder (Gauntlet2)",
+    "ClassName": "TekStrider_Character_BP_STA_C",
+    "NameTag": "Variant Tek Stryder (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Voidwyrm",
+    "ClassName": "TekWyvern_Character_BP_C",
+    "NameTag": "Voidwyrm",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Terror Bird",
+    "ClassName": "TerrorBird_Character_BP_C",
+    "NameTag": "TerrorBird",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Variant VR Terror Bird (Mashup)",
+    "ClassName": "TerrorBird_Character_BP_ExpG_C",
+    "NameTag": "Variant VR Terror Bird (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Terror Bird (Mashup)",
+    "ClassName": "TerrorBird_Character_BP_ExpG_Pod_C",
+    "NameTag": "Variant Terror Bird (Mashup)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Terror Bird (Gauntlet2)",
+    "ClassName": "TerrorBird_Character_BP_STA_C",
+    "NameTag": "Variant Terror Bird (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Terror Bird (Summoned)",
+    "ClassName": "TerrorBird_Character_BP_Summoned_C",
+    "NameTag": "Variant Terror Bird (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Therizinosaurus",
+    "ClassName": "Therizino_Character_BP_C",
+    "NameTag": "Therizinosaurus",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Thylacoleo",
+    "ClassName": "Thylacoleo_Character_BP_C",
+    "NameTag": "Thylacoleo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "E_Thylacoleo",
+    "ClassName": "Thylacoleo_Character_BP_Eden_C",
+    "NameTag": "E_Thylacoleo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Titanosaur",
+    "ClassName": "Titanosaur_Character_BP_C",
+    "NameTag": "Titan",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Beelzebufo",
+    "ClassName": "Toad_Character_BP_Aberrant_C",
+    "NameTag": "Toad",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Beelzebufo",
+    "ClassName": "Toad_Character_BP_C",
+    "NameTag": "Toad",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Triceratops",
+    "ClassName": "Trike_Character_BP_Aberrant_C",
+    "NameTag": "Trike",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Trike",
+    "ClassName": "Trike_Character_BP_C",
+    "NameTag": "Trike",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Corrupted Triceratops",
+    "ClassName": "Trike_Character_BP_Corrupt_C",
+    "NameTag": "Trike",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Triceratops (Gauntlet2)",
+    "ClassName": "Trike_Character_BP_STA_C",
+    "NameTag": "Variant Triceratops (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Corrupted Triceratops (Gauntlet2)",
+    "ClassName": "Trike_Character_BP_STA_Corrupted_C",
+    "NameTag": "Variant Corrupted Triceratops (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant Triceratops (Summoned)",
+    "ClassName": "Trike_Character_BP_Summoned_C",
+    "NameTag": "Variant Triceratops (Summoned)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Variant VR Triceratops (Gauntlet2)",
+    "ClassName": "Trike_Character_BP_TameSTA_C",
+    "NameTag": "Variant VR Triceratops (Gauntlet2)",
+    "Spawnable": false,
+    "Tameable": false
+  },
+  {
+    "Name": "Aberrant Trilobite",
+    "ClassName": "Trilobite_Character_Aberrant_C",
+    "NameTag": "Trilobite",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Trilobite",
+    "ClassName": "Trilobite_Character_C",
+    "NameTag": "Trilobite",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Troodon",
+    "ClassName": "Troodon_Character_BP_C",
+    "NameTag": "Troodon",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Aberrant Carbonemys",
+    "ClassName": "Turtle_Character_BP_Aberrant_C",
+    "NameTag": "Turtle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Carbonemys",
+    "ClassName": "Turtle_Character_BP_C",
+    "NameTag": "Turtle",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "R_Carbonemys",
+    "ClassName": "Turtle_Character_BP_Rockwell_C",
+    "NameTag": "R_Carbonemys",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Tusoteuthis",
+    "ClassName": "Tusoteuthis_Character_BP_C",
+    "NameTag": "Tusoteuthis",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Allosaurus",
+    "ClassName": "Volcano_Allo_Character_BP_C",
+    "NameTag": "Allo",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Ankylosaurus",
+    "ClassName": "Volcano_Ankylo_Character_BP_C",
+    "NameTag": "Anky",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Rock Elemental",
+    "ClassName": "Volcano_Golem_Character_BP_C",
+    "NameTag": "RockElemental",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Rex",
+    "ClassName": "Volcano_Rex_Character_BP_C",
+    "NameTag": "Rex",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "X-Triceratops",
+    "ClassName": "Volcano_Trike_Character_BP_C",
+    "NameTag": "Trike",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Vulture",
+    "ClassName": "Vulture_Character_BP_C",
+    "NameTag": "Vulture",
+    "Spawnable": true,
+    "Tameable": true
+  },
+  {
+    "Name": "Fire Wyvern",
+    "ClassName": "Wyvern_Character_BP_Fire_C",
+    "NameTag": "Wyvern",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Wyvern",
+    "ClassName": "Wyvern_Character_BP_Fire_Corrupt_C",
+    "NameTag": "Wyvern",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Lightning Wyvern",
+    "ClassName": "Wyvern_Character_BP_Lightning_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Poison Wyvern",
+    "ClassName": "Wyvern_Character_BP_Poison_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Nameless Queen",
+    "ClassName": "Xenomorph_Character_BP_C",
+    "NameTag": "Xenomorph",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Reaper Queen",
+    "ClassName": "Xenomorph_Character_BP_Female_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "R_ReaperQueen",
+    "ClassName": "Xenomorph_Character_BP_Female_Gen2_C",
+    "NameTag": "R_ReaperQueen",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Reaper King",
+    "ClassName": "Xenomorph_Character_BP_Male_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Subterranean Reaper King",
+    "ClassName": "Xenomorph_Character_BP_Male_Chupa_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "R_ReaperKing",
+    "ClassName": "Xenomorph_Character_BP_Male_Gen2_C",
+    "NameTag": "R_ReaperKing",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Elemental Reaper King",
+    "ClassName": "Xenomorph_Character_BP_Male_Minion_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Surface Reaper King",
+    "ClassName": "Xenomorph_Character_BP_Male_Surface_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Reaper King Tamed",
+    "ClassName": "Xenomorph_Character_BP_Male_Tamed_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Corrupted Reaper King",
+    "ClassName": "Xenomorph_Character_BP_Male_Tamed_Corrupt_C",
+    "NameTag": "Xenomorph",
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Yeti",
+    "ClassName": "Yeti_Character_BP_C",
+    "NameTag": null,
+    "Spawnable": true,
+    "Tameable": false
+  },
+  {
+    "Name": "Yutyrannus",
+    "ClassName": "Yutyrannus_Character_BP_C",
+    "NameTag": "Yutyrannus",
+    "Spawnable": true,
+    "Tameable": true
+  }
+]

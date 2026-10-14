@@ -15,6 +15,7 @@ public sealed class App : Application
         var theme = new FluentTheme();
         theme.Palettes[ThemeVariant.Dark] = new ColorPaletteResources { Accent = Color.Parse("#FFBC43"), RegionColor = Color.Parse("#0F1921") };
         Styles.Add(theme);
+        MainWindow.AddApprovedScrollbars(this);
         foreach (var (key, color) in new[]
         {
             ("ButtonBackground", "#1B2934"), ("ButtonBackgroundPointerOver", "#263B4A"),
@@ -37,10 +38,13 @@ public sealed class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             desktop.MainWindow = InstallerPayloadDirectory is not null ? new InstallerPreviewWindow(InstallerPayloadDirectory) : desktop.Args switch
             {
-                ["--installer-preview"] => new InstallerPreviewWindow(),
                 ["--install-payload", var payload] => new InstallerPreviewWindow(payload),
-                ["--update-preview"] => new LaunchUpdatePreviewWindow(),
+#if DESIGN_REVIEW
+                ["--installer-preview"] => new InstallerPreviewWindow(),
                 ["--design-preview"] => new MainWindow(desktop.Args),
+                ["--solo-overview-preview"] => MainWindow.CreateDesignReview("approved-solo"),
+                ["--cluster-overview-preview"] => MainWindow.CreateDesignReview("approved-cluster"),
+#endif
                 ["--update-result", var outcomePath] => OpenUpdateResult(outcomePath),
                 _ => new LaunchUpdateWindow(desktop, desktop.Args)
             };

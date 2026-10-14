@@ -10,11 +10,15 @@ Installers are distributed through [GitHub Releases](https://github.com/Brice619
 - Start, save, stop, restart, scheduled restarts and bounded crash recovery, with independent member status and background management after the window closes.
 - Map settings, join/admin passwords, welcome messages, supported player-platform options, shared cluster defaults and per-map overrides.
 - Mod IDs, optional metadata lookup, load order, presets and queued changes applied at startup or restart. Shared preset exports remove passwords.
-- Hourly backups while servers run, retention based on runtime, separate shared-cluster data, archive verification, selected-map restore and interrupted-operation recovery.
+- Hourly backups while servers run, manual world/player and coordinated cluster backups, daily schedules, archive verification, scoped restore and interrupted-operation recovery. Manual archives are kept separately from scheduled retention.
+- Searchable player records and live observations, documented admin/allowlist files, live RCON administration, and queued bans while stopped. Console logs and replies support filtering, export and follow output.
+- Cluster upload/download rules with independent map overrides, plus searchable and exportable activity scoped to the cluster and its maps.
 - Local network information, confirmed Windows Firewall setup, router guidance and optional router mapping.
 - Application update checks before opening, recovery to the installed version when an update fails, notifications and optional server/cluster startup selections.
 
-The interface uses spacious, scrolling cards and separate settings pages. Additional servers do not shrink existing cards.
+The native interface follows the approved server and cluster layouts. Tabs fade only their changing content; the header and navigation stay visible. Additional servers do not shrink existing cards. See [0.1.3 changes](docs/RELEASE-0.1.3.md).
+
+The normal installed app does not include the dummy server feature. Isolated sample fixtures belong to the development visual-review tool and are excluded from production builds.
 
 ## Installation and updates
 

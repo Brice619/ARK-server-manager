@@ -474,7 +474,7 @@ public sealed class ClusterBackupCaptureTests : IDisposable
                 new(cluster, 1, point.Capture.Id, true), ct), Stopped);
         if (mode == "valid")
         {
-            await Prepare(); Assert.NotNull(prepared); Assert.Equal(2, prepared.Maps.Count); Assert.Equal(point.Capture, prepared.Shared.Point.Capture);
+            await Prepare(); Assert.NotNull(prepared); Assert.Equal(2, prepared.Maps.Count); Assert.Equal(point.Capture, prepared.Shared!.Point.Capture);
             var operation = Guid.NewGuid(); ClusterRestoreRecord? staged = null;
             await coordinator.WithStoppedClusterAsync(cluster, root, async (current, ct) =>
                 staged = await ClusterRestoreStaging.StageAsync(current, root, new(cluster, 1, point.Capture.Id, true), operation, ct), Stopped);

@@ -10,7 +10,7 @@ public sealed partial class MainWindow
     private CoordinatedBackupHistory? coordinatedHistory;
     private CoordinatedRestorePoint? coordinatedPoint;
     private bool coordinatedLoading;
-    private bool reviewCoordinatedHistory;
+    private bool reviewCoordinatedHistory = false;
     private string coordinatedNotice = "";
     private long coordinatedRevision;
     private bool coordinatedTargetChosen;

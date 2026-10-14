@@ -11,21 +11,18 @@ namespace ArkServerManager.Desktop;
 
 public sealed partial class MainWindow
 {
+    private Button? headerCreateButton;
     private static readonly IBrush Amber = Brush.Parse("#FFBC43");
     private static readonly IBrush Muted = Brush.Parse("#A9B8C7");
-    private readonly Button settingsNavigation = new();
-    private Border? homeUnderline, installationUnderline, settingsUnderline;
     private static readonly Dictionary<string, Bitmap> Artwork = [];
-    private const string HomeIcon = "M2,10 L12,2 L22,10 M5,9 L5,22 L10,22 L10,15 L15,15 L15,22 L20,22 L20,9";
     private const string BoxIcon = "M2,7 L12,2 L22,7 L12,12 Z M2,7 L2,19 L12,24 L22,19 L22,7 M12,12 L12,24";
     private const string ClusterIcon = "M28,16 L10,48 M28,16 L46,48 M10,48 L46,48 M28,2 A7,7 0 1 1 28,16 A7,7 0 1 1 28,2 M10,41 A7,7 0 1 1 10,55 A7,7 0 1 1 10,41 M46,41 A7,7 0 1 1 46,55 A7,7 0 1 1 46,41";
-    private const string BellIcon = "M7,18 L7,10 A6,6 0 0 1 19,10 L19,18 L22,21 L4,21 Z M10,24 A3,3 0 0 0 16,24";
     private const string GearIcon = "M10,2 L16,2 L17,6 L21,8 L25,7 L28,12 L25,15 L25,19 L28,22 L25,27 L21,26 L17,28 L16,32 L10,32 L9,28 L5,26 L1,27 L-2,22 L1,19 L1,15 L-2,12 L1,7 L5,8 L9,6 Z M13,11 A6,6 0 1 0 13,23 A6,6 0 1 0 13,11";
 
     private Control BuildHeader()
     {
-        var header = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"), RowDefinitions = new RowDefinitions("64,0"),
-            Height = 64, Background = Brushes.Transparent, Margin = new Thickness(26, 0, 24, 0) };
+        var header = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"), RowDefinitions = new RowDefinitions("102"),
+            Height = 102, Background = Brushes.Transparent, Margin = new Thickness(44, 0, 44, 0) };
         if (OperatingSystem.IsWindows())
         {
             Avalonia.Controls.Chrome.WindowDecorationProperties.SetElementRole(header, Avalonia.Input.WindowDecorationsElementRole.User);
@@ -63,182 +60,170 @@ public sealed partial class MainWindow
             header.PointerReleased += (_, e) => { dragStart = null; e.Pointer.Capture(null); };
             header.PointerCaptureLost += (_, _) => dragStart = null;
         }
-        var brand = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 13, VerticalAlignment = VerticalAlignment.Center };
-        brand.Children.Add(VectorIcon("M2,32 L18,2 L34,32 M9,22 L27,22", Brush.Parse("#8DD5E4"), 32));
-        brand.Children.Add(Label("ARK Server Manager", 19, true)); header.Children.Add(brand);
-        var navigation = new StackPanel { Orientation = Orientation.Horizontal, HorizontalAlignment = HorizontalAlignment.Center };
-        Avalonia.Controls.Chrome.WindowDecorationProperties.SetElementRole(navigation, Avalonia.Input.WindowDecorationsElementRole.User);
-        homeUnderline = Navigation(dashboardNavigation, "Dashboard", HomeIcon);
-        installationUnderline = Navigation(installationNavigation, "Installations", BoxIcon);
-        settingsUnderline = Navigation(settingsNavigation, "App Settings", GearIcon);
-        navigation.Children.Add(homeUnderline); navigation.Children.Add(installationUnderline); navigation.Children.Add(settingsUnderline);
-        Grid.SetColumn(navigation, 1); header.Children.Add(navigation);
-        dashboardNavigation.Click += (_, _) => { ResetPage(); Render(); };
-        installationNavigation.Click += async (_, _) =>
+        var brand = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 4, VerticalAlignment = VerticalAlignment.Center };
+        var logo = new Image { Source = LoadArtwork("ark-logo"), Width = 108, Height = 108, Stretch = Stretch.Uniform };
+        RenderOptions.SetBitmapInterpolationMode(logo, BitmapInterpolationMode.HighQuality); brand.Children.Add(logo);
+        // Display the supplied wordmark at its original proportions. The viewport
+        // selects the lettering from the source image without altering the asset.
+        const double wordmarkScale = 340d / 1076d;
+        var wordmarkCanvas = new Canvas { Width = 340, Height = 40, ClipToBounds = true };
+        var wordmark = new Image { Source = LoadArtwork("ark-wordmark-source"),
+            Width = 1983 * wordmarkScale, Height = 793 * wordmarkScale, Stretch = Stretch.Fill };
+        RenderOptions.SetBitmapInterpolationMode(wordmark, BitmapInterpolationMode.HighQuality);
+        Canvas.SetLeft(wordmark, -674 * wordmarkScale);
+        Canvas.SetTop(wordmark, -338 * wordmarkScale);
+        wordmarkCanvas.Children.Add(wordmark);
+        wordmarkCanvas.VerticalAlignment = VerticalAlignment.Center;
+        wordmarkCanvas.Margin = new Thickness(0, 30, 0, 0);
+        brand.Children.Add(wordmarkCanvas);
+        var brandButton = new Button { Content = brand, Background = Brushes.Transparent, BorderThickness = new Thickness(0), Padding = new Thickness(0), Height = 108, VerticalAlignment = VerticalAlignment.Top };
+        brandButton.Resources["ButtonBackgroundPointerOver"] = Brushes.Transparent;
+        brandButton.Resources["ButtonBackgroundPressed"] = Brushes.Transparent;
+        Avalonia.Automation.AutomationProperties.SetName(brandButton, "ARK Server Manager menu");
+        ToolTip.SetTip(brandButton, "App menu");
+        var menu = new ContextMenu();
+        MenuItem Entry(string title, Action action)
         {
-            ResetPage(); installationsPage = true; Render();
-            if (!installationSearchStarted && client is not null) await SearchInstallationsAsync();
-        };
-        settingsNavigation.Click += (_, _) => { ResetPage(); settingsPage = true; Render(); };
-        var actions = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 16, VerticalAlignment = VerticalAlignment.Center };
+            var item = new MenuItem { Header = title }; item.Click += (_, _) => action(); menu.Items.Add(item); return item;
+        }
+        Entry("Your ARK Servers", () => { ResetPage(); Render(); });
+        var installations = Entry("Installations", () => { ResetPage(); installationsPage = true; Render(); });
+        installations.Click += async (_, _) => { if (!installationSearchStarted && client is not null) await SearchInstallationsAsync(); };
+        Entry("App Settings", () => { ResetPage(); settingsPage = true; Render(); });
+        var activity = activityMenuEntry = Entry("Activity", () => { ResetPage(); activityPage = true; Render(); });
+        activity.Click += async (_, _) => { if (client is not null) await LoadActivityAsync(); };
+        menu.Items.Add(new Separator());
+        Entry("Minimize window", () => WindowState = WindowState.Minimized);
+        Entry("Maximize or restore window", () => WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized);
+        Entry("Close window", Close);
+        brandButton.ContextMenu = menu;
+        brandButton.Click += (_, _) => menu.Open(brandButton);
+        header.Children.Add(brandButton);
+        var actions = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 16, VerticalAlignment = VerticalAlignment.Top, Margin = new Thickness(0, 35, 0, 0) };
         Avalonia.Controls.Chrome.WindowDecorationProperties.SetElementRole(actions, Avalonia.Input.WindowDecorationsElementRole.User);
-        var create = new Button
+        var create = headerCreateButton = new Button
         {
-            Content = "+  Create Server / Cluster", Background = Amber, Foreground = Brush.Parse("#181B1F"),
-            FontWeight = FontWeight.SemiBold, FontSize = 14, Padding = new Thickness(18, 12), CornerRadius = new CornerRadius(5),
+            Content = "+   Create Server / Cluster", Width = 296, Height = 53, Background = Brush.Parse("#493608"), Foreground = Brush.Parse("#FFE68A"), BorderBrush = Brush.Parse("#FFD23F"), BorderThickness = new Thickness(1),
+            FontWeight = FontWeight.SemiBold, FontSize = 20, Padding = new Thickness(20, 12), CornerRadius = new CornerRadius(7),
             IsEnabled = true
         };
+        Avalonia.Automation.AutomationProperties.SetName(create, "Create Server / Cluster");
         create.Click += (_, _) => { ResetPage(); ResetCreationDraft(); creationPage = true; Render(); };
-        create.Classes.Add("accent");
+        create.Resources["ButtonBackgroundPointerOver"] = Brush.Parse("#665015"); create.Resources["ButtonBorderBrushPointerOver"] = Brush.Parse("#FFE68A");
         actions.Children.Add(create);
-        var bell = new Grid { Width = 37, Height = 35 };
-        bell.Children.Add(VectorIcon(BellIcon, Muted, 25));
-        notificationBadgeText = Label("", 10, true); notificationBadgeText.Foreground = Brush.Parse("#181B1F");
-        notificationBadgeText.HorizontalAlignment = HorizontalAlignment.Center;
-        notificationBadgeText.VerticalAlignment = VerticalAlignment.Center;
-        notificationBadge = new Border { Background = Amber, CornerRadius = new CornerRadius(10), MinWidth = 19, Height = 19,
-            Padding = new Thickness(4, 0), HorizontalAlignment = HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Top,
-            Margin = new Thickness(0, -3, -3, 0), Child = notificationBadgeText, IsVisible = false };
-        bell.Children.Add(notificationBadge);
-        var notifications = new Button { Content = bell, Background = Brushes.Transparent, BorderThickness = new Thickness(0), Padding = new Thickness(8) };
-        notificationEntry = notifications; UpdateNotificationBadge();
-        Avalonia.Automation.AutomationProperties.SetName(notifications, "Open activity and notifications");
-        notifications.Click += async (_, _) => { ResetPage(); activityPage = true; Render(); if (client is not null) await LoadActivityAsync(); };
-        actions.Children.Add(notifications); Grid.SetColumn(actions, 2); header.Children.Add(actions);
-        if (OperatingSystem.IsWindows()) actions.Children.Add(BuildWindowActions());
-        bool? compactHeader = null;
+        Grid.SetColumn(actions, 2); header.Children.Add(actions);
         header.SizeChanged += (_, _) =>
         {
-            if (header.Bounds.Width <= 0) return;
-            var compact = header.Bounds.Width < (OperatingSystem.IsWindows() ? 1200 : 1070);
-            if (compactHeader == compact) return;
-            compactHeader = compact; header.Height = compact ? 128 : 64;
-            header.RowDefinitions[1].Height = new GridLength(compact ? 64 : 0);
-            Grid.SetRow(navigation, compact ? 1 : 0);
-            Grid.SetColumn(navigation, compact ? 0 : 1);
-            Grid.SetColumnSpan(navigation, compact ? 3 : 1);
+            var compact = header.Bounds.Width < 760 && create.IsVisible;
+            header.Height = compact ? 170 : 102;
+            actions.Margin = new Thickness(0, compact ? 112 : 35, 0, 0);
         };
-        return new Border { Background = Brush.Parse("#17222C"), BorderBrush = Brush.Parse("#2C3945"), BorderThickness = new Thickness(0, 0, 0, 1), Child = header };
+        return header;
     }
-
-    private Control BuildWindowActions()
-    {
-        var buttons = new StackPanel { Orientation = Orientation.Horizontal };
-        Button Caption(string name, string path, Action action)
-        {
-            Control symbol = name == "Minimize window" ? new Border { Width = 14, Height = 2, Background = Muted,
-                VerticalAlignment = VerticalAlignment.Center } : VectorIcon(path, Muted, 14);
-            var button = new Button { Content = symbol, Width = 38, Height = 38, Padding = new Thickness(10),
-                Background = Brushes.Transparent, BorderThickness = new Thickness(0), CornerRadius = new CornerRadius(4) };
-            Avalonia.Automation.AutomationProperties.SetName(button, name); ToolTip.SetTip(button, name);
-            button.Click += (_, _) => action();
-            button.PointerEntered += (_, _) => button.Background = Brush.Parse(name == "Close window" ? "#B64037" : "#263B4A");
-            button.PointerExited += (_, _) => button.Background = Brushes.Transparent;
-            return button;
-        }
-        buttons.Children.Add(Caption("Minimize window", "M2,9 L12,9", () => WindowState = WindowState.Minimized));
-        var maximize = Caption("Maximize or restore window", "M2,2 L12,2 L12,12 L2,12 Z", () =>
-            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized);
-        buttons.Children.Add(maximize);
-        PropertyChanged += (_, change) =>
-        {
-            if (change.Property == WindowStateProperty) maximize.Content = VectorIcon(WindowState == WindowState.Maximized
-                ? "M2,5 L9,5 L9,12 L2,12 Z M5,2 L12,2 L12,9" : "M2,2 L12,2 L12,12 L2,12 Z", Muted, 14);
-        };
-        buttons.Children.Add(Caption("Close window", "M2,2 L12,12 M12,2 L2,12", Close));
-        return buttons;
-    }
-
-    private static Border Navigation(Button button, string title, string geometry)
-    {
-        button.Margin = new Thickness(0); button.Background = Brushes.Transparent; button.BorderThickness = new Thickness(0);
-        button.Padding = new Thickness(18, 0); button.Height = 60; button.FontSize = 15;
-        var body = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 10, VerticalAlignment = VerticalAlignment.Center };
-        body.Children.Add(VectorIcon(geometry, Muted, 21)); body.Children.Add(Label(title, 15)); button.Content = body;
-        Avalonia.Automation.AutomationProperties.SetName(button, title);
-        return new Border { BorderThickness = new Thickness(0, 0, 0, 3), BorderBrush = Brushes.Transparent, Child = button };
-    }
-
     private void ResetPage()
     {
         installationsPage = activityPage = settingsPage = creationPage = false;
         selectedCluster = selectedServer = null;
     }
 
-    private void UpdateNavigation()
+    private static Control DashboardSection(string title, double margin)
     {
-        if (homeUnderline is null) return;
-        homeUnderline.BorderBrush = !installationsPage && !settingsPage ? Amber : Brushes.Transparent;
-        installationUnderline!.BorderBrush = installationsPage ? Amber : Brushes.Transparent;
-        settingsUnderline!.BorderBrush = settingsPage ? Amber : Brushes.Transparent;
-        foreach (var (button, selected) in new[] { (dashboardNavigation, !installationsPage && !settingsPage), (installationNavigation, installationsPage), (settingsNavigation, settingsPage) })
-            if (button.Content is StackPanel panel && panel.Children[0] is Avalonia.Controls.Shapes.Path symbol)
-                symbol.Stroke = selected ? Amber : Muted;
+        var text = Label(title, 20, true); text.Foreground = Brush.Parse("#6D9DC6");
+        text.LetterSpacing = 3; text.Margin = new Thickness(0, 0, 0, 0);
+        var row = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*"), Margin = new Thickness(0, margin, 0, 0) };
+        row.Children.Add(text);
+        if (title == "SERVER CLUSTERS")
+        {
+            var rule = new Border { Height = 1, Background = Brush.Parse("#2A4358"), Margin = new Thickness(18, 0, 0, 0), VerticalAlignment = VerticalAlignment.Center };
+            Grid.SetColumn(rule, 1); row.Children.Add(rule);
+        }
+        return row;
     }
 
     private static Control SectionHeading(string title, string count, double margin)
     {
-        var row = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"), Margin = new Thickness(0, margin, 18, 10) };
-        row.Children.Add(Label(title, 25, true));
-        var rule = new Border { Height = 1, Background = Brush.Parse("#2A3945"), Margin = new Thickness(18, 0), VerticalAlignment = VerticalAlignment.Center };
+        var row = new Grid { ColumnDefinitions = new ColumnDefinitions("Auto,*,Auto"), Margin = new Thickness(0, margin, 0, title == "Your ARK Servers" ? 0 : 10) };
+        var heading = Label(title, title == "Your ARK Servers" ? 46 : 25, true);
+        if (title == "Your ARK Servers") heading.LetterSpacing = 1.8;
+        row.Children.Add(heading);
+        var rule = new Border { Height = 1, Background = Brush.Parse("#2A3945"), Margin = new Thickness(24, 0, 0, 0), VerticalAlignment = VerticalAlignment.Center };
         Grid.SetColumn(rule, 1); row.Children.Add(rule);
         var total = Label(count, 15); total.Foreground = Muted; total.VerticalAlignment = VerticalAlignment.Center;
         Grid.SetColumn(total, 2); row.Children.Add(total); return row;
     }
 
-    private Control ServerCard(ServerDefinition server, Action open)
+    private static string? MapArtwork(string map) => map.ToLowerInvariant() switch
     {
-        var layout = new Grid { ColumnDefinitions = new ColumnDefinitions("190,*,18") };
-        var key = server.Map.Contains("fjord", StringComparison.OrdinalIgnoreCase) ? "fjord"
-            : server.Map.Contains("ragnarok", StringComparison.OrdinalIgnoreCase) || server.Map.Contains("scorched", StringComparison.OrdinalIgnoreCase) ? "canyon"
-            : server.Map.Contains("island", StringComparison.OrdinalIgnoreCase) ? "island" : null;
-        Control picture = key is null ? new Border { Background = Brush.Parse("#14212B"), Child = VectorIcon(BoxIcon, Muted, 44) }
+        var m when m.Contains("island") => "island",
+        var m when m.Contains("scorched") => "canyon",
+        var m when m.Contains("fjord") => "fjord",
+        var m when m.Contains("aberration") => "cavern-v1",
+        var m when m.Contains("extinction") => "ruined-city-v1",
+        _ => "island" // Temporary available landscape until dedicated map art is supplied.
+    };
+
+    private static Control MapPicture(string map)
+    {
+        if (map.Contains("island", StringComparison.OrdinalIgnoreCase) || map.Contains("scorched", StringComparison.OrdinalIgnoreCase) || map.Contains("aberration", StringComparison.OrdinalIgnoreCase))
+            return ApprovedMapArtwork(map);
+        var key = MapArtwork(map);
+        return key is null ? new Border { Background = Brush.Parse("#14212B"), Child = Label(MapName(map), 20) }
             : new Image { Source = LoadArtwork(key), Stretch = Stretch.UniformToFill };
-        layout.Children.Add(new Border { CornerRadius = new CornerRadius(5), ClipToBounds = true, Child = picture });
-        var information = CardInformation(server.Settings.Name, server.Edition);
-        var running = designPreview && server.Settings.Name != "Legacy PvE";
-        information.Children.Add(designPreview ? Status(running ? "Running" : "Stopped",
-            running ? "#64E581" : "#FF6062") : ObservedProcessStatus(serverId: server.Id));
-        var players = designPreview ? server.Settings.Name == "Island Test" ? "8" : server.Settings.Name == "Fjordur Solo" ? "3" : "0" : "—";
-        var population = new StackPanel { Spacing = 3, Margin = new Thickness(0, 10, 0, 0) };
-        population.Children.Add(Label($"{players} / {server.Settings.MaxPlayers}", 18, true));
-        var caption = Label("players", 13); caption.Foreground = Muted; population.Children.Add(caption);
-        information.Children.Add(population); Grid.SetColumn(information, 1); layout.Children.Add(information);
-        AddChevron(layout); return DesignCard(layout, server.Settings.Name, 190, open);
     }
 
-    private Control ClusterCard(ClusterDefinition cluster, int maps, Action open)
+    private Control ServerCard(ServerDefinition server, Action open)
+        => LandscapeCard(server.Settings.Name, server.Edition, MapPicture(server.Map),
+            MapName(server.Map), designPreview ? Status("Stopped", "#FF5549") : ObservedProcessStatus(serverId: server.Id), open);
+
+    private Control ClusterCard(ClusterDefinition cluster, Action open)
     {
-        var layout = new Grid { ColumnDefinitions = new ColumnDefinitions("112,*,18") };
-        var color = cluster.Edition == ArkEdition.ASA ? Brush.Parse("#65B6FF") : Amber;
-        var emblem = new Border
+        var members = catalog!.Servers.Where(s => s.ClusterId == cluster.Id).ToArray();
+        Control picture;
+        if (members.Length == 1) picture = MapPicture(members[0].Map);
+        else if (members.Length == 0) picture = new Border { Background = Brush.Parse("#14212B") };
+        else
         {
-            Width = 92, Height = 104, CornerRadius = new CornerRadius(6), Background = Brush.Parse("#101A22"),
-            BorderBrush = Brush.Parse("#30414E"), BorderThickness = new Thickness(1), Child = VectorIcon(ClusterIcon, color, 58),
-            VerticalAlignment = VerticalAlignment.Center, HorizontalAlignment = HorizontalAlignment.Center
-        };
-        layout.Children.Add(emblem);
-        var information = CardInformation(cluster.Name, cluster.Edition);
-        var partial = cluster.Name == "Modded Event Cluster";
-        information.Children.Add(designPreview ? Status(partial ? "Partial" : "Running",
-            partial ? "#FFBC43" : "#64E581") : ObservedProcessStatus(clusterId: cluster.Id));
-        var mapCount = Label($"{maps} maps", 16); mapCount.Foreground = Muted; mapCount.Margin = new Thickness(0, 9, 0, 0);
-        information.Children.Add(mapCount); Grid.SetColumn(information, 1); layout.Children.Add(information);
-        AddChevron(layout); return DesignCard(layout, cluster.Name, 152, open);
+            var collage = new Grid { ColumnDefinitions = new ColumnDefinitions("*,*"), RowDefinitions = new RowDefinitions(members.Length > 2 ? "*,*" : "*") };
+            for (var i = 0; i < Math.Min(members.Length, 4); i++)
+            {
+                var image = MapPicture(members[i].Map);
+                                if (members.Length == 3)
+                {
+                    Grid.SetColumn(image, i == 0 ? 0 : 1); Grid.SetRow(image, i == 2 ? 1 : 0);
+                    if (i == 0) Grid.SetRowSpan(image, 2);
+                }
+                else { Grid.SetColumn(image, i % 2); Grid.SetRow(image, i / 2); }
+                collage.Children.Add(image);
+            }
+            picture = collage;
+        }
+        return LandscapeCard(cluster.Name, cluster.Edition, picture,
+            string.Join(" · ", members.Select(s => MapName(s.Map))),
+            designPreview ? Status("Stopped", "#FF5549") : ObservedProcessStatus(clusterId: cluster.Id), open);
     }
 
-    private static StackPanel CardInformation(string name, ArkEdition edition)
+    private static Control LandscapeCard(string name, ArkEdition edition, Control picture, string maps, Control status, Action open)
     {
-        var body = new StackPanel { Margin = new Thickness(16, 12, 8, 8), Spacing = 14, VerticalAlignment = VerticalAlignment.Center };
-        var title = new Grid { ColumnDefinitions = new ColumnDefinitions("*,Auto") };
-        var text = Label(name, 18, true); text.TextWrapping = TextWrapping.NoWrap; text.TextTrimming = TextTrimming.CharacterEllipsis;
-        title.Children.Add(text);
-        var color = edition == ArkEdition.ASA ? Brush.Parse("#75BCF6") : Amber;
-        var badge = new Border { BorderBrush = color, BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(4),
-            Padding = new Thickness(7, 4), Margin = new Thickness(8, 0, 0, 0), Child = new TextBlock { Text = edition.ToString(), FontSize = 12, Foreground = color } };
-        Grid.SetColumn(badge, 1); title.Children.Add(badge); body.Children.Add(title); return body;
+        var body = new StackPanel { Spacing = 10 };
+        body.Children.Add(new Border { Height = 208, CornerRadius = new CornerRadius(5), ClipToBounds = true, Child = picture });
+        var title = Label(name, 24, true); title.Margin = new Thickness(6, 0, 6, 0); title.TextWrapping = TextWrapping.NoWrap; title.TextTrimming = TextTrimming.CharacterEllipsis;
+        body.Children.Add(title);
+        var badges = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 16, Margin = new Thickness(6, 0, 6, 0) };
+        badges.Children.Add(new Border { Background = Brush.Parse("#1D2D3E"), BorderBrush = Brush.Parse("#2B4255"), BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(5), Padding = new Thickness(12, 5), Child = Label(edition.ToString(), 16) });
+        badges.Children.Add(new Border { Background = Brush.Parse("#14212B"), BorderBrush = Brush.Parse("#34424D"), BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(5), Padding = new Thickness(10, 5), Child = status });
+                if (status is StackPanel statusLine && statusLine.Children.LastOrDefault() is TextBlock statusText && statusText.Foreground is ISolidColorBrush statusColor)
+        {
+            var badge = (Border)badges.Children[1]; var color = statusColor.Color;
+            badge.Background = new SolidColorBrush(Color.FromArgb(24, color.R, color.G, color.B));
+            badge.BorderBrush = new SolidColorBrush(Color.FromArgb(65, color.R, color.G, color.B));
+        }
+        body.Children.Add(badges);
+        var mapLine = new Grid { ColumnDefinitions = new ColumnDefinitions("24,*"), Margin = new Thickness(9, 0, 6, 0), MinHeight = 24 };
+        mapLine.Children.Add(VectorIcon("M2,4 L9,1 L16,4 L23,1 L23,20 L16,23 L9,20 L2,23 Z M9,1 L9,20 M16,4 L16,23", Muted, 24));
+        var mapText = Label(maps, 16); mapText.TextWrapping = TextWrapping.NoWrap; mapText.Foreground = Muted; mapText.TextTrimming = TextTrimming.CharacterEllipsis;
+        mapText.VerticalAlignment = VerticalAlignment.Center; mapText.Margin = new Thickness(15, 0, 0, 0); Grid.SetColumn(mapText, 1); mapLine.Children.Add(mapText); body.Children.Add(mapLine);
+        return DesignCard(body, name, 352, open);
     }
-
     private static Control Status(string text, string color)
     {
         var line = new StackPanel { Orientation = Orientation.Horizontal, Spacing = 10 };
@@ -248,24 +233,18 @@ public sealed partial class MainWindow
 
     private static Button DesignCard(Control body, string name, double height, Action open)
     {
-        var button = new Button { Width = 442, Height = height, Margin = new Thickness(0, 0, 18, 10), Padding = new Thickness(9),
+        var button = new Button { Width = 472, Height = height, Margin = new Thickness(0, 0, 16, 10), Padding = new Thickness(9),
             HorizontalContentAlignment = HorizontalAlignment.Stretch, VerticalContentAlignment = VerticalAlignment.Stretch,
-            BorderBrush = Brush.Parse("#2B3A46"), BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(7),
+            BorderBrush = Brush.Parse("#2A455B"), BorderThickness = new Thickness(1), CornerRadius = new CornerRadius(7),
             Background = new LinearGradientBrush
             {
                 StartPoint = new RelativePoint(0, 0, RelativeUnit.Relative), EndPoint = new RelativePoint(1, 1, RelativeUnit.Relative),
-                GradientStops = [new GradientStop(Color.Parse("#1B2832"), 0), new GradientStop(Color.Parse("#142029"), 1)]
+                GradientStops = [new GradientStop(Color.Parse("#0F1D29"), 0), new GradientStop(Color.Parse("#0D1923"), 1)]
             }, Content = body };
         button.Resources["ButtonBackgroundPointerOver"] = Brush.Parse("#1D2D39");
-        button.Resources["ButtonBorderBrushPointerOver"] = Amber;
+        button.Resources["ButtonBorderBrushPointerOver"] = Brush.Parse("#65A9D3");
         Avalonia.Automation.AutomationProperties.SetName(button, "Open " + name);
         button.Click += (_, _) => open(); return button;
-    }
-
-    private static void AddChevron(Grid grid)
-    {
-        var arrow = new TextBlock { Text = "›", FontSize = 30, Foreground = Muted, VerticalAlignment = VerticalAlignment.Center };
-        Grid.SetColumn(arrow, 2); grid.Children.Add(arrow);
     }
 
     internal static Control VectorIcon(string data, IBrush color, double size) => new Avalonia.Controls.Shapes.Path

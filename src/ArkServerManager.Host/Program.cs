@@ -243,6 +243,7 @@ var lifecycle = new ServerLifecycleCoordinator(repository, runtimeFactory.Create
     (server, ct) => new InstallationStopGuard().CheckAsync(server.Directory, ct),
     async (server, ct) =>
     {
+        await activity.AppendAsync(new(Guid.NewGuid(),DateTimeOffset.UtcNow,"server",ActivitySeverity.Information,"Server started",ServerId:server.Id,Stage:"started"),ct);
         try
         {
             await WorldRestoreRecovery.CleanupAfterVerifiedStartAsync(server, ct);
@@ -261,6 +262,7 @@ var lifecycle = new ServerLifecycleCoordinator(repository, runtimeFactory.Create
         }
     }, async (server, ct) =>
     {
+        await activity.AppendAsync(new(Guid.NewGuid(),DateTimeOffset.UtcNow,"server",ActivitySeverity.Information,"Server stopped",ServerId:server.Id,Stage:"stopped"),ct);
         var update = await pendingServerUpdates.OnStoppedAsync(server.Id, ct);
         if (update.Queued) throw new IOException(update.Message);
         await CleanupNativeLaunchPathsAsync(ct);
@@ -470,6 +472,10 @@ var serverUpdateOperations = new ServerUpdateManagerOperations(repository, opera
     });
 var announcementOperations = new AnnouncementManagerOperations(repository, operations);
 var consoleCommandOperations = new ConsoleCommandManagerOperations(repository, operations);
+var managedClusterBackups = new ManagedClusterBackupOperations(repository,root,operations,lifecycle,CreateManagedClusterBackupAsync,(server,ct)=>new InstallationStopGuard().CheckAsync(server.Directory,ct),
+    (id,message,ct)=>activity.AppendAsync(new(Guid.NewGuid(),DateTimeOffset.UtcNow,"backup",ActivitySeverity.Information,message,ServerId:id),ct));
+var clusterTransfersOperations = new ClusterTransferSettingsOperations(repository,root,operations,pendingConfiguration,lifecycle.WithStatusScopeAsync,RequireNoAdvancedConflictsAsync,(id,ct)=>activity.AppendAsync(new(Guid.NewGuid(),DateTimeOffset.UtcNow,"transfers",ActivitySeverity.Information,"Transfer rules saved",ServerId:id),ct));
+var managedScreens = new ManagedScreensOperations(repository, root, operations, lifecycle, CreateManagedBackupAsync, (server, ct) => new InstallationStopGuard().CheckAsync(server.Directory, ct));
 var worldRestoreOperations = new WorldRestoreManagerOperations(repository, operations, lifecycle, root,
     (server, ct) => new InstallationStopGuard().CheckAsync(server.Directory, ct));
 var deletionService = new ServerDeletionService(repository, lifecycle,
@@ -521,10 +527,25 @@ var host = new LocalManagerServer(root, async (request, ct) =>
     "catalog" => await repository.ReadAsync(ct),
     "server-process-status" => RegisteredProcessStatus.FromScan(await repository.ReadAsync(ct),
         await new ServerProcessDiscovery().ScanAsync(ct), OperatingSystem.IsLinux()),
-    "server-players-read" => await ServerPlayerQuery.ReadAsync(repository,
+    "server-players-read" => await ReadManagedLivePlayersAsync(
         request.Payload?.Deserialize<ServerPlayerQueryRequest>() ?? throw new ArgumentException("Choose a server."), ct),
     "server-announcement-start" => announcementOperations.Start(request),
     "server-console-command-start" => consoleCommandOperations.Start(request),
+    "managed-cluster-backups-read" => await managedClusterBackups.ReadAsync(request.Payload!.Value.Deserialize<Guid>(),ct),
+    "managed-cluster-backup-create" => managedClusterBackups.Start(request,"create"),
+    "managed-cluster-backup-preferences" => managedClusterBackups.Start(request,"preferences"),
+    "managed-cluster-backup-delete" => managedClusterBackups.Start(request,"delete"),
+    "managed-cluster-backup-restore" => managedClusterBackups.Start(request,"restore"),
+    "cluster-transfers-read" => await clusterTransfersOperations.ReadAsync(request.Payload!.Value.Deserialize<Guid>(),ct),
+    "cluster-transfers-save-start" => clusterTransfersOperations.Start(request),
+    "managed-backups-read" => await managedScreens.ReadBackupsAsync(request.Payload!.Value.Deserialize<Guid>(), ct),
+    "managed-backup-create" => managedScreens.Backup(request, "create"),
+    "managed-backup-delete-legacy" => managedScreens.Backup(request, "delete-legacy"),
+    "managed-backup-delete" => managedScreens.Backup(request, "delete"),
+    "managed-backup-restore" => managedScreens.Backup(request, "restore"),
+    "managed-backup-schedule" => managedScreens.Backup(request, "schedule"),
+    "managed-players-read" => await managedScreens.ReadPlayersAsync(request.Payload!.Value.Deserialize<Guid>(), ct),
+    "managed-player-edit" => managedScreens.Player(request),
     "server-log-tail" => await ServerLogTail.ReadAsync(repository, request.Payload!.Value.Deserialize<Guid>(), ct),
     "server-mod-order-save-start" => modOrderOperations.Start(request),
     "server-mod-order-read" => await pendingModOrder.ReadAsync(request.Payload?.Deserialize<Guid>()
@@ -544,6 +565,8 @@ var host = new LocalManagerServer(root, async (request, ct) =>
         request.Payload?.Deserialize<ServerCreationCheckRequest>() ?? throw new ArgumentException("Review a new server setup."), ct),
     "deletion-recovery-status" => await ServerDeletionRecovery.ScanAsync(repository, root, ct),
     "deletion-recovery-start" => recoveryOperations.Start(request),
+    "server-launch-preferences-read" => await ServerLaunchPreferencesStore.ReadAsync(repository,request.Payload!.Value.Deserialize<Guid>(),ct),
+    "server-launch-preferences-save" => await ServerLaunchPreferencesStore.SaveAsync(repository,request.Payload!.Value.Deserialize<ServerLaunchPreferencesEdit>() ?? throw new ArgumentException("Review launch preferences."),ct),
     "server-configuration-read" => await ServerConfigurationReader.ReadAsync(repository,
         request.Payload?.Deserialize<ServerConfigurationReadRequest>()
             ?? throw new ArgumentException("Choose a server configuration file."), ct),
@@ -913,6 +936,7 @@ try
             (selected, token) => new InstallationStopGuard().CheckAsync(selected.Directory, token),
             async (acquireState, token) =>
             {
+                if ((await new ManagedBackupStore(server).ReadAsync(token)).Policy.Configured) return;
                 var service = new AutomaticBackupService(server, TimeSpan.FromMinutes(1), acquireState,
                     message => RecordBackupNoticeAsync(server.Id, message), SnapshotLayout.WorldSavedFolders);
                 if (observation is not null) await service.TickMeasuredAsync(observation, now, token);
@@ -933,6 +957,7 @@ try
             async (current, acquire, token) =>
             {
                 await ClusterRestoreRecords.RequireConsistentAsync(current, cluster.Id, root, token);
+                if((await new ManagedClusterBackupStore(current,cluster.Id,root).ReadAsync(token)).Policy.Configured)return;
                 // Finish already-recorded independent work before the coordinated scheduler takes over.
                 // Old per-map clocks are not advanced or relabelled as cluster runtime.
                 foreach (var member in current.Servers.Where(s => s.ClusterId == cluster.Id))
@@ -1028,6 +1053,7 @@ async Task CleanupLinuxSnapshotsAsync(CancellationToken ct)
 
 async Task MaintainBackupStorageAsync(CancellationToken ct)
 {
+    await MaintainManagedScreensAsync(ct);
     await CleanupLinuxSnapshotsAsync(ct);
     await lifecycle.WithStatusScopeAsync(async (statuses, ct) =>
     {
@@ -1098,3 +1124,52 @@ async Task CleanupNativeLaunchPathsAsync(CancellationToken ct)
 }
 
 
+
+async Task<ManagedBackupInventory> CreateManagedBackupAsync(ServerDefinition server,string name,bool scheduled,CancellationToken ct)
+{
+    ManagedBackupInventory? result=null;
+    await lifecycle.WithBackupWorkAsync(server,async(selected,token)=>
+    {
+        var endpoint=await ServerRconConfiguration.ReadAsync(repository,selected.Id,TimeSpan.FromMinutes(1),RconResponseMode.SinglePacket,token);
+        var response=await new RconClient().ExecuteAsync(endpoint,"SaveWorld",token);
+        if(!response.Trim().Equals("World Saved",StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("ARK did not confirm its world save; no live backup was captured.");
+    },(source,token)=>OperatingSystem.IsWindows()?snapshotBroker!.AcquireAsync(source,token):linuxSnapshots!.AcquireAsync(source,token),
+    (selected,token)=>new InstallationStopGuard().CheckAsync(selected.Directory,token),
+    async(acquire,token)=>result=await new ManagedBackupStore(server).CreateAsync(name,scheduled,acquire,token),ct);
+    return result!;
+}
+async Task<ManagedClusterBackupInventory> CreateManagedClusterBackupAsync(Guid id,string name,bool scheduled,CancellationToken ct)
+{
+    ManagedClusterBackupInventory? result=null;
+    await lifecycle.WithClusterBackupWorkAsync(id,root,async(server,token)=>
+    {
+        var endpoint=await ServerRconConfiguration.ReadAsync(repository,server.Id,TimeSpan.FromMinutes(1),RconResponseMode.SinglePacket,token);var response=await new RconClient().ExecuteAsync(endpoint,"SaveWorld",token);
+        if(!response.Trim().Equals("World Saved",StringComparison.OrdinalIgnoreCase))throw new InvalidOperationException("ARK did not confirm its world save; cluster capture was not created.");
+    },(sources,token)=>OperatingSystem.IsWindows()?snapshotBroker!.AcquireSetAsync(sources,token):linuxSnapshots!.AcquireSetAsync(sources,token),
+    (server,token)=>new InstallationStopGuard().CheckAsync(server.Directory,token),async(catalog,acquire,token)=>
+    {
+        await ClusterRestoreRecords.RequireConsistentAsync(catalog,id,root,token);result=await new ManagedClusterBackupStore(catalog,id,root).CreateAsync(name,scheduled,acquire,token);
+    },ct);return result!;
+}
+async Task MaintainManagedScreensAsync(CancellationToken ct)
+{
+    try{await managedScreens.ApplyPendingBansAsync(ct);}catch(Exception error)when(error is IOException or InvalidOperationException or TimeoutException){await RecordBackupNoticeAsync(null,"Pending player administration could not complete: "+error.Message);}
+    var clusterCatalog=await repository.ReadAsync(ct);
+    foreach(var cluster in clusterCatalog.Clusters)
+    {
+        try{var policy=(await new ManagedClusterBackupStore(clusterCatalog,cluster.Id,root).ReadAsync(ct)).Policy;if(ManagedBackupStore.DueDay(policy,DateTimeOffset.UtcNow) is not null){await CreateManagedClusterBackupAsync(cluster.Id,"Scheduled backup",true,ct);await activity.AppendAsync(new(Guid.NewGuid(),DateTimeOffset.UtcNow,"backup",ActivitySeverity.Information,"Scheduled cluster backup created",ServerId:cluster.Id),ct);}}
+        catch(Exception error)when(error is IOException or InvalidOperationException or UnauthorizedAccessException or ArgumentException or TimeoutException){await RecordBackupNoticeAsync(cluster.Id,"Scheduled cluster backup will retry: "+error.Message);}
+    }
+    foreach(var server in (await repository.ReadAsync(ct)).Servers)
+    {
+        try{var policy=(await new ManagedBackupStore(server).ReadAsync(ct)).Policy;if(ManagedBackupStore.DueDay(policy,DateTimeOffset.UtcNow) is not null)await CreateManagedBackupAsync(server,"Scheduled backup",true,ct);}
+        catch(Exception error)when(error is IOException or InvalidOperationException or UnauthorizedAccessException or ArgumentException or TimeoutException){await RecordBackupNoticeAsync(server.Id,"Scheduled backup will retry: "+error.Message);}
+    }
+}
+
+async Task<ServerPlayerQueryResult> ReadManagedLivePlayersAsync(ServerPlayerQueryRequest selection,CancellationToken ct)
+{
+    var result=await ServerPlayerQuery.ReadAsync(repository,selection,ct);
+    var server=(await repository.ReadAsync(ct)).Servers.Single(s=>s.Id==selection.ServerId);
+    await new ManagedPlayerStore(root,server).ObserveAsync(result,ct);return result;
+}

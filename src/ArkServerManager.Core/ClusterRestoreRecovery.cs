@@ -9,11 +9,12 @@ public static class ClusterRestoreRecovery
         var record = (await ClusterRestoreRecords.ReadAsync(catalog, clusterId, root, ct)).Single(r => r.OperationId == operationId);
         if (record.Phase is not (ClusterRestorePhase.Replacing or ClusterRestorePhase.RollingBack or ClusterRestorePhase.RolledBack))
             throw new InvalidOperationException("Choose an interrupted cluster replacement.");
-        var members = catalog.Servers.Where(s => s.ClusterId == clusterId).OrderBy(s => s.Id).ToArray();
-        if (!record.Maps.OrderBy(id => id).SequenceEqual(members.Select(s => s.Id)))
+        var allMembers=catalog.Servers.Where(s=>s.ClusterId==clusterId).OrderBy(s=>s.Id).ToArray();
+        var members=allMembers.Where(s=>record.Maps.Contains(s.Id)).ToArray();
+        if (!record.Maps.OrderBy(id => id).SequenceEqual(members.Select(s => s.Id)) || !record.Scoped && members.Length!=allMembers.Length)
             throw new InvalidOperationException("Cluster membership changed. Review recovery before moving files.");
         var expected = members.SelectMany(s => new[] { (Server: (Guid?)s.Id, Folder: "SavedArks"), (Server: (Guid?)s.Id, Folder: "SaveGames") })
-            .Append((Server: (Guid?)null, Folder: "Transfers")).ToArray();
+            .Concat(record.IncludesShared?new[]{(Server:(Guid?)null,Folder:"Transfers")}:[]).ToArray();
         if (record.OriginalFolders is null || record.OriginalFolders.Count != expected.Length
             || record.OriginalFolders.Any(f => f is null) || record.OriginalFolders.Select(f => (f.ServerId, f.Folder)).Distinct().Count() != expected.Length
             || expected.Any(item => !record.OriginalFolders.Any(f => f.ServerId == item.Server && f.Folder == item.Folder)))

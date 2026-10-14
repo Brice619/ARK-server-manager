@@ -1,3 +1,4 @@
+using Avalonia.Platform;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -14,8 +15,7 @@ public sealed partial class MainWindow : Window
     private readonly StackPanel creationFooter = new() { Margin = new Thickness(38, 12, 38, 18), Spacing = 8, IsVisible = false };
     private readonly TextBlock connection = new() { TextWrapping = TextWrapping.Wrap };
     private readonly Button refresh = new() { Content = "Refresh", MinWidth = 100 };
-    private readonly Button dashboardNavigation = new() { Content = "Dashboard", Margin = new Thickness(16, 0) };
-    private readonly Button installationNavigation = new() { Content = "Installations", Margin = new Thickness(0, 0, 16, 0) };
+    private ScrollViewer? pageScroll;
     private CatalogDocument? catalog;
     private RegisteredProcessStatus? processStatus;
     private Guid? selectedCluster;
@@ -32,22 +32,30 @@ public sealed partial class MainWindow : Window
         this.startupNotice = startupNotice;
         this.startupUpdateJournal = startupUpdateJournal;
         Title = "ARK Server Manager";
+        WindowStartupLocation = WindowStartupLocation.CenterScreen;
+        using (var icon = AssetLoader.Open(new Uri("avares://ArkServerManager.Desktop/Assets/ark-logo.png"))) Icon = new WindowIcon(icon);
         if (OperatingSystem.IsWindows())
         {
             ExtendClientAreaToDecorationsHint = true;
             ExtendClientAreaTitleBarHeightHint = 64;
             WindowDecorations = WindowDecorations.BorderOnly;
         }
-        Width = 1440; Height = 920; MinWidth = 900; MinHeight = 640;
+        Width = 1536; Height = 1024; MinWidth = 900; MinHeight = 640;
         if (Screens.Primary is { } screen)
         {
             Width = Math.Min(Width, screen.WorkingArea.Width / screen.Scaling);
             Height = Math.Min(Height, screen.WorkingArea.Height / screen.Scaling - 32);
         }
         FontFamily = new FontFamily("Segoe UI, Inter, sans-serif");
-        Background = Brush.Parse("#0F1921");
-        designPreview = args is ["--design-preview"];
+        Background = new RadialGradientBrush
+        {
+            Center = new RelativePoint(0.5, 0.4, RelativeUnit.Relative),
+            GradientStops = [new GradientStop(Color.Parse("#101F2C"), 0), new GradientStop(Color.Parse("#0B1620"), 1)]
+        };
+        designPreview = DesignReviewSupport.Enabled && args is ["--design-preview"];
+#if DESIGN_REVIEW
         if (designPreview) catalog = PreviewCatalog();
+#endif
         if (args is ["--data-root", var root])
         {
             try { managerRoot = Path.GetFullPath(root); client = new LocalManagerClient(managerRoot); }
@@ -77,6 +85,8 @@ public sealed partial class MainWindow : Window
         connection.Foreground = Brush.Parse("#B8C6D4");
         Grid.SetRow(connection, 1); layout.Children.Add(connection);
         var scroll = new ScrollViewer { Content = content, HorizontalScrollBarVisibility = Avalonia.Controls.Primitives.ScrollBarVisibility.Disabled };
+        pageScroll = scroll;
+        ConfigureScrollViewer(scroll);
         Grid.SetRow(scroll, 2); layout.Children.Add(scroll);
         Grid.SetRow(creationFooter, 3); layout.Children.Add(creationFooter);
         Content = layout;
@@ -99,6 +109,7 @@ public sealed partial class MainWindow : Window
             if (latest.SchemaVersion != 1 || latest.Servers is null || latest.Clusters is null)
                 throw new InvalidDataException("Unsupported catalog.");
             catalog = latest;
+            overviewModes.Clear();
             await StartSelectedServersOnceAsync();
             if (startupUpdateJournal is not null && !startupUpdateConfirmed)
             {
@@ -152,6 +163,9 @@ public sealed partial class MainWindow : Window
 
     private void Render()
     {
+        overviewStatusLabels.Clear();
+        if (headerCreateButton is not null) headerCreateButton.IsVisible = selectedServer is null && selectedCluster is null;
+        ApplyScreenFade();
         content.Children.Clear();
         if (startupNotice is not null)
         {
@@ -160,13 +174,14 @@ public sealed partial class MainWindow : Window
             notice.Children.Add(ActionButton("Dismiss", () => { this.startupNotice = null; Render(); }));
             content.Children.Add(Surface(notice));
         }
-        content.Margin = new Thickness(38, Height < 760 ? 18 : 38, 20, 28);
+        var dashboard = !installationsPage && !activityPage && !settingsPage && !creationPage && selectedServer is null && selectedCluster is null;
+        content.Margin = dashboard ? new Thickness(44, 6, 44, 0) : selectedCluster is not null && selectedServer is null ? new Thickness(56, 53, 56, 28) : new Thickness(44, 24, 44, 28);
+        if (pageScroll is not null) { pageScroll.VerticalScrollBarVisibility = dashboard ? Avalonia.Controls.Primitives.ScrollBarVisibility.Disabled : Avalonia.Controls.Primitives.ScrollBarVisibility.Auto; if (dashboard) pageScroll.Offset = default; }
+        Background = new RadialGradientBrush { Center = new RelativePoint(0.5, 0.4, RelativeUnit.Relative), GradientStops = [new(Color.Parse(selectedCluster is not null && selectedServer is null ? "#002C42" : "#101F2C"), 0), new(Color.Parse(selectedCluster is not null && selectedServer is null ? "#0B1824" : "#0B1620"), 1)] };
+        content.Spacing = dashboard || selectedServer is not null || selectedCluster is not null ? 6 : 10;
         creationFooter.Children.Clear(); creationFooter.IsVisible = false;
         AddPendingDeletionNotice();
         connection.IsVisible = !string.IsNullOrWhiteSpace(connection.Text);
-        UpdateNavigation();
-        dashboardNavigation.Foreground = Brush.Parse(installationsPage ? "#B8C6D4" : "#FFC04D");
-        installationNavigation.Foreground = Brush.Parse(installationsPage ? "#FFC04D" : "#B8C6D4");
         if (installationsPage) { RenderInstallations(); return; }
         if (activityPage) { RenderActivity(); return; }
         if (settingsPage) { RenderAppSettings(); return; }
@@ -177,6 +192,7 @@ public sealed partial class MainWindow : Window
             content.Children.Add(Label("Your servers and clusters will appear when the background manager connects.", 16));
             return;
         }
+        if (designPreview && selectedServer == ReviewServerId && reviewServerVisible) { RenderReviewServer(); return; }
         if (selectedServer is Guid serverId && catalog.Servers.FirstOrDefault(s => s.Id == serverId) is { } server)
         {
             RenderServerDetails(server);
@@ -188,37 +204,33 @@ public sealed partial class MainWindow : Window
             return;
         }
         selectedServer = null; selectedCluster = null;
-        content.Children.Add(Label("Your ARK Servers", 36, true));
-        var subtitle = Label("Your worlds, on your computer.", 18); subtitle.Foreground = Brush.Parse("#A9B8C7");
-        content.Children.Add(subtitle);
+        content.Children.Add(SectionHeading("Your ARK Servers", "", 0));
+
         AddRecoveryNotice(details: false);
-        var standaloneCount = catalog.Servers.Count(s => s.ClusterId is null);
-        content.Children.Add(SectionHeading("Standalone Servers", $"{standaloneCount} servers", 14));
+
+        content.Children.Add(DashboardSection("SOLO SERVERS", 0));
         AddServers(catalog.Servers.Where(s => s.ClusterId is null));
-        content.Children.Add(SectionHeading("Server Clusters", $"{catalog.Clusters.Count} clusters", 28));
-        var clusters = new WrapPanel();
+        content.Children.Add(DashboardSection("SERVER CLUSTERS", 8));
+        var clusters = new StackPanel { Orientation = Avalonia.Layout.Orientation.Horizontal, Spacing = 0 };
         foreach (var item in catalog.Clusters.OrderBy(c => c.Name, StringComparer.CurrentCultureIgnoreCase))
         {
-            var count = catalog.Servers.Count(s => s.ClusterId == item.Id);
-            clusters.Children.Add(ClusterCard(item, count, () =>
+            clusters.Children.Add(ClusterCard(item, () =>
             { selectedCluster = item.Id; selectedServer = null; managementTab = 0; Render(); }));
         }
         if (catalog.Clusters.Count == 0) content.Children.Add(Label("No clusters created yet.", 16));
-        else content.Children.Add(clusters);
-        var footer = Label(designPreview ? "Design preview · No servers are running" : "All servers are hosted on this computer.", 13);
-        footer.Foreground = Brush.Parse("#8192A2"); footer.HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center;
-        footer.Margin = new Thickness(0, 72, 18, 0); content.Children.Add(footer);
+        else content.Children.Add(CreateCardRail(clusters));
+
     }
 
     private void AddServers(IEnumerable<ServerDefinition> servers)
     {
-        var cards = new WrapPanel();
+        var cards = new StackPanel { Orientation = Avalonia.Layout.Orientation.Horizontal, Spacing = 0 };
         var ordered = designPreview ? servers : servers.OrderBy(s => s.Settings.Name, StringComparer.CurrentCultureIgnoreCase);
         foreach (var server in ordered)
             cards.Children.Add(ServerCard(server, () =>
             { selectedServer = server.Id; managementTab = 0; Render(); }));
         if (cards.Children.Count == 0) content.Children.Add(Label("No servers created yet.", 16));
-        else content.Children.Add(cards);
+        else content.Children.Add(CreateCardRail(cards));
     }
 
     private void AddBack()

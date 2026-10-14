@@ -92,6 +92,7 @@ public static class NativeServerLaunchPlan
         }
         else if (options.SharedClusterDirectory is not null)
             throw new ArgumentException("A standalone server cannot use a shared cluster directory.");
+        server.LaunchPreferences.Apply(arguments);
         return new(executable, Path.GetDirectoryName(executable)!, arguments, Path.GetFullPath(consoleLog));
     }
 

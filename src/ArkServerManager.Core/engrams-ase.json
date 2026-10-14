@@ -1,0 +1,3692 @@
+[
+  {
+    "Name": "Adobe Ceiling",
+    "ClassName": "EngramEntry_AdobeCeiling_C",
+    "Level": 15,
+    "Points": 5
+  },
+  {
+    "Name": "Giant Adobe Trapdoor",
+    "ClassName": "EngramEntry_AdobeCeilingDoorGiant_C",
+    "Level": 34,
+    "Points": 12
+  },
+  {
+    "Name": "Giant Adobe Hatchframe",
+    "ClassName": "EngramEntry_AdobeCeilingWithDoorWay_Giant_C",
+    "Level": 34,
+    "Points": 15
+  },
+  {
+    "Name": "Adobe Hatchframe",
+    "ClassName": "EngramEntry_AdobeCeilingWithTrapdoor_C",
+    "Level": 16,
+    "Points": 8
+  },
+  {
+    "Name": "Adobe Door",
+    "ClassName": "EngramEntry_AdobeDoor_C",
+    "Level": 15,
+    "Points": 4
+  },
+  {
+    "Name": "Adobe Fence Foundation",
+    "ClassName": "EngramEntry_AdobeFenceFoundation_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Foundation",
+    "ClassName": "EngramEntry_AdobeFloor_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Dinosaur Gate",
+    "ClassName": "EngramEntry_AdobeGate_C",
+    "Level": 30,
+    "Points": 8
+  },
+  {
+    "Name": "Behemoth Adobe Dinosaur Gate",
+    "ClassName": "EngramEntry_AdobeGate_Large_C",
+    "Level": 38,
+    "Points": 15
+  },
+  {
+    "Name": "Adobe Dinosaur Gateway",
+    "ClassName": "EngramEntry_AdobeGateway_C",
+    "Level": 30,
+    "Points": 12
+  },
+  {
+    "Name": "Behemoth Adobe Dinosaur Gateway",
+    "ClassName": "EngramEntry_AdobeGateway_Large_C",
+    "Level": 38,
+    "Points": 18
+  },
+  {
+    "Name": "Adobe Ladder",
+    "ClassName": "EngramEntry_AdobeLadder_C",
+    "Level": 16,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Pillar",
+    "ClassName": "EngramEntry_AdobePillar_C",
+    "Level": 17,
+    "Points": 8
+  },
+  {
+    "Name": "Adobe Railing",
+    "ClassName": "EngramEntry_AdobeRailing_C",
+    "Level": 17,
+    "Points": 2
+  },
+  {
+    "Name": "Adobe Ramp",
+    "ClassName": "EngramEntry_AdobeRamp_C",
+    "Level": 16,
+    "Points": 3
+  },
+  {
+    "Name": "Adobe Roof Sloped",
+    "ClassName": "EngramEntry_AdobeRoof_C",
+    "Level": 18,
+    "Points": 5
+  },
+  {
+    "Name": "Adobe Wall Sloped Left",
+    "ClassName": "EngramEntry_AdobeSlopedWall_Left_C",
+    "Level": 18,
+    "Points": 3
+  },
+  {
+    "Name": "Adobe Wall Sloped Right",
+    "ClassName": "EngramEntry_AdobeSlopedWall_Right_C",
+    "Level": 18,
+    "Points": 3
+  },
+  {
+    "Name": "Adobe Staircase",
+    "ClassName": "EngramEntry_AdobeStairs_C",
+    "Level": 17,
+    "Points": 15
+  },
+  {
+    "Name": "Adobe Trapdoor",
+    "ClassName": "EngramEntry_AdobeTrapdoor_C",
+    "Level": 16,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Wall",
+    "ClassName": "EngramEntry_AdobeWall_C",
+    "Level": 15,
+    "Points": 7
+  },
+  {
+    "Name": "Adobe Doorframe",
+    "ClassName": "EngramEntry_AdobeWallWithDoor_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Windowframe",
+    "ClassName": "EngramEntry_AdobeWallWithWindow_C",
+    "Level": 20,
+    "Points": 8
+  },
+  {
+    "Name": "Adobe Window",
+    "ClassName": "EngramEntry_AdobeWindow_C",
+    "Level": 20,
+    "Points": 6
+  },
+  {
+    "Name": "Advanced Bullet",
+    "ClassName": "EngramEntry_AdvancedBullet_C",
+    "Level": 55,
+    "Points": 8
+  },
+  {
+    "Name": "Advanced Rifle Bullet",
+    "ClassName": "EngramEntry_AdvancedRifleBullet_C",
+    "Level": 58,
+    "Points": 8
+  },
+  {
+    "Name": "Advanced Sniper Bullet",
+    "ClassName": "EngramEntry_AdvancedSniperBullet_C",
+    "Level": 83,
+    "Points": 16
+  },
+  {
+    "Name": "Pheromone Dart",
+    "ClassName": "EngramEntry_AggroTranqDart_C",
+    "Level": 90,
+    "Points": 60
+  },
+  {
+    "Name": "Air Conditioner",
+    "ClassName": "EngramEntry_AirConditioner_C",
+    "Level": 61,
+    "Points": 21
+  },
+  {
+    "Name": "Tripwire Alarm Trap",
+    "ClassName": "EngramEntry_AlarmTrap_C",
+    "Level": 22,
+    "Points": 7
+  },
+  {
+    "Name": "Ammo Box",
+    "ClassName": "EngramEntry_AmmoBox_C",
+    "Level": 29,
+    "Points": 24
+  },
+  {
+    "Name": "Smithy",
+    "ClassName": "EngramEntry_AnvilBench_C",
+    "Level": 20,
+    "Points": 18
+  },
+  {
+    "Name": "Stone Arrow",
+    "ClassName": "EngramEntry_ArrowStone_C",
+    "Level": 10,
+    "Points": 2
+  },
+  {
+    "Name": "Tranq Arrow",
+    "ClassName": "EngramEntry_ArrowTranq_C",
+    "Level": 21,
+    "Points": 8
+  },
+  {
+    "Name": "Spear Bolt",
+    "ClassName": "EngramEntry_BallistaArrow_C",
+    "Level": 29,
+    "Points": 10
+  },
+  {
+    "Name": "Balista Turret",
+    "ClassName": "EngramEntry_BallistaTurret_C",
+    "Level": 29,
+    "Points": 25
+  },
+  {
+    "Name": "Saddle - Basilisk",
+    "ClassName": "EngramEntry_BasiliskSaddle_C",
+    "Level": 85,
+    "Points": 28
+  },
+  {
+    "Name": "Bear Trap",
+    "ClassName": "EngramEntry_BearTrap_C",
+    "Level": 28,
+    "Points": 9
+  },
+  {
+    "Name": "Large Bear Trap",
+    "ClassName": "EngramEntry_BearTrap_Large_C",
+    "Level": 31,
+    "Points": 12
+  },
+  {
+    "Name": "Beer Barrel",
+    "ClassName": "EngramEntry_BeerBarrel_C",
+    "Level": 36,
+    "Points": 24
+  },
+  {
+    "Name": "Blood Extraction Syringe",
+    "ClassName": "EngramEntry_BloodExtractor_C",
+    "Level": 6,
+    "Points": 6
+  },
+  {
+    "Name": "Bola",
+    "ClassName": "EngramEntry_Bola_C",
+    "Level": 9,
+    "Points": 8
+  },
+  {
+    "Name": "Bookshelf",
+    "ClassName": "EngramEntry_Bookshelf_C",
+    "Level": 19,
+    "Points": 15
+  },
+  {
+    "Name": "Boomerang",
+    "ClassName": "EngramEntry_Boomerang_C",
+    "Level": 9,
+    "Points": 2
+  },
+  {
+    "Name": "Boulder Fire",
+    "ClassName": "EngramEntry_Boulder_Fire_C",
+    "Level": 35,
+    "Points": 18
+  },
+  {
+    "Name": "Bow",
+    "ClassName": "EngramEntry_Bow_C",
+    "Level": 10,
+    "Points": 11
+  },
+  {
+    "Name": "Bug Repelant",
+    "ClassName": "EngramEntry_BugRepel_C",
+    "Level": 16,
+    "Points": 12
+  },
+  {
+    "Name": "C4 Charge",
+    "ClassName": "EngramEntry_C4Ammo_C",
+    "Level": 65,
+    "Points": 12
+  },
+  {
+    "Name": "Camera",
+    "ClassName": "EngramEntry_Camera_C",
+    "Level": 50,
+    "Points": 30
+  },
+  {
+    "Name": "Campfire",
+    "ClassName": "EngramEntry_Campfire_C",
+    "Level": 2,
+    "Points": 3
+  },
+  {
+    "Name": "Cannon",
+    "ClassName": "EngramEntry_Cannon_C",
+    "Level": 34,
+    "Points": 25
+  },
+  {
+    "Name": "Cannon Ball",
+    "ClassName": "EngramEntry_CannonBall_C",
+    "Level": 34,
+    "Points": 5
+  },
+  {
+    "Name": "Canoe",
+    "ClassName": "EngramEntry_Canoe_C",
+    "Level": 8,
+    "Points": 10
+  },
+  {
+    "Name": "Canteen",
+    "ClassName": "EngramEntry_Canteen_C",
+    "Level": 54,
+    "Points": 24
+  },
+  {
+    "Name": "Catapult Turret",
+    "ClassName": "EngramEntry_CatapultTurret_C",
+    "Level": 31,
+    "Points": 25
+  },
+  {
+    "Name": "Chain Bola",
+    "ClassName": "EngramEntry_ChainBola_C",
+    "Level": 51,
+    "Points": 30
+  },
+  {
+    "Name": "Chainsaw",
+    "ClassName": "EngramEntry_ChainSaw_C",
+    "Level": 55,
+    "Points": 21
+  },
+  {
+    "Name": "Charge Battery",
+    "ClassName": "EngramEntry_ChargeBattery_C",
+    "Level": 71,
+    "Points": 22
+  },
+  {
+    "Name": "Charge Lantern",
+    "ClassName": "EngramEntry_ChargeLantern_C",
+    "Level": 80,
+    "Points": 32
+  },
+  {
+    "Name": "Chemistry Bench",
+    "ClassName": "EngramEntry_ChemBench_C",
+    "Level": 90,
+    "Points": 65
+  },
+  {
+    "Name": "Magmasaur Saddle",
+    "ClassName": "EngramEntry_CherufeSaddle_C",
+    "Level": 95,
+    "Points": 35
+  },
+  {
+    "Name": "Chitin Boots",
+    "ClassName": "EngramEntry_ChitinBoots_C",
+    "Level": 37,
+    "Points": 15
+  },
+  {
+    "Name": "Chitin Gauntlets",
+    "ClassName": "EngramEntry_ChitinGloves_C",
+    "Level": 37,
+    "Points": 15
+  },
+  {
+    "Name": "Chitin Helmet",
+    "ClassName": "EngramEntry_ChitinHelmet_C",
+    "Level": 37,
+    "Points": 18
+  },
+  {
+    "Name": "Chitin Leggings",
+    "ClassName": "EngramEntry_ChitinPants_C",
+    "Level": 37,
+    "Points": 15
+  },
+  {
+    "Name": "Cementing Paste",
+    "ClassName": "EngramEntry_ChitinPaste_C",
+    "Level": 13,
+    "Points": 3
+  },
+  {
+    "Name": "Chitin Chestpiece",
+    "ClassName": "EngramEntry_ChitinShirt_C",
+    "Level": 37,
+    "Points": 18
+  },
+  {
+    "Name": "Clay",
+    "ClassName": "EngramEntry_Clay_C",
+    "Level": 5,
+    "Points": 3
+  },
+  {
+    "Name": "Climbing Pick",
+    "ClassName": "EngramEntry_ClimbingPick_C",
+    "Level": 34,
+    "Points": 16
+  },
+  {
+    "Name": "Cloth Boots",
+    "ClassName": "EngramEntry_ClothBoots_C",
+    "Level": 3,
+    "Points": 3
+  },
+  {
+    "Name": "Cloth Gloves",
+    "ClassName": "EngramEntry_ClothGloves_C",
+    "Level": 3,
+    "Points": 3
+  },
+  {
+    "Name": "Cloth Hat",
+    "ClassName": "EngramEntry_ClothHelmet_C",
+    "Level": 3,
+    "Points": 3
+  },
+  {
+    "Name": "Cloth Pants",
+    "ClassName": "EngramEntry_ClothPants_C",
+    "Level": 3,
+    "Points": 3
+  },
+  {
+    "Name": "Cloth Shirt",
+    "ClassName": "EngramEntry_ClothShirt_C",
+    "Level": 3,
+    "Points": 3
+  },
+  {
+    "Name": "Cluster Grenade",
+    "ClassName": "EngramEntry_ClusterGrenade_C",
+    "Level": 80,
+    "Points": 8
+  },
+  {
+    "Name": "Compass",
+    "ClassName": "EngramEntry_Compass_C",
+    "Level": 8,
+    "Points": 5
+  },
+  {
+    "Name": "Compost Bin",
+    "ClassName": "EngramEntry_CompostBin_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Metal Arrow",
+    "ClassName": "EngramEntry_CompoundArrow_C",
+    "Level": 79,
+    "Points": 35
+  },
+  {
+    "Name": "Compound Bow",
+    "ClassName": "EngramEntry_CompoundBow_C",
+    "Level": 79,
+    "Points": 40
+  },
+  {
+    "Name": "Cooking Pot",
+    "ClassName": "EngramEntry_CookingPot_C",
+    "Level": 8,
+    "Points": 9
+  },
+  {
+    "Name": "Large Crop Plot",
+    "ClassName": "EngramEntry_CropPlot_Large_C",
+    "Level": 36,
+    "Points": 15
+  },
+  {
+    "Name": "Medium Crop Plot",
+    "ClassName": "EngramEntry_CropPlot_Medium_C",
+    "Level": 26,
+    "Points": 12
+  },
+  {
+    "Name": "Small Crop Plot",
+    "ClassName": "EngramEntry_CropPlot_Small_C",
+    "Level": 10,
+    "Points": 9
+  },
+  {
+    "Name": "Crossbow",
+    "ClassName": "EngramEntry_Crossbow_C",
+    "Level": 25,
+    "Points": 12
+  },
+  {
+    "Name": "Cruise Missile",
+    "ClassName": "EngramEntry_CruiseMissile_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Cryofridge",
+    "ClassName": "EngramEntry_CryoFridge_C",
+    "Level": 88,
+    "Points": 60
+  },
+  {
+    "Name": "Lesser Antidote",
+    "ClassName": "EngramEntry_CureLow_C",
+    "Level": 18,
+    "Points": 16
+  },
+  {
+    "Name": "Tek Dedicated Storage",
+    "ClassName": "EngramEntry_DedicatedStorage_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Desert Cloth Boots",
+    "ClassName": "EngramEntry_DesertClothBoots_C",
+    "Level": 28,
+    "Points": 7
+  },
+  {
+    "Name": "Desert Cloth Gloves",
+    "ClassName": "EngramEntry_DesertClothGloves_C",
+    "Level": 28,
+    "Points": 7
+  },
+  {
+    "Name": "Desert Goggles and Hat",
+    "ClassName": "EngramEntry_DesertClothGooglesHelmet_C",
+    "Level": 28,
+    "Points": 7
+  },
+  {
+    "Name": "Desert Cloth Pants",
+    "ClassName": "EngramEntry_DesertClothPants_C",
+    "Level": 28,
+    "Points": 5
+  },
+  {
+    "Name": "Desert Cloth Shirt",
+    "ClassName": "EngramEntry_DesertClothShirt_C",
+    "Level": 28,
+    "Points": 4
+  },
+  {
+    "Name": "Dino Leash",
+    "ClassName": "EngramEntry_DinoLeash_C",
+    "Level": 22,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Double Door",
+    "ClassName": "EngramEntry_DoubleDoor_Adobe_C",
+    "Level": 22,
+    "Points": 4
+  },
+  {
+    "Name": "Greenhouse Double Door",
+    "ClassName": "EngramEntry_DoubleDoor_Greenhouse_C",
+    "Level": 50,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Double Door",
+    "ClassName": "EngramEntry_DoubleDoor_Metal_C",
+    "Level": 52,
+    "Points": 12
+  },
+  {
+    "Name": "Reinforced Double Door",
+    "ClassName": "EngramEntry_DoubleDoor_Stone_C",
+    "Level": 31,
+    "Points": 4
+  },
+  {
+    "Name": "Tek Double Door",
+    "ClassName": "EngramEntry_DoubleDoor_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Double Door",
+    "ClassName": "EngramEntry_DoubleDoor_Wood_C",
+    "Level": 18,
+    "Points": 4
+  },
+  {
+    "Name": "Adobe Double Doorframe",
+    "ClassName": "EngramEntry_DoubleDoorframe_Adobe_C",
+    "Level": 22,
+    "Points": 6
+  },
+  {
+    "Name": "Greenhouse Double Doorframe",
+    "ClassName": "EngramEntry_DoubleDoorframe_Greenhouse_C",
+    "Level": 50,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Double Doorframe",
+    "ClassName": "EngramEntry_DoubleDoorframe_Metal_C",
+    "Level": 52,
+    "Points": 24
+  },
+  {
+    "Name": "Stone Double Doorframe",
+    "ClassName": "EngramEntry_DoubleDoorframe_Stone_C",
+    "Level": 31,
+    "Points": 6
+  },
+  {
+    "Name": "Tek Double Doorframe",
+    "ClassName": "EngramEntry_DoubleDoorframe_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Double Doorframe",
+    "ClassName": "EngramEntry_DoubleDoorframe_Wood_C",
+    "Level": 18,
+    "Points": 6
+  },
+  {
+    "Name": "Egg Incubator",
+    "ClassName": "EngramEntry_EggIncubator_C",
+    "Level": 89,
+    "Points": 55
+  },
+  {
+    "Name": "Electric Prod",
+    "ClassName": "EngramEntry_ElectricProd_C",
+    "Level": 95,
+    "Points": 60
+  },
+  {
+    "Name": "Electronics",
+    "ClassName": "EngramEntry_Electronics_C",
+    "Level": 48,
+    "Points": 6
+  },
+  {
+    "Name": "Elevator Platform (Large)",
+    "ClassName": "EngramEntry_ElevatorPlatformLarge_C",
+    "Level": 73,
+    "Points": 40
+  },
+  {
+    "Name": "Elevator Platform (Medium)",
+    "ClassName": "EngramEntry_ElevatorPlatformMedium_C",
+    "Level": 72,
+    "Points": 40
+  },
+  {
+    "Name": "Elevator Platform (Small)",
+    "ClassName": "EngramEntry_ElevatorPlatformSmall_C",
+    "Level": 70,
+    "Points": 40
+  },
+  {
+    "Name": "Elevator Track",
+    "ClassName": "EngramEntry_ElevatorTrack_C",
+    "Level": 70,
+    "Points": 40
+  },
+  {
+    "Name": "Empty Cryopod",
+    "ClassName": "EngramEntry_EmptyCryopod_C",
+    "Level": 51,
+    "Points": 20
+  },
+  {
+    "Name": "Fabricator",
+    "ClassName": "EngramEntry_Fabricator_C",
+    "Level": 48,
+    "Points": 24
+  },
+  {
+    "Name": "Feeding Trough",
+    "ClassName": "EngramEntry_FeedingTrough_C",
+    "Level": 18,
+    "Points": 12
+  },
+  {
+    "Name": "Adobe Fence Support",
+    "ClassName": "EngramEntry_FenceSupport_Adobe_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Metal Fence Support",
+    "ClassName": "EngramEntry_FenceSupport_Metal_C",
+    "Level": 48,
+    "Points": 12
+  },
+  {
+    "Name": "Stone Fence Support",
+    "ClassName": "EngramEntry_FenceSupport_Stone_C",
+    "Level": 25,
+    "Points": 6
+  },
+  {
+    "Name": "Tek Fence Support",
+    "ClassName": "EngramEntry_FenceSupport_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Fence Support",
+    "ClassName": "EngramEntry_FenceSupport_Wood_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Fireplace",
+    "ClassName": "EngramEntry_Fireplace_C",
+    "Level": 28,
+    "Points": 15
+  },
+  {
+    "Name": "Fish Basket",
+    "ClassName": "EngramEntry_Fishbasket_C",
+    "Level": 13,
+    "Points": 6
+  },
+  {
+    "Name": "Fishing Rod",
+    "ClassName": "EngramEntry_FishingRod_C",
+    "Level": 18,
+    "Points": 15
+  },
+  {
+    "Name": "Multi-Panel Flag",
+    "ClassName": "EngramEntry_Flag_C",
+    "Level": 8,
+    "Points": 6
+  },
+  {
+    "Name": "Single Panel Flag",
+    "ClassName": "EngramEntry_FlagSingle_C",
+    "Level": 7,
+    "Points": 6
+  },
+  {
+    "Name": "Flame Arrow",
+    "ClassName": "EngramEntry_FlameArrow_C",
+    "Level": 26,
+    "Points": 15
+  },
+  {
+    "Name": "Flamethrower",
+    "ClassName": "EngramEntry_Flamethrower_C",
+    "Level": 65,
+    "Points": 25
+  },
+  {
+    "Name": "Flamethrower Ammo",
+    "ClassName": "EngramEntry_FlamethrowerAmmo_C",
+    "Level": 65,
+    "Points": 10
+  },
+  {
+    "Name": "Flare Gun",
+    "ClassName": "EngramEntry_FlareLauncher_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Flashlight Attachment",
+    "ClassName": "EngramEntry_Flashlight_C",
+    "Level": 52,
+    "Points": 18
+  },
+  {
+    "Name": "Refining Forge",
+    "ClassName": "EngramEntry_Forge_C",
+    "Level": 20,
+    "Points": 21
+  },
+  {
+    "Name": "Fur Boots",
+    "ClassName": "EngramEntry_FurBoots_C",
+    "Level": 23,
+    "Points": 12
+  },
+  {
+    "Name": "Fur Gauntlets",
+    "ClassName": "EngramEntry_FurGloves_C",
+    "Level": 23,
+    "Points": 12
+  },
+  {
+    "Name": "Fur Cap",
+    "ClassName": "EngramEntry_FurHelmet_C",
+    "Level": 23,
+    "Points": 14
+  },
+  {
+    "Name": "Wooden Table",
+    "ClassName": "EngramEntry_Furniture_WoodTable_C",
+    "Level": 19,
+    "Points": 7
+  },
+  {
+    "Name": "Fur Leggings",
+    "ClassName": "EngramEntry_FurPants_C",
+    "Level": 23,
+    "Points": 16
+  },
+  {
+    "Name": "Fur Chestpiece",
+    "ClassName": "EngramEntry_FurShirt_C",
+    "Level": 23,
+    "Points": 16
+  },
+  {
+    "Name": "Gacha Saddle",
+    "ClassName": "EngramEntry_GachaSaddle_C",
+    "Level": 38,
+    "Points": 6
+  },
+  {
+    "Name": "Gasbags Saddle",
+    "ClassName": "EngramEntry_GasBagsSaddle_C",
+    "Level": 43,
+    "Points": 6
+  },
+  {
+    "Name": "Gas Collector",
+    "ClassName": "EngramEntry_GasCollector_C",
+    "Level": 40,
+    "Points": 35
+  },
+  {
+    "Name": "Smoke Grenade",
+    "ClassName": "EngramEntry_GasGrenade_C",
+    "Level": 24,
+    "Points": 18
+  },
+  {
+    "Name": "Gas Mask",
+    "ClassName": "EngramEntry_GasMask_C",
+    "Level": 86,
+    "Points": 110
+  },
+  {
+    "Name": "Ghillie Boots",
+    "ClassName": "EngramEntry_GhillieBoots_C",
+    "Level": 33,
+    "Points": 11
+  },
+  {
+    "Name": "Ghillie Gauntlets",
+    "ClassName": "EngramEntry_GhillieGloves_C",
+    "Level": 33,
+    "Points": 11
+  },
+  {
+    "Name": "Ghillie Mask",
+    "ClassName": "EngramEntry_GhillieHelmet_C",
+    "Level": 33,
+    "Points": 13
+  },
+  {
+    "Name": "Ghillie Leggings",
+    "ClassName": "EngramEntry_GhilliePants_C",
+    "Level": 33,
+    "Points": 11
+  },
+  {
+    "Name": "Ghillie Chestpiece",
+    "ClassName": "EngramEntry_GhillieShirt_C",
+    "Level": 33,
+    "Points": 11
+  },
+  {
+    "Name": "Megachelon Platform Saddle",
+    "ClassName": "EngramEntry_GiantTurtleSaddle_C",
+    "Level": 45,
+    "Points": 35
+  },
+  {
+    "Name": "Glider Suit",
+    "ClassName": "EngramEntry_Glider_C",
+    "Level": 62,
+    "Points": 26
+  },
+  {
+    "Name": "Glow Stick",
+    "ClassName": "EngramEntry_GlowStick_C",
+    "Level": 10,
+    "Points": 4
+  },
+  {
+    "Name": "GPS",
+    "ClassName": "EngramEntry_GPS_C",
+    "Level": 52,
+    "Points": 21
+  },
+  {
+    "Name": "Grappling Hook",
+    "ClassName": "EngramEntry_GrapplingHook_C",
+    "Level": 47,
+    "Points": 40
+  },
+  {
+    "Name": "Gravestone",
+    "ClassName": "EngramEntry_Gravestone_C",
+    "Level": 16,
+    "Points": 8
+  },
+  {
+    "Name": "Greenhouse Ceiling",
+    "ClassName": "EngramEntry_GreenhouseCeiling_C",
+    "Level": 42,
+    "Points": 30
+  },
+  {
+    "Name": "Greenhouse Door",
+    "ClassName": "EngramEntry_GreenhouseDoor_C",
+    "Level": 43,
+    "Points": 15
+  },
+  {
+    "Name": "Greenhouse Roof Sloped",
+    "ClassName": "EngramEntry_GreenhouseRoof_C",
+    "Level": 44,
+    "Points": 30
+  },
+  {
+    "Name": "Greenhouse Wall Sloped Left",
+    "ClassName": "EngramEntry_GreenhouseSlopedWall_Left_C",
+    "Level": 44,
+    "Points": 15
+  },
+  {
+    "Name": "Greenhouse Wall Sloped Right",
+    "ClassName": "EngramEntry_GreenhouseSlopedWall_Right_C",
+    "Level": 44,
+    "Points": 15
+  },
+  {
+    "Name": "Greenhouse Wall",
+    "ClassName": "EngramEntry_GreenhouseWall_C",
+    "Level": 42,
+    "Points": 30
+  },
+  {
+    "Name": "Greenhouse Doorframe",
+    "ClassName": "EngramEntry_GreenhouseWallWithDoor_C",
+    "Level": 43,
+    "Points": 15
+  },
+  {
+    "Name": "Greenhouse Window",
+    "ClassName": "EngramEntry_GreenhouseWindow_C",
+    "Level": 44,
+    "Points": 15
+  },
+  {
+    "Name": "Grenade",
+    "ClassName": "EngramEntry_Grenade_C",
+    "Level": 38,
+    "Points": 20
+  },
+  {
+    "Name": "Industrial Grill",
+    "ClassName": "EngramEntry_Grill_C",
+    "Level": 50,
+    "Points": 40
+  },
+  {
+    "Name": "Industrial Grinder",
+    "ClassName": "EngramEntry_Grinder_C",
+    "Level": 64,
+    "Points": 45
+  },
+  {
+    "Name": "Gunpowder",
+    "ClassName": "EngramEntry_Gunpowder_C",
+    "Level": 15,
+    "Points": 2
+  },
+  {
+    "Name": "Handcuffs",
+    "ClassName": "EngramEntry_Handcuffs_C",
+    "Level": 28,
+    "Points": 16
+  },
+  {
+    "Name": "Harpoon Launcher",
+    "ClassName": "EngramEntry_HarpoonGun_C",
+    "Level": 43,
+    "Points": 38
+  },
+  {
+    "Name": "Hazard Suit Boots",
+    "ClassName": "EngramEntry_HazardSuit_Boots_C",
+    "Level": 68,
+    "Points": 16
+  },
+  {
+    "Name": "Hazard Suit Shirt",
+    "ClassName": "EngramEntry_HazardSuit_Chest_C",
+    "Level": 68,
+    "Points": 22
+  },
+  {
+    "Name": "Hazard Suit Gloves",
+    "ClassName": "EngramEntry_HazardSuit_Gloves_C",
+    "Level": 68,
+    "Points": 16
+  },
+  {
+    "Name": "Hazard Suit Hat",
+    "ClassName": "EngramEntry_HazardSuit_Helmet_C",
+    "Level": 68,
+    "Points": 28
+  },
+  {
+    "Name": "Hazard Suit Pants",
+    "ClassName": "EngramEntry_HazardSuit_Pants_C",
+    "Level": 68,
+    "Points": 22
+  },
+  {
+    "Name": "Heavy Auto Turret",
+    "ClassName": "EngramEntry_HeavyTurret_C",
+    "Level": 100,
+    "Points": 100
+  },
+  {
+    "Name": "Hide Boots",
+    "ClassName": "EngramEntry_HideBoots_C",
+    "Level": 15,
+    "Points": 7
+  },
+  {
+    "Name": "Hide Gloves",
+    "ClassName": "EngramEntry_HideGloves_C",
+    "Level": 15,
+    "Points": 7
+  },
+  {
+    "Name": "Hide Hat",
+    "ClassName": "EngramEntry_HideHelmet_C",
+    "Level": 15,
+    "Points": 9
+  },
+  {
+    "Name": "Hide Pants",
+    "ClassName": "EngramEntry_HidePants_C",
+    "Level": 15,
+    "Points": 9
+  },
+  {
+    "Name": "Hide Shirt",
+    "ClassName": "EngramEntry_HideShirt_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Hide Sleeping Bag",
+    "ClassName": "EngramEntry_HideSleepingBag_C",
+    "Level": 4,
+    "Points": 3
+  },
+  {
+    "Name": "Holo-Scope Attachment",
+    "ClassName": "EngramEntry_HoloScope_C",
+    "Level": 77,
+    "Points": 24
+  },
+  {
+    "Name": "Unassembled TEK Hover Skiff",
+    "ClassName": "EngramEntry_HoverSkiff_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Refrigerator",
+    "ClassName": "EngramEntry_IceBox_C",
+    "Level": 60,
+    "Points": 20
+  },
+  {
+    "Name": "Managarmr Saddle",
+    "ClassName": "EngramEntry_IceJumperSaddle_C",
+    "Level": 66,
+    "Points": 8
+  },
+  {
+    "Name": "Industrial Cooker",
+    "ClassName": "EngramEntry_IndustrialCookingPot_C",
+    "Level": 89,
+    "Points": 60
+  },
+  {
+    "Name": "Industrial Forge",
+    "ClassName": "EngramEntry_IndustrialForge_C",
+    "Level": 80,
+    "Points": 90
+  },
+  {
+    "Name": "Tek Jump Pad",
+    "ClassName": "EngramEntry_JumpPad_C",
+    "Level": 70,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Karkino",
+    "ClassName": "EngramEntry_KarkinoSaddle_C",
+    "Level": 65,
+    "Points": 28
+  },
+  {
+    "Name": "Remote Keypad",
+    "ClassName": "EngramEntry_Keypad_C",
+    "Level": 53,
+    "Points": 18
+  },
+  {
+    "Name": "Lamppost",
+    "ClassName": "EngramEntry_Lamppost_C",
+    "Level": 50,
+    "Points": 20
+  },
+  {
+    "Name": "Omnidirectional Lamppost",
+    "ClassName": "EngramEntry_LamppostOmni_C",
+    "Level": 50,
+    "Points": 20
+  },
+  {
+    "Name": "Lance",
+    "ClassName": "EngramEntry_Lance_C",
+    "Level": 32,
+    "Points": 30
+  },
+  {
+    "Name": "Large Adobe Wall",
+    "ClassName": "EngramEntry_LargeWall_Adobe_C",
+    "Level": 19,
+    "Points": 9
+  },
+  {
+    "Name": "Large Metal Wall",
+    "ClassName": "EngramEntry_LargeWall_Metal_C",
+    "Level": 49,
+    "Points": 17
+  },
+  {
+    "Name": "Large Stone Wall",
+    "ClassName": "EngramEntry_LargeWall_Stone_C",
+    "Level": 28,
+    "Points": 10
+  },
+  {
+    "Name": "Large Tek Wall",
+    "ClassName": "EngramEntry_LargeWall_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Large Wood Wall",
+    "ClassName": "EngramEntry_LargeWall_Wood_C",
+    "Level": 15,
+    "Points": 9
+  },
+  {
+    "Name": "Laser Attachment",
+    "ClassName": "EngramEntry_Laser_C",
+    "Level": 59,
+    "Points": 24
+  },
+  {
+    "Name": "LoadoutMannequin",
+    "ClassName": "EngramEntry_LoadoutMannequin_C",
+    "Level": 23,
+    "Points": 8
+  },
+  {
+    "Name": "Fabricated Pistol",
+    "ClassName": "EngramEntry_MachinedPistol_C",
+    "Level": 55,
+    "Points": 18
+  },
+  {
+    "Name": "Assault Rifle",
+    "ClassName": "EngramEntry_MachinedRifle_C",
+    "Level": 58,
+    "Points": 24
+  },
+  {
+    "Name": "Pump-Action Shotgun",
+    "ClassName": "EngramEntry_MachinedShotgun_C",
+    "Level": 55,
+    "Points": 18
+  },
+  {
+    "Name": "Fabricated Sniper Rifle",
+    "ClassName": "EngramEntry_MachinedSniper_C",
+    "Level": 83,
+    "Points": 36
+  },
+  {
+    "Name": "Magnifying Glass",
+    "ClassName": "EngramEntry_MagnifyingGlass_C",
+    "Level": 25,
+    "Points": 16
+  },
+  {
+    "Name": "M.S.C.M. (Mek Siege Cannon Module)",
+    "ClassName": "EngramEntry_MekBackpack_Cannon_C",
+    "Level": 97,
+    "Points": 40
+  },
+  {
+    "Name": "M.R.L.M. (Mek Rocket Launcher Module)",
+    "ClassName": "EngramEntry_MekBackpack_Missiles_C",
+    "Level": 95,
+    "Points": 40
+  },
+  {
+    "Name": "M.D.S.M. (Mek Deployable Shield Module)",
+    "ClassName": "EngramEntry_MekBackpack_Shield_C",
+    "Level": 93,
+    "Points": 40
+  },
+  {
+    "Name": "Cannon Shell",
+    "ClassName": "EngramEntry_MekCannonShell_C",
+    "Level": 97,
+    "Points": 35
+  },
+  {
+    "Name": "Rocket Pod",
+    "ClassName": "EngramEntry_MekRocketPod_C",
+    "Level": 95,
+    "Points": 35
+  },
+  {
+    "Name": "Unassembled Mek",
+    "ClassName": "EngramEntry_MekSpawner_C",
+    "Level": 91,
+    "Points": 38
+  },
+  {
+    "Name": "Flak Boots",
+    "ClassName": "EngramEntry_MetalBoots_C",
+    "Level": 56,
+    "Points": 16
+  },
+  {
+    "Name": "Metal Catwalk",
+    "ClassName": "EngramEntry_MetalCatwalk_C",
+    "Level": 47,
+    "Points": 18
+  },
+  {
+    "Name": "Metal Ceiling",
+    "ClassName": "EngramEntry_MetalCeiling_C",
+    "Level": 45,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Hatchframe",
+    "ClassName": "EngramEntry_MetalCeilingWithTrapdoor_C",
+    "Level": 48,
+    "Points": 18
+  },
+  {
+    "Name": "Giant Metal Hatchframe",
+    "ClassName": "EngramEntry_MetalCeilingWithTrapdoorGiant_C",
+    "Level": 54,
+    "Points": 30
+  },
+  {
+    "Name": "Metal Cliff Platform",
+    "ClassName": "EngramEntry_MetalCliffPlatform_C",
+    "Level": 51,
+    "Points": 48
+  },
+  {
+    "Name": "Metal Door",
+    "ClassName": "EngramEntry_MetalDoor_C",
+    "Level": 45,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Fence Foundation",
+    "ClassName": "EngramEntry_MetalFenceFoundation_C",
+    "Level": 48,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Foundation",
+    "ClassName": "EngramEntry_MetalFloor_C",
+    "Level": 45,
+    "Points": 24
+  },
+  {
+    "Name": "Metal Dinosaur Gate",
+    "ClassName": "EngramEntry_MetalGate_C",
+    "Level": 52,
+    "Points": 8
+  },
+  {
+    "Name": "Behemoth Gate",
+    "ClassName": "EngramEntry_MetalGate_Large_C",
+    "Level": 57,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Dinosaur Gateway",
+    "ClassName": "EngramEntry_MetalGateway_C",
+    "Level": 52,
+    "Points": 12
+  },
+  {
+    "Name": "Behemoth Gateway",
+    "ClassName": "EngramEntry_MetalGateway_Large_C",
+    "Level": 57,
+    "Points": 28
+  },
+  {
+    "Name": "Flak Gauntlets",
+    "ClassName": "EngramEntry_MetalGloves_C",
+    "Level": 56,
+    "Points": 16
+  },
+  {
+    "Name": "Metal Hatchet",
+    "ClassName": "EngramEntry_MetalHatchet_C",
+    "Level": 20,
+    "Points": 6
+  },
+  {
+    "Name": "Flak Helmet",
+    "ClassName": "EngramEntry_MetalHelmet_C",
+    "Level": 56,
+    "Points": 20
+  },
+  {
+    "Name": "Metal Ladder",
+    "ClassName": "EngramEntry_MetalLadder_C",
+    "Level": 48,
+    "Points": 21
+  },
+  {
+    "Name": "Flak Leggings",
+    "ClassName": "EngramEntry_MetalPants_C",
+    "Level": 56,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Pick",
+    "ClassName": "EngramEntry_MetalPick_C",
+    "Level": 20,
+    "Points": 6
+  },
+  {
+    "Name": "Metal Pillar",
+    "ClassName": "EngramEntry_MetalPillar_C",
+    "Level": 46,
+    "Points": 18
+  },
+  {
+    "Name": "Metal Irrigation Pipe - Inclined",
+    "ClassName": "EngramEntry_MetalPipeIncline_C",
+    "Level": 40,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Irrigation Pipe - Intake",
+    "ClassName": "EngramEntry_MetalPipeIntake_C",
+    "Level": 40,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Irrigation Pipe - Intersection",
+    "ClassName": "EngramEntry_MetalPipeIntersection_C",
+    "Level": 40,
+    "Points": 18
+  },
+  {
+    "Name": "Metal Irrigation Pipe - Straight",
+    "ClassName": "EngramEntry_MetalPipeStraight_C",
+    "Level": 40,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Irrigation Pipe - Tap",
+    "ClassName": "EngramEntry_MetalPipeTap_C",
+    "Level": 40,
+    "Points": 18
+  },
+  {
+    "Name": "Metal Irrigation Pipe - Vertical",
+    "ClassName": "EngramEntry_MetalPipeVertical_C",
+    "Level": 40,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Railing",
+    "ClassName": "EngramEntry_MetalRailing_C",
+    "Level": 46,
+    "Points": 7
+  },
+  {
+    "Name": "Metal Ramp",
+    "ClassName": "EngramEntry_MetalRamp_C",
+    "Level": 47,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Roof Sloped",
+    "ClassName": "EngramEntry_MetalRoof_C",
+    "Level": 47,
+    "Points": 10
+  },
+  {
+    "Name": "Metal Shield",
+    "ClassName": "EngramEntry_MetalShield_C",
+    "Level": 39,
+    "Points": 9
+  },
+  {
+    "Name": "Flak Chestpiece",
+    "ClassName": "EngramEntry_MetalShirt_C",
+    "Level": 56,
+    "Points": 18
+  },
+  {
+    "Name": "Metal Sickle",
+    "ClassName": "EngramEntry_MetalSickle_C",
+    "Level": 30,
+    "Points": 12
+  },
+  {
+    "Name": "Metal Sign",
+    "ClassName": "EngramEntry_MetalSign_C",
+    "Level": 50,
+    "Points": 10
+  },
+  {
+    "Name": "Metal Billboard",
+    "ClassName": "EngramEntry_MetalSign_Large_C",
+    "Level": 46,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Wall Sign",
+    "ClassName": "EngramEntry_MetalSign_Wall_C",
+    "Level": 50,
+    "Points": 6
+  },
+  {
+    "Name": "Metal Wall Sloped Left",
+    "ClassName": "EngramEntry_MetalSlopedWall_Left_C",
+    "Level": 47,
+    "Points": 7
+  },
+  {
+    "Name": "Metal Wall Sloped Right",
+    "ClassName": "EngramEntry_MetalSlopedWall_Right_C",
+    "Level": 47,
+    "Points": 7
+  },
+  {
+    "Name": "Metal Spike Wall",
+    "ClassName": "EngramEntry_MetalSpikeWall_C",
+    "Level": 29,
+    "Points": 11
+  },
+  {
+    "Name": "Metal Staircase",
+    "ClassName": "EngramEntry_MetalStairs_C",
+    "Level": 46,
+    "Points": 20
+  },
+  {
+    "Name": "Metal Trapdoor",
+    "ClassName": "EngramEntry_MetalTrapdoor_C",
+    "Level": 48,
+    "Points": 14
+  },
+  {
+    "Name": "Giant Metal Trapdoor",
+    "ClassName": "EngramEntry_MetalTrapdoorGiant_C",
+    "Level": 54,
+    "Points": 30
+  },
+  {
+    "Name": "Metal Wall",
+    "ClassName": "EngramEntry_MetalWall_C",
+    "Level": 45,
+    "Points": 15
+  },
+  {
+    "Name": "Metal Doorframe",
+    "ClassName": "EngramEntry_MetalWallWithDoor_C",
+    "Level": 45,
+    "Points": 24
+  },
+  {
+    "Name": "Metal Windowframe",
+    "ClassName": "EngramEntry_MetalWallWithWindow_C",
+    "Level": 46,
+    "Points": 18
+  },
+  {
+    "Name": "Metal Window",
+    "ClassName": "EngramEntry_MetalWindow_C",
+    "Level": 46,
+    "Points": 18
+  },
+  {
+    "Name": "Maewing Saddle",
+    "ClassName": "EngramEntry_Milkglider_Saddle_C",
+    "Level": 19,
+    "Points": 24
+  },
+  {
+    "Name": "Heavy Miner's Helmet",
+    "ClassName": "EngramEntry_MinersHelmet_C",
+    "Level": 63,
+    "Points": 35
+  },
+  {
+    "Name": "Minigun",
+    "ClassName": "EngramEntry_Minigun_C",
+    "Level": 94,
+    "Points": 35
+  },
+  {
+    "Name": "Minigun Turret",
+    "ClassName": "EngramEntry_MinigunTurret_C",
+    "Level": 94,
+    "Points": 80
+  },
+  {
+    "Name": "Mining Drill",
+    "ClassName": "EngramEntry_MiningDrill_C",
+    "Level": 80,
+    "Points": 35
+  },
+  {
+    "Name": "Re-Fertilizer",
+    "ClassName": "EngramEntry_MiracleGro_C",
+    "Level": 38,
+    "Points": 20
+  },
+  {
+    "Name": "Mirror",
+    "ClassName": "EngramEntry_Mirror_C",
+    "Level": 32,
+    "Points": 25
+  },
+  {
+    "Name": "Bunk Bed",
+    "ClassName": "EngramEntry_ModernBed_C",
+    "Level": 54,
+    "Points": 28
+  },
+  {
+    "Name": "Mortar and Pestle",
+    "ClassName": "EngramEntry_MortarAndPestle_C",
+    "Level": 6,
+    "Points": 6
+  },
+  {
+    "Name": "Motorboat",
+    "ClassName": "EngramEntry_Motorboat_C",
+    "Level": 57,
+    "Points": 45
+  },
+  {
+    "Name": "Narcotic",
+    "ClassName": "EngramEntry_Narcotic_C",
+    "Level": 6,
+    "Points": 6
+  },
+  {
+    "Name": "Net Projectile",
+    "ClassName": "EngramEntry_NetGun_Ammo_C",
+    "Level": 43,
+    "Points": 12
+  },
+  {
+    "Name": "Night Vision Goggles",
+    "ClassName": "EngramEntry_NightVisionGoggles_C",
+    "Level": 84,
+    "Points": 100
+  },
+  {
+    "Name": "Note",
+    "ClassName": "EngramEntry_NotePaper_C",
+    "Level": 1,
+    "Points": 0
+  },
+  {
+    "Name": "Metal Ocean Platform",
+    "ClassName": "EngramEntry_OceanPlatformMetal_C",
+    "Level": 53,
+    "Points": 50
+  },
+  {
+    "Name": "Wood Ocean Platform",
+    "ClassName": "EngramEntry_OceanPlatformWood_C",
+    "Level": 25,
+    "Points": 24
+  },
+  {
+    "Name": "Oil Jar",
+    "ClassName": "EngramEntry_OilJar_C",
+    "Level": 24,
+    "Points": 15
+  },
+  {
+    "Name": "Oil Pump",
+    "ClassName": "EngramEntry_OilPump_C",
+    "Level": 60,
+    "Points": 24
+  },
+  {
+    "Name": "Snow Owl Saddle",
+    "ClassName": "EngramEntry_OwlSaddle_C",
+    "Level": 61,
+    "Points": 6
+  },
+  {
+    "Name": "Paintbrush",
+    "ClassName": "EngramEntry_Paintbrush_C",
+    "Level": 9,
+    "Points": 3
+  },
+  {
+    "Name": "Painting Canvas",
+    "ClassName": "EngramEntry_PaintingCanvas_C",
+    "Level": 19,
+    "Points": 2
+  },
+  {
+    "Name": "Parachute",
+    "ClassName": "EngramEntry_Parachute_C",
+    "Level": 22,
+    "Points": 6
+  },
+  {
+    "Name": "Pike",
+    "ClassName": "EngramEntry_Pike_C",
+    "Level": 25,
+    "Points": 10
+  },
+  {
+    "Name": "Metal Pipe - Flexible",
+    "ClassName": "EngramEntry_PipeFlex_Metal_C",
+    "Level": 40,
+    "Points": 18
+  },
+  {
+    "Name": "Stone Pipe - Flexible",
+    "ClassName": "EngramEntry_PipeFlex_Stone_C",
+    "Level": 17,
+    "Points": 5
+  },
+  {
+    "Name": "Simple Pistol",
+    "ClassName": "EngramEntry_Pistol_C",
+    "Level": 34,
+    "Points": 15
+  },
+  {
+    "Name": "Pliers",
+    "ClassName": "EngramEntry_Pliers_C",
+    "Level": 45,
+    "Points": 16
+  },
+  {
+    "Name": "Poison Grenade",
+    "ClassName": "EngramEntry_PoisonGrenade_C",
+    "Level": 40,
+    "Points": 18
+  },
+  {
+    "Name": "Tripwire Narcotic Trap",
+    "ClassName": "EngramEntry_PoisonTrap_C",
+    "Level": 29,
+    "Points": 9
+  },
+  {
+    "Name": "Polymer",
+    "ClassName": "EngramEntry_Polymer_C",
+    "Level": 48,
+    "Points": 6
+  },
+  {
+    "Name": "Portable Rope Ladder",
+    "ClassName": "EngramEntry_PortableRopeLadder_C",
+    "Level": 15,
+    "Points": 7
+  },
+  {
+    "Name": "Electrical Cable Inclined",
+    "ClassName": "EngramEntry_PowerCableIncline_C",
+    "Level": 49,
+    "Points": 16
+  },
+  {
+    "Name": "Electrical Cable Intersection",
+    "ClassName": "EngramEntry_PowerCableIntersection_C",
+    "Level": 49,
+    "Points": 24
+  },
+  {
+    "Name": "Electrical Cable Straight",
+    "ClassName": "EngramEntry_PowerCableStraight_C",
+    "Level": 49,
+    "Points": 16
+  },
+  {
+    "Name": "Electrical Cable Vertical",
+    "ClassName": "EngramEntry_PowerCableVertical_C",
+    "Level": 49,
+    "Points": 16
+  },
+  {
+    "Name": "Electrical Generator",
+    "ClassName": "EngramEntry_PowerGenerator_C",
+    "Level": 49,
+    "Points": 24
+  },
+  {
+    "Name": "Electrical Outlet",
+    "ClassName": "EngramEntry_PowerOutlet_C",
+    "Level": 49,
+    "Points": 16
+  },
+  {
+    "Name": "Preserving Bin",
+    "ClassName": "EngramEntry_PreservingBin_C",
+    "Level": 18,
+    "Points": 9
+  },
+  {
+    "Name": "Preserving Salt",
+    "ClassName": "EngramEntry_PreservingSalt_C",
+    "Level": 5,
+    "Points": 3
+  },
+  {
+    "Name": "Pressure Plate",
+    "ClassName": "EngramEntry_PressurePlate_C",
+    "Level": 12,
+    "Points": 6
+  },
+  {
+    "Name": "Propellant",
+    "ClassName": "EngramEntry_Propellant_C",
+    "Level": 22,
+    "Points": 12
+  },
+  {
+    "Name": "Radio",
+    "ClassName": "EngramEntry_Radio_C",
+    "Level": 51,
+    "Points": 8
+  },
+  {
+    "Name": "Raft",
+    "ClassName": "EngramEntry_Raft_C",
+    "Level": 16,
+    "Points": 11
+  },
+  {
+    "Name": "Adobe Ramp",
+    "ClassName": "EngramEntry_Ramp_Adobe_C",
+    "Level": 16,
+    "Points": 3
+  },
+  {
+    "Name": "Metal Ramp",
+    "ClassName": "EngramEntry_Ramp_Metal_C",
+    "Level": 47,
+    "Points": 12
+  },
+  {
+    "Name": "Stone Ramp",
+    "ClassName": "EngramEntry_Ramp_Stone_C",
+    "Level": 24,
+    "Points": 6
+  },
+  {
+    "Name": "Tek Ramp",
+    "ClassName": "EngramEntry_Ramp_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Ramp",
+    "ClassName": "EngramEntry_Ramp_Wood_C",
+    "Level": 12,
+    "Points": 3
+  },
+  {
+    "Name": "Saddle - Ravager",
+    "ClassName": "EngramEntry_RavagerSaddle_C",
+    "Level": 47,
+    "Points": 20
+  },
+  {
+    "Name": "Unstable Element",
+    "ClassName": "EngramEntry_RefinedElement_C",
+    "Level": 58,
+    "Points": 6
+  },
+  {
+    "Name": "Unstable Element Shard",
+    "ClassName": "EngramEntry_RefinedShards_C",
+    "Level": 55,
+    "Points": 6
+  },
+  {
+    "Name": "Shocking Tranquilizer Dart",
+    "ClassName": "EngramEntry_RefinedTranqDart_C",
+    "Level": 96,
+    "Points": 30
+  },
+  {
+    "Name": "Riot Boots",
+    "ClassName": "EngramEntry_RiotBoots_C",
+    "Level": 98,
+    "Points": 40
+  },
+  {
+    "Name": "Riot Gauntlets",
+    "ClassName": "EngramEntry_RiotGloves_C",
+    "Level": 98,
+    "Points": 40
+  },
+  {
+    "Name": "Riot Helmet",
+    "ClassName": "EngramEntry_RiotHelmet_C",
+    "Level": 98,
+    "Points": 40
+  },
+  {
+    "Name": "Riot Leggings",
+    "ClassName": "EngramEntry_RiotPants_C",
+    "Level": 98,
+    "Points": 40
+  },
+  {
+    "Name": "Riot Shield",
+    "ClassName": "EngramEntry_RiotShield_C",
+    "Level": 92,
+    "Points": 35
+  },
+  {
+    "Name": "Riot Chestpiece",
+    "ClassName": "EngramEntry_RiotShirt_C",
+    "Level": 98,
+    "Points": 40
+  },
+  {
+    "Name": "Rocket Propelled Grenade",
+    "ClassName": "EngramEntry_RocketAmmo_C",
+    "Level": 87,
+    "Points": 8
+  },
+  {
+    "Name": "Rocket Homing Missile",
+    "ClassName": "EngramEntry_RocketHommingAmmo_C",
+    "Level": 90,
+    "Points": 25
+  },
+  {
+    "Name": "Rocket Launcher",
+    "ClassName": "EngramEntry_RocketLauncher_C",
+    "Level": 87,
+    "Points": 32
+  },
+  {
+    "Name": "Rocket Turret",
+    "ClassName": "EngramEntry_RocketTurret_C",
+    "Level": 99,
+    "Points": 100
+  },
+  {
+    "Name": "Saddle - Roll Rat",
+    "ClassName": "EngramEntry_RollratSaddle_C",
+    "Level": 58,
+    "Points": 26
+  },
+  {
+    "Name": "Rope Ladder",
+    "ClassName": "EngramEntry_RopeLadder_C",
+    "Level": 16,
+    "Points": 5
+  },
+  {
+    "Name": "Saddle - Allosaurus",
+    "ClassName": "EngramEntry_Saddle_Allo_C",
+    "Level": 67,
+    "Points": 35
+  },
+  {
+    "Name": "Amargasaurus Saddle",
+    "ClassName": "EngramEntry_Saddle_Amarga_C",
+    "Level": 55,
+    "Points": 18
+  },
+  {
+    "Name": "Andrewsarchus Saddle",
+    "ClassName": "EngramEntry_Saddle_Andrewsarchus_C",
+    "Level": 74,
+    "Points": 45
+  },
+  {
+    "Name": "Saddle - Ankylo",
+    "ClassName": "EngramEntry_Saddle_Ankylo_C",
+    "Level": 36,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Argentavis",
+    "ClassName": "EngramEntry_Saddle_Argentavis_C",
+    "Level": 62,
+    "Points": 21
+  },
+  {
+    "Name": "Saddle - Arthropluera",
+    "ClassName": "EngramEntry_Saddle_Arthro_C",
+    "Level": 54,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Baryonyx",
+    "ClassName": "EngramEntry_Saddle_Baryonyx_C",
+    "Level": 49,
+    "Points": 24
+  },
+  {
+    "Name": "Saddle - Basilosaurus",
+    "ClassName": "EngramEntry_Saddle_Basilosaurus_C",
+    "Level": 60,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Castoroides",
+    "ClassName": "EngramEntry_Saddle_Beaver_C",
+    "Level": 61,
+    "Points": 50
+  },
+  {
+    "Name": "Saddle - Morellatops",
+    "ClassName": "EngramEntry_Saddle_Camelsaurus_C",
+    "Level": 11,
+    "Points": 11
+  },
+  {
+    "Name": "Carcharo Saddle",
+    "ClassName": "EngramEntry_Saddle_Carcha_C",
+    "Level": 96,
+    "Points": 75
+  },
+  {
+    "Name": "Saddle - Carno",
+    "ClassName": "EngramEntry_Saddle_Carno_C",
+    "Level": 46,
+    "Points": 21
+  },
+  {
+    "Name": "Saddle - Chalicotherium",
+    "ClassName": "EngramEntry_Saddle_Chalico_C",
+    "Level": 42,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Daeodon",
+    "ClassName": "EngramEntry_Saddle_Daeodon_C",
+    "Level": 59,
+    "Points": 24
+  },
+  {
+    "Name": "Deinonychus Saddle",
+    "ClassName": "EngramEntry_Saddle_Deinonychus_C",
+    "Level": 32,
+    "Points": 30
+  },
+  {
+    "Name": "Desmodus Saddle",
+    "ClassName": "EngramEntry_Saddle_Desmodus_C",
+    "Level": 74,
+    "Points": 45
+  },
+  {
+    "Name": "Saddle - Diplodocus",
+    "ClassName": "EngramEntry_Saddle_Diplodocus_C",
+    "Level": 32,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Dire Bear",
+    "ClassName": "EngramEntry_Saddle_Direbear_C",
+    "Level": 45,
+    "Points": 24
+  },
+  {
+    "Name": "Saddle - Doedicurus",
+    "ClassName": "EngramEntry_Saddle_Doed_C",
+    "Level": 34,
+    "Points": 20
+  },
+  {
+    "Name": "Saddle - Ichthyosaurus",
+    "ClassName": "EngramEntry_Saddle_Dolphin_C",
+    "Level": 13,
+    "Points": 8
+  },
+  {
+    "Name": "Saddle - Dunkleosteus",
+    "ClassName": "EngramEntry_Saddle_Dunkle_C",
+    "Level": 44,
+    "Points": 20
+  },
+  {
+    "Name": "Saddle - Equus",
+    "ClassName": "EngramEntry_Saddle_Equus_C",
+    "Level": 20,
+    "Points": 22
+  },
+  {
+    "Name": "Saddle - Gallimimus",
+    "ClassName": "EngramEntry_Saddle_Galli_C",
+    "Level": 29,
+    "Points": 20
+  },
+  {
+    "Name": "Saddle - Giganotosaurus",
+    "ClassName": "EngramEntry_Saddle_Gigant_C",
+    "Level": 96,
+    "Points": 75
+  },
+  {
+    "Name": "Saddle - Hyaenodon (Meatpack)",
+    "ClassName": "EngramEntry_Saddle_Hyaenodon_C",
+    "Level": 19,
+    "Points": 14
+  },
+  {
+    "Name": "Saddle - Iguanodon",
+    "ClassName": "EngramEntry_Saddle_Iguanodon_C",
+    "Level": 30,
+    "Points": 12
+  },
+  {
+    "Name": "Saddle - Kaprosuchus",
+    "ClassName": "EngramEntry_Saddle_Kaprosuchus_C",
+    "Level": 39,
+    "Points": 28
+  },
+  {
+    "Name": "Saddle - Mammoth",
+    "ClassName": "EngramEntry_Saddle_Mammoth_C",
+    "Level": 31,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Manta",
+    "ClassName": "EngramEntry_Saddle_Manta_C",
+    "Level": 28,
+    "Points": 16
+  },
+  {
+    "Name": "Saddle - Mantis",
+    "ClassName": "EngramEntry_Saddle_Mantis_C",
+    "Level": 45,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Megalania",
+    "ClassName": "EngramEntry_Saddle_Megalania_C",
+    "Level": 73,
+    "Points": 65
+  },
+  {
+    "Name": "Saddle - Megalodon",
+    "ClassName": "EngramEntry_Saddle_Megalodon_C",
+    "Level": 47,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Megalosaurus",
+    "ClassName": "EngramEntry_Saddle_Megalosaurus_C",
+    "Level": 57,
+    "Points": 50
+  },
+  {
+    "Name": "Saddle - Megatherium",
+    "ClassName": "EngramEntry_Saddle_Megatherium_C",
+    "Level": 52,
+    "Points": 24
+  },
+  {
+    "Name": "Saddle - Mosasaur",
+    "ClassName": "EngramEntry_Saddle_Mosa_C",
+    "Level": 78,
+    "Points": 60
+  },
+  {
+    "Name": "Saddle - Mosasaur Platform",
+    "ClassName": "EngramEntry_Saddle_Mosa_Platform_C",
+    "Level": 93,
+    "Points": 80
+  },
+  {
+    "Name": "Saddle - Lymantria",
+    "ClassName": "EngramEntry_Saddle_Moth_C",
+    "Level": 36,
+    "Points": 12
+  },
+  {
+    "Name": "Saddle - Pachy",
+    "ClassName": "EngramEntry_Saddle_Pachy_C",
+    "Level": 14,
+    "Points": 9
+  },
+  {
+    "Name": "Saddle - Pachyrhinosaurus",
+    "ClassName": "EngramEntry_Saddle_PachyRhino_C",
+    "Level": 27,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Parasaur",
+    "ClassName": "EngramEntry_Saddle_Para_C",
+    "Level": 9,
+    "Points": 9
+  },
+  {
+    "Name": "Saddle - Paracer",
+    "ClassName": "EngramEntry_Saddle_Paracer_C",
+    "Level": 41,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Paracer Platform",
+    "ClassName": "EngramEntry_Saddle_Paracer_Platform_C",
+    "Level": 50,
+    "Points": 24
+  },
+  {
+    "Name": "Saddle - Pelagornis",
+    "ClassName": "EngramEntry_Saddle_Pela_C",
+    "Level": 43,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Phiomia",
+    "ClassName": "EngramEntry_Saddle_Phiomia_C",
+    "Level": 5,
+    "Points": 6
+  },
+  {
+    "Name": "Saddle - Plesiosaur",
+    "ClassName": "EngramEntry_Saddle_Plesia_C",
+    "Level": 64,
+    "Points": 40
+  },
+  {
+    "Name": "Saddle - Plesiosaur Platform",
+    "ClassName": "EngramEntry_Saddle_Plesio_Platform_C",
+    "Level": 84,
+    "Points": 80
+  },
+  {
+    "Name": "Saddle - Procoptodon",
+    "ClassName": "EngramEntry_Saddle_Procop_C",
+    "Level": 23,
+    "Points": 35
+  },
+  {
+    "Name": "Saddle - Pteranodon",
+    "ClassName": "EngramEntry_Saddle_Ptero_C",
+    "Level": 38,
+    "Points": 15
+  },
+  {
+    "Name": "Saddle - Quetz",
+    "ClassName": "EngramEntry_Saddle_Quetz_C",
+    "Level": 76,
+    "Points": 44
+  },
+  {
+    "Name": "Saddle - Quetz Platform",
+    "ClassName": "EngramEntry_Saddle_Quetz_Platform_C",
+    "Level": 97,
+    "Points": 80
+  },
+  {
+    "Name": "Saddle - Raptor",
+    "ClassName": "EngramEntry_Saddle_Raptor_C",
+    "Level": 18,
+    "Points": 9
+  },
+  {
+    "Name": "Saddle - Rex",
+    "ClassName": "EngramEntry_Saddle_Rex_C",
+    "Level": 74,
+    "Points": 40
+  },
+  {
+    "Name": "Saddle - Woolly Rhino",
+    "ClassName": "EngramEntry_Saddle_Rhino_C",
+    "Level": 53,
+    "Points": 24
+  },
+  {
+    "Name": "Rhyniognatha Saddle",
+    "ClassName": "EngramEntry_Saddle_Rhynio_C",
+    "Level": 90,
+    "Points": 65
+  },
+  {
+    "Name": "Saddle - Rock Golem",
+    "ClassName": "EngramEntry_Saddle_RockGolem_C",
+    "Level": 70,
+    "Points": 40
+  },
+  {
+    "Name": "Saddle - Sabertooth",
+    "ClassName": "EngramEntry_Saddle_Saber_C",
+    "Level": 37,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Sarco",
+    "ClassName": "EngramEntry_Saddle_Sarco_C",
+    "Level": 35,
+    "Points": 15
+  },
+  {
+    "Name": "Saddle - Bronto",
+    "ClassName": "EngramEntry_Saddle_Sauro_C",
+    "Level": 63,
+    "Points": 21
+  },
+  {
+    "Name": "Saddle - Bronto Platform",
+    "ClassName": "EngramEntry_Saddle_Sauro_Platform_C",
+    "Level": 82,
+    "Points": 35
+  },
+  {
+    "Name": "Saddle - Pulmonoscorpius",
+    "ClassName": "EngramEntry_Saddle_Scorpion_C",
+    "Level": 22,
+    "Points": 12
+  },
+  {
+    "Name": "Saddle - Araneo",
+    "ClassName": "EngramEntry_Saddle_Spider_C",
+    "Level": 40,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Thorny Dragon",
+    "ClassName": "EngramEntry_Saddle_SpineyLizard_C",
+    "Level": 40,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Spino",
+    "ClassName": "EngramEntry_Saddle_Spino_C",
+    "Level": 71,
+    "Points": 40
+  },
+  {
+    "Name": "Saddle - Megaloceros",
+    "ClassName": "EngramEntry_Saddle_Stag_C",
+    "Level": 30,
+    "Points": 20
+  },
+  {
+    "Name": "Saddle - Stego",
+    "ClassName": "EngramEntry_Saddle_Stego_C",
+    "Level": 26,
+    "Points": 15
+  },
+  {
+    "Name": "Saddle - Tapejara",
+    "ClassName": "EngramEntry_Saddle_Tapejara_C",
+    "Level": 55,
+    "Points": 21
+  },
+  {
+    "Name": "Saddle - Terror Bird",
+    "ClassName": "EngramEntry_Saddle_TerrorBird_C",
+    "Level": 33,
+    "Points": 15
+  },
+  {
+    "Name": "Saddle - Therizinosaurus",
+    "ClassName": "EngramEntry_Saddle_Therizino_C",
+    "Level": 69,
+    "Points": 40
+  },
+  {
+    "Name": "Saddle - Thylacoleo",
+    "ClassName": "EngramEntry_Saddle_Thylaco_C",
+    "Level": 51,
+    "Points": 18
+  },
+  {
+    "Name": "Saddle - Titanosaur Platform",
+    "ClassName": "EngramEntry_Saddle_Titano_Platform_C",
+    "Level": 100,
+    "Points": 120
+  },
+  {
+    "Name": "Saddle - Beelzebufo",
+    "ClassName": "EngramEntry_Saddle_Toad_C",
+    "Level": 40,
+    "Points": 16
+  },
+  {
+    "Name": "Saddle - Trike",
+    "ClassName": "EngramEntry_Saddle_Trike_C",
+    "Level": 16,
+    "Points": 12
+  },
+  {
+    "Name": "Saddle - Carbonemys",
+    "ClassName": "EngramEntry_Saddle_Turtle_C",
+    "Level": 10,
+    "Points": 12
+  },
+  {
+    "Name": "Saddle - Tusoteuthis",
+    "ClassName": "EngramEntry_Saddle_Tuso_C",
+    "Level": 91,
+    "Points": 40
+  },
+  {
+    "Name": "Saddle - Yutyrannus",
+    "ClassName": "EngramEntry_Saddle_Yuty_C",
+    "Level": 80,
+    "Points": 50
+  },
+  {
+    "Name": "Scissors",
+    "ClassName": "EngramEntry_Scissors_C",
+    "Level": 21,
+    "Points": 10
+  },
+  {
+    "Name": "Scope Attachment",
+    "ClassName": "EngramEntry_Scope_C",
+    "Level": 35,
+    "Points": 13
+  },
+  {
+    "Name": "SCUBA Flippers",
+    "ClassName": "EngramEntry_ScubaBoots_Flippers_C",
+    "Level": 81,
+    "Points": 20
+  },
+  {
+    "Name": "SCUBA Mask",
+    "ClassName": "EngramEntry_ScubaHelmet_Goggles_C",
+    "Level": 81,
+    "Points": 25
+  },
+  {
+    "Name": "SCUBA Leggings",
+    "ClassName": "EngramEntry_ScubaPants_C",
+    "Level": 81,
+    "Points": 35
+  },
+  {
+    "Name": "SCUBA Tank",
+    "ClassName": "EngramEntry_ScubaShirt_SuitWithTank_C",
+    "Level": 81,
+    "Points": 35
+  },
+  {
+    "Name": "Homing Underwater Mine",
+    "ClassName": "EngramEntry_SeaMine_C",
+    "Level": 88,
+    "Points": 30
+  },
+  {
+    "Name": "Saddle - Rock Drake",
+    "ClassName": "EngramEntry_ShadowDrakeSaddle_C",
+    "Level": 75,
+    "Points": 26
+  },
+  {
+    "Name": "Shag Rug",
+    "ClassName": "EngramEntry_ShagRug_C",
+    "Level": 17,
+    "Points": 4
+  },
+  {
+    "Name": "Tek Shoulder Cannon",
+    "ClassName": "EngramEntry_ShoulderCannon_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Silencer Attachment",
+    "ClassName": "EngramEntry_Silencer_C",
+    "Level": 41,
+    "Points": 13
+  },
+  {
+    "Name": "Simple Bed",
+    "ClassName": "EngramEntry_SimpleBed_C",
+    "Level": 7,
+    "Points": 8
+  },
+  {
+    "Name": "Simple Bullet",
+    "ClassName": "EngramEntry_SimpleBullet_C",
+    "Level": 34,
+    "Points": 6
+  },
+  {
+    "Name": "Longneck Rifle",
+    "ClassName": "EngramEntry_SimpleRifle_C",
+    "Level": 35,
+    "Points": 18
+  },
+  {
+    "Name": "Simple Rifle Ammo",
+    "ClassName": "EngramEntry_SimpleRifleBullet_C",
+    "Level": 35,
+    "Points": 6
+  },
+  {
+    "Name": "Shotgun",
+    "ClassName": "EngramEntry_SimpleShotgun_C",
+    "Level": 39,
+    "Points": 18
+  },
+  {
+    "Name": "Simple Shotgun Ammo",
+    "ClassName": "EngramEntry_SimpleShotgunBullet_C",
+    "Level": 39,
+    "Points": 6
+  },
+  {
+    "Name": "Slingshot",
+    "ClassName": "EngramEntry_Slingshot_C",
+    "Level": 5,
+    "Points": 6
+  },
+  {
+    "Name": "Astrodelphis Saddle",
+    "ClassName": "EngramEntry_SpaceDolphin_Saddle_C",
+    "Level": 120,
+    "Points": 60
+  },
+  {
+    "Name": "Sparkpowder",
+    "ClassName": "EngramEntry_Sparkpowder_C",
+    "Level": 6,
+    "Points": 3
+  },
+  {
+    "Name": "Spear",
+    "ClassName": "EngramEntry_Spear_C",
+    "Level": 2,
+    "Points": 3
+  },
+  {
+    "Name": "Velonasaur Saddle",
+    "ClassName": "EngramEntry_SpindlesSaddle_C",
+    "Level": 27,
+    "Points": 8
+  },
+  {
+    "Name": "Spray Painter",
+    "ClassName": "EngramEntry_SprayPainter_C",
+    "Level": 53,
+    "Points": 30
+  },
+  {
+    "Name": "Spyglass",
+    "ClassName": "EngramEntry_Spyglass_C",
+    "Level": 7,
+    "Points": 2
+  },
+  {
+    "Name": "Standing Torch",
+    "ClassName": "EngramEntry_StandingTorch_C",
+    "Level": 7,
+    "Points": 6
+  },
+  {
+    "Name": "Stimulant",
+    "ClassName": "EngramEntry_Stimulant_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Stone Ceiling",
+    "ClassName": "EngramEntry_StoneCeiling_C",
+    "Level": 24,
+    "Points": 6
+  },
+  {
+    "Name": "Stone Hatchframe",
+    "ClassName": "EngramEntry_StoneCeilingWithTrapdoor_C",
+    "Level": 26,
+    "Points": 8
+  },
+  {
+    "Name": "Giant Stone Hatchframe",
+    "ClassName": "EngramEntry_StoneCeilingWithTrapdoorGiant_C",
+    "Level": 30,
+    "Points": 20
+  },
+  {
+    "Name": "Stone Cliff Platform",
+    "ClassName": "EngramEntry_StoneCliffPlatform_C",
+    "Level": 37,
+    "Points": 28
+  },
+  {
+    "Name": "Wooden Club",
+    "ClassName": "EngramEntry_StoneClub_C",
+    "Level": 8,
+    "Points": 4
+  },
+  {
+    "Name": "Reinforced Wooden Door",
+    "ClassName": "EngramEntry_StoneDoor_C",
+    "Level": 24,
+    "Points": 4
+  },
+  {
+    "Name": "Stone Fence Foundation",
+    "ClassName": "EngramEntry_StoneFenceFoundation_C",
+    "Level": 25,
+    "Points": 6
+  },
+  {
+    "Name": "Stone Foundation",
+    "ClassName": "EngramEntry_StoneFloor_C",
+    "Level": 24,
+    "Points": 6
+  },
+  {
+    "Name": "Reinforced Dinosaur Gate",
+    "ClassName": "EngramEntry_StoneGate_C",
+    "Level": 27,
+    "Points": 6
+  },
+  {
+    "Name": "Behemoth Reinforced Dinosaur Gate",
+    "ClassName": "EngramEntry_StoneGateLarge_C",
+    "Level": 31,
+    "Points": 16
+  },
+  {
+    "Name": "Stone Dinosaur Gateway",
+    "ClassName": "EngramEntry_StoneGateway_C",
+    "Level": 27,
+    "Points": 9
+  },
+  {
+    "Name": "Behemoth Stone Dinosaur Gateway",
+    "ClassName": "EngramEntry_StoneGateway_Large_C",
+    "Level": 31,
+    "Points": 12
+  },
+  {
+    "Name": "Stone Hatchet",
+    "ClassName": "EngramEntry_StoneHatchet_C",
+    "Level": 2,
+    "Points": 3
+  },
+  {
+    "Name": "Stone Pick",
+    "ClassName": "EngramEntry_StonePick_C",
+    "Level": 1,
+    "Points": 0
+  },
+  {
+    "Name": "Stone Pillar",
+    "ClassName": "EngramEntry_StonePillar_C",
+    "Level": 25,
+    "Points": 8
+  },
+  {
+    "Name": "Stone Irrigation Pipe - Inclined",
+    "ClassName": "EngramEntry_StonePipeInclined_C",
+    "Level": 17,
+    "Points": 3
+  },
+  {
+    "Name": "Stone Irrigation Pipe - Intake",
+    "ClassName": "EngramEntry_StonePipeIntake_C",
+    "Level": 17,
+    "Points": 5
+  },
+  {
+    "Name": "Stone Irrigation Pipe - Intersection",
+    "ClassName": "EngramEntry_StonePipeIntersection_C",
+    "Level": 17,
+    "Points": 5
+  },
+  {
+    "Name": "Stone Irrigation Pipe - Straight",
+    "ClassName": "EngramEntry_StonePipeStraight_C",
+    "Level": 17,
+    "Points": 2
+  },
+  {
+    "Name": "Stone Irrigation Pipe - Tap",
+    "ClassName": "EngramEntry_StonePipeTap_C",
+    "Level": 17,
+    "Points": 5
+  },
+  {
+    "Name": "Stone Irrigation Pipe - Vertical",
+    "ClassName": "EngramEntry_StonePipeVertical_C",
+    "Level": 17,
+    "Points": 3
+  },
+  {
+    "Name": "Stone Railing",
+    "ClassName": "EngramEntry_StoneRailing_C",
+    "Level": 28,
+    "Points": 4
+  },
+  {
+    "Name": "Stone Roof Sloped",
+    "ClassName": "EngramEntry_StoneRoof_C",
+    "Level": 27,
+    "Points": 4
+  },
+  {
+    "Name": "Stone Wall Sloped Left",
+    "ClassName": "EngramEntry_StoneSlopedWall_Left_C",
+    "Level": 27,
+    "Points": 4
+  },
+  {
+    "Name": "Stone Wall Sloped Right",
+    "ClassName": "EngramEntry_StoneSlopedWall_Right_C",
+    "Level": 27,
+    "Points": 4
+  },
+  {
+    "Name": "Stone Staircase",
+    "ClassName": "EngramEntry_StoneStairs_C",
+    "Level": 28,
+    "Points": 15
+  },
+  {
+    "Name": "Reinforced Trapdoor",
+    "ClassName": "EngramEntry_StoneTrapdoor_C",
+    "Level": 26,
+    "Points": 10
+  },
+  {
+    "Name": "Giant Reinforced Trapdoor",
+    "ClassName": "EngramEntry_StoneTrapdoorGiant_C",
+    "Level": 30,
+    "Points": 20
+  },
+  {
+    "Name": "Stone Wall",
+    "ClassName": "EngramEntry_StoneWall_C",
+    "Level": 24,
+    "Points": 8
+  },
+  {
+    "Name": "Stone Doorframe",
+    "ClassName": "EngramEntry_StoneWallWithDoor_C",
+    "Level": 24,
+    "Points": 6
+  },
+  {
+    "Name": "Stone Windowframe",
+    "ClassName": "EngramEntry_StoneWallWithWindow_C",
+    "Level": 26,
+    "Points": 11
+  },
+  {
+    "Name": "Reinforced Window",
+    "ClassName": "EngramEntry_StoneWindow_C",
+    "Level": 26,
+    "Points": 10
+  },
+  {
+    "Name": "Delivery Crate",
+    "ClassName": "EngramEntry_StorageBox_Balloon_C",
+    "Level": 16,
+    "Points": 6
+  },
+  {
+    "Name": "Vault",
+    "ClassName": "EngramEntry_StorageBox_Huge_C",
+    "Level": 75,
+    "Points": 30
+  },
+  {
+    "Name": "Large Storage Box",
+    "ClassName": "EngramEntry_StorageBox_Large_C",
+    "Level": 16,
+    "Points": 9
+  },
+  {
+    "Name": "Storage Box",
+    "ClassName": "EngramEntry_StorageBox_Small_C",
+    "Level": 4,
+    "Points": 6
+  },
+  {
+    "Name": "Absorbent Substrate",
+    "ClassName": "EngramEntry_SubstrateAbsorbent_C",
+    "Level": 86,
+    "Points": 60
+  },
+  {
+    "Name": "Sword",
+    "ClassName": "EngramEntry_Sword_C",
+    "Level": 30,
+    "Points": 11
+  },
+  {
+    "Name": "Large Taxidermy Base",
+    "ClassName": "EngramEntry_TaxidermyBase_Large_C",
+    "Level": 32,
+    "Points": 4
+  },
+  {
+    "Name": "Medium Taxidermy Base",
+    "ClassName": "EngramEntry_TaxidermyBase_Medium_C",
+    "Level": 21,
+    "Points": 4
+  },
+  {
+    "Name": "Small Taxidermy Base",
+    "ClassName": "EngramEntry_TaxidermyBase_Small_C",
+    "Level": 10,
+    "Points": 4
+  },
+  {
+    "Name": "Taxidermy Tool",
+    "ClassName": "EngramEntry_TaxidermyTool_C",
+    "Level": 10,
+    "Points": 3
+  },
+  {
+    "Name": "Tek Dinosaur Gate",
+    "ClassName": "EngramEntry_Tek_Gate_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Behemoth Gate",
+    "ClassName": "EngramEntry_Tek_Gate_Large_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Dinosaur Gateway",
+    "ClassName": "EngramEntry_Tek_Gategrame_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Behemoth Gateway",
+    "ClassName": "EngramEntry_Tek_Gategrame_Large_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Sensor",
+    "ClassName": "EngramEntry_TekAlarm_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek ATV",
+    "ClassName": "EngramEntry_TekATV_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Sleeping Pod",
+    "ClassName": "EngramEntry_TekBed_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Boots",
+    "ClassName": "EngramEntry_TekBoots_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Bow",
+    "ClassName": "EngramEntry_TekBow_C",
+    "Level": 116,
+    "Points": 53
+  },
+  {
+    "Name": "Tek Bridge",
+    "ClassName": "EngramEntry_TekBridge_C",
+    "Level": 72,
+    "Points": 32
+  },
+  {
+    "Name": "Tek Canteen",
+    "ClassName": "EngramEntry_TekCanteen_C",
+    "Level": 101,
+    "Points": 6
+  },
+  {
+    "Name": "Tek Catwalk",
+    "ClassName": "EngramEntry_TekCatwalk_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Ceiling",
+    "ClassName": "EngramEntry_TekCeiling_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Hatchframe",
+    "ClassName": "EngramEntry_TekCeilingWithTrapdoor_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Claws",
+    "ClassName": "EngramEntry_TekClaws_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Cloning Chamber",
+    "ClassName": "EngramEntry_TekCloningChamber_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek CropPlot",
+    "ClassName": "EngramEntry_TekCropPlot_C",
+    "Level": 104,
+    "Points": 32
+  },
+  {
+    "Name": "Tek Door",
+    "ClassName": "EngramEntry_TekDoor_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Exo Mek",
+    "ClassName": "EngramEntry_TekExosuit_C",
+    "Level": 120,
+    "Points": 20
+  },
+  {
+    "Name": "Tek Fence Foundation",
+    "ClassName": "EngramEntry_TekFenceFoundation_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Foundation",
+    "ClassName": "EngramEntry_TekFloor_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Generator",
+    "ClassName": "EngramEntry_TekGenerator_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Gauntlets",
+    "ClassName": "EngramEntry_TekGloves_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Gravity Grenade",
+    "ClassName": "EngramEntry_TekGravityGrenade_C",
+    "Level": 79,
+    "Points": 20
+  },
+  {
+    "Name": "Tek Grenade",
+    "ClassName": "EngramEntry_TekGrenade_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Grenade Launcher",
+    "ClassName": "EngramEntry_TekGrenadeLauncher_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Helmet",
+    "ClassName": "EngramEntry_TekHelmet_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek HoverSail",
+    "ClassName": "EngramEntry_TekHoverSail_C",
+    "Level": 112,
+    "Points": 45
+  },
+  {
+    "Name": "Tek Ladder",
+    "ClassName": "EngramEntry_TekLadder_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Light",
+    "ClassName": "EngramEntry_TekLight_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Saddle - Megalodon",
+    "ClassName": "EngramEntry_TekMegalodonSaddle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Saddle - Mosasaur",
+    "ClassName": "EngramEntry_TekMosaSaddle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Leggings",
+    "ClassName": "EngramEntry_TekPants_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Pillar",
+    "ClassName": "EngramEntry_TekPillar_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Pistol",
+    "ClassName": "EngramEntry_TekPistol_C",
+    "Level": 118,
+    "Points": 55
+  },
+  {
+    "Name": "Tek Railing",
+    "ClassName": "EngramEntry_TekRailing_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Ramp",
+    "ClassName": "EngramEntry_TekRamp_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Replicator",
+    "ClassName": "EngramEntry_TekReplicator_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Saddle - Rex",
+    "ClassName": "EngramEntry_TekRexSaddle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Rifle",
+    "ClassName": "EngramEntry_TekRifle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Saddle - Rock Drake",
+    "ClassName": "EngramEntry_TekRockDrakeSaddle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Sloped Roof",
+    "ClassName": "EngramEntry_TekRoof_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Surveillance Console",
+    "ClassName": "EngramEntry_TekSecuirtyConsole_C",
+    "Level": 108,
+    "Points": 60
+  },
+  {
+    "Name": "Tek Forcefield",
+    "ClassName": "EngramEntry_TekShield_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Shield",
+    "ClassName": "EngramEntry_TekShieldArmor_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Chestpiece",
+    "ClassName": "EngramEntry_TekShirt_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Sloped Wall Left",
+    "ClassName": "EngramEntry_TekSlopedWall_Left_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Sloped Wall Right",
+    "ClassName": "EngramEntry_TekSlopedWall_Right_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Railgun",
+    "ClassName": "EngramEntry_TekSniper_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Astrocetus Tek Saddle",
+    "ClassName": "EngramEntry_TekSpaceWhaleSaddle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Staircase",
+    "ClassName": "EngramEntry_TekStairs_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Sword",
+    "ClassName": "EngramEntry_TekSword_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Saddle - Tapejara",
+    "ClassName": "EngramEntry_TekTapejaraSaddle_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Teleporter",
+    "ClassName": "EngramEntry_TekTeleporter_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Transmitter",
+    "ClassName": "EngramEntry_TekTransmitter_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Trapdoor",
+    "ClassName": "EngramEntry_TekTrapdoor_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Trough",
+    "ClassName": "EngramEntry_TekTrough_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Vacuum Compartment Moonpool",
+    "ClassName": "EngramEntry_TekUnderwaterBase_BottomEntry_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Vacuum Compartment",
+    "ClassName": "EngramEntry_TekUnderwaterBase_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Wall",
+    "ClassName": "EngramEntry_TekWall_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Doorframe",
+    "ClassName": "EngramEntry_TekWallWithDoor_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Windowframe",
+    "ClassName": "EngramEntry_TekWallWithWindow_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tek Window",
+    "ClassName": "EngramEntry_TekWindow_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Tent",
+    "ClassName": "EngramEntry_Tent_C",
+    "Level": 7,
+    "Points": 8
+  },
+  {
+    "Name": "Thatch Roof",
+    "ClassName": "EngramEntry_ThatchCeiling_C",
+    "Level": 4,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Door",
+    "ClassName": "EngramEntry_ThatchDoor_C",
+    "Level": 4,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Foundation",
+    "ClassName": "EngramEntry_ThatchFloor_C",
+    "Level": 4,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Roof Sloped",
+    "ClassName": "EngramEntry_ThatchRoof_C",
+    "Level": 5,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Wall Sloped Left",
+    "ClassName": "EngramEntry_ThatchSlopedWall_Left_C",
+    "Level": 5,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Wall Sloped Right",
+    "ClassName": "EngramEntry_ThatchSlopedWall_Right_C",
+    "Level": 5,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Wall",
+    "ClassName": "EngramEntry_ThatchWall_C",
+    "Level": 4,
+    "Points": 3
+  },
+  {
+    "Name": "Thatch Doorframe",
+    "ClassName": "EngramEntry_ThatchWallWithDoor_C",
+    "Level": 4,
+    "Points": 3
+  },
+  {
+    "Name": "Toilet",
+    "ClassName": "EngramEntry_Toilet_C",
+    "Level": 32,
+    "Points": 35
+  },
+  {
+    "Name": "Torch",
+    "ClassName": "EngramEntry_Torch_C",
+    "Level": 1,
+    "Points": 0
+  },
+  {
+    "Name": "Training Dummy",
+    "ClassName": "EngramEntry_TrainingDummy_C",
+    "Level": 9,
+    "Points": 8
+  },
+  {
+    "Name": "Tranquilizer Dart",
+    "ClassName": "EngramEntry_TranqDart_C",
+    "Level": 62,
+    "Points": 30
+  },
+  {
+    "Name": "Tranq Spear Bolt",
+    "ClassName": "EngramEntry_TranqSpearBolt_C",
+    "Level": 72,
+    "Points": 40
+  },
+  {
+    "Name": "Transponder Tracker",
+    "ClassName": "EngramEntry_TransGPS_C",
+    "Level": 66,
+    "Points": 30
+  },
+  {
+    "Name": "Transponder Node",
+    "ClassName": "EngramEntry_TransGPSAmmo_C",
+    "Level": 66,
+    "Points": 20
+  },
+  {
+    "Name": "Metal Tree Platform",
+    "ClassName": "EngramEntry_TreePlatformMetal_C",
+    "Level": 59,
+    "Points": 55
+  },
+  {
+    "Name": "Wooden Tree Platform",
+    "ClassName": "EngramEntry_TreePlatformWood_C",
+    "Level": 33,
+    "Points": 28
+  },
+  {
+    "Name": "Tree Sap Tap",
+    "ClassName": "EngramEntry_TreeSapTap_C",
+    "Level": 36,
+    "Points": 18
+  },
+  {
+    "Name": "Adobe Triangle Ceiling",
+    "ClassName": "EngramEntry_TriCeiling_Adobe_C",
+    "Level": 15,
+    "Points": 5
+  },
+  {
+    "Name": "Greenhouse Triangle Ceiling",
+    "ClassName": "EngramEntry_TriCeiling_Greenhouse_C",
+    "Level": 42,
+    "Points": 30
+  },
+  {
+    "Name": "Metal Triangle Ceiling",
+    "ClassName": "EngramEntry_TriCeiling_Metal_C",
+    "Level": 45,
+    "Points": 15
+  },
+  {
+    "Name": "Stone Triangle Ceiling",
+    "ClassName": "EngramEntry_TriCeiling_Stone_C",
+    "Level": 24,
+    "Points": 6
+  },
+  {
+    "Name": "Tek Triangle Ceiling",
+    "ClassName": "EngramEntry_TriCeiling_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Triangle Ceiling",
+    "ClassName": "EngramEntry_TriCeiling_Wood_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Adobe Triangle Foundation",
+    "ClassName": "EngramEntry_TriFoundation_Adobe_C",
+    "Level": 15,
+    "Points": 6
+  },
+  {
+    "Name": "Metal Triangle Foundation",
+    "ClassName": "EngramEntry_TriFoundation_Metal_C",
+    "Level": 45,
+    "Points": 24
+  },
+  {
+    "Name": "Stone Triangle Foundation",
+    "ClassName": "EngramEntry_TriFoundation_Stone_C",
+    "Level": 24,
+    "Points": 6
+  },
+  {
+    "Name": "Tek Triangle Foundation",
+    "ClassName": "EngramEntry_TriFoundation_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Triangle Foundation",
+    "ClassName": "EngramEntry_TriFoundation_Wood_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Improvised Explosive Device",
+    "ClassName": "EngramEntry_TripwireC4_C",
+    "Level": 44,
+    "Points": 30
+  },
+  {
+    "Name": "Adobe Triangle Roof",
+    "ClassName": "EngramEntry_TriRoof_Adobe_C",
+    "Level": 18,
+    "Points": 5
+  },
+  {
+    "Name": "Greenhouse Triangle Roof",
+    "ClassName": "EngramEntry_TriRoof_Greenhouse_C",
+    "Level": 44,
+    "Points": 30
+  },
+  {
+    "Name": "Metal Triangle Roof",
+    "ClassName": "EngramEntry_TriRoof_Metal_C",
+    "Level": 47,
+    "Points": 10
+  },
+  {
+    "Name": "Stone Triangle Roof",
+    "ClassName": "EngramEntry_TriRoof_Stone_C",
+    "Level": 27,
+    "Points": 4
+  },
+  {
+    "Name": "Tek Triangle Roof",
+    "ClassName": "EngramEntry_TriRoof_Tek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Wood Triangle Roof",
+    "ClassName": "EngramEntry_TriRoof_Wood_C",
+    "Level": 14,
+    "Points": 4
+  },
+  {
+    "Name": "Trophy Base",
+    "ClassName": "EngramEntry_TrophyBase_C",
+    "Level": 25,
+    "Points": 10
+  },
+  {
+    "Name": "Trophy Wall-Mount",
+    "ClassName": "EngramEntry_TrophyWall_C",
+    "Level": 22,
+    "Points": 10
+  },
+  {
+    "Name": "Auto Turret",
+    "ClassName": "EngramEntry_Turret_C",
+    "Level": 68,
+    "Points": 40
+  },
+  {
+    "Name": "Tek Turret",
+    "ClassName": "EngramEntry_TurretTek_C",
+    "Level": 0,
+    "Points": 0
+  },
+  {
+    "Name": "Vessel",
+    "ClassName": "EngramEntry_Vessel_C",
+    "Level": 13,
+    "Points": 10
+  },
+  {
+    "Name": "Wall Torch",
+    "ClassName": "EngramEntry_WallTorch_C",
+    "Level": 21,
+    "Points": 8
+  },
+  {
+    "Name": "Wardrums",
+    "ClassName": "EngramEntry_Wardrums_C",
+    "Level": 13,
+    "Points": 6
+  },
+  {
+    "Name": "War Map",
+    "ClassName": "EngramEntry_WarMap_C",
+    "Level": 51,
+    "Points": 15
+  },
+  {
+    "Name": "Water Jar",
+    "ClassName": "EngramEntry_WaterJar_C",
+    "Level": 26,
+    "Points": 12
+  },
+  {
+    "Name": "Waterskin",
+    "ClassName": "EngramEntry_Waterskin_C",
+    "Level": 3,
+    "Points": 6
+  },
+  {
+    "Name": "Water Resevoir",
+    "ClassName": "EngramEntry_WaterTank_C",
+    "Level": 17,
+    "Points": 7
+  },
+  {
+    "Name": "Metal Water Resevoir",
+    "ClassName": "EngramEntry_WaterTankMetal_C",
+    "Level": 41,
+    "Points": 20
+  },
+  {
+    "Name": "Water Well",
+    "ClassName": "EngramEntry_WaterWell_C",
+    "Level": 15,
+    "Points": 10
+  },
+  {
+    "Name": "C4 Remote Detonator",
+    "ClassName": "EngramEntry_WeaponC4_C",
+    "Level": 65,
+    "Points": 24
+  },
+  {
+    "Name": "Whip",
+    "ClassName": "EngramEntry_WeaponWhip_C",
+    "Level": 20,
+    "Points": 6
+  },
+  {
+    "Name": "Wind Turbine",
+    "ClassName": "EngramEntry_WindTurbine_C",
+    "Level": 50,
+    "Points": 18
+  },
+  {
+    "Name": "Flexible Electrical Cable",
+    "ClassName": "EngramEntry_Wire_Flex_C",
+    "Level": 49,
+    "Points": 24
+  },
+  {
+    "Name": "Wooden Bench",
+    "ClassName": "EngramEntry_WoodBench_C",
+    "Level": 19,
+    "Points": 10
+  },
+  {
+    "Name": "Wooden Cage",
+    "ClassName": "EngramEntry_WoodCage_C",
+    "Level": 12,
+    "Points": 10
+  },
+  {
+    "Name": "Wooden Catwalk",
+    "ClassName": "EngramEntry_WoodCatwalk_C",
+    "Level": 14,
+    "Points": 8
+  },
+  {
+    "Name": "Wooden Ceiling",
+    "ClassName": "EngramEntry_WoodCeiling_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Wooden Hatchframe",
+    "ClassName": "EngramEntry_WoodCeilingWithTrapdoor_C",
+    "Level": 13,
+    "Points": 9
+  },
+  {
+    "Name": "Wooden Chair",
+    "ClassName": "EngramEntry_WoodChair_C",
+    "Level": 19,
+    "Points": 6
+  },
+  {
+    "Name": "Wooden Door",
+    "ClassName": "EngramEntry_WoodDoor_C",
+    "Level": 11,
+    "Points": 4
+  },
+  {
+    "Name": "Wood Elevator Top Switch",
+    "ClassName": "EngramEntry_WoodElevator_Switch_C",
+    "Level": 20,
+    "Points": 16
+  },
+  {
+    "Name": "Wood Elevator Track",
+    "ClassName": "EngramEntry_WoodElevator_Track_C",
+    "Level": 20,
+    "Points": 4
+  },
+  {
+    "Name": "Wood Elevator Platform (Large)",
+    "ClassName": "EngramEntry_WoodElevatorPlatform_Large_C",
+    "Level": 30,
+    "Points": 8
+  },
+  {
+    "Name": "Wood Elevator Platform (Medium)",
+    "ClassName": "EngramEntry_WoodElevatorPlatform_Medium_C",
+    "Level": 23,
+    "Points": 7
+  },
+  {
+    "Name": "Wood Elevator Platform (Small)",
+    "ClassName": "EngramEntry_WoodElevatorPlatform_Small_C",
+    "Level": 20,
+    "Points": 4
+  },
+  {
+    "Name": "Wooden Fence Foundation",
+    "ClassName": "EngramEntry_WoodFenceFoundation_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Wooden Foundation",
+    "ClassName": "EngramEntry_WoodFloor_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Dinosaur Gate",
+    "ClassName": "EngramEntry_WoodGate_C",
+    "Level": 18,
+    "Points": 5
+  },
+  {
+    "Name": "Dinosaur Gateway",
+    "ClassName": "EngramEntry_WoodGateway_C",
+    "Level": 18,
+    "Points": 7
+  },
+  {
+    "Name": "Wooden Ladder",
+    "ClassName": "EngramEntry_WoodLadder_C",
+    "Level": 13,
+    "Points": 6
+  },
+  {
+    "Name": "Wooden Pillar",
+    "ClassName": "EngramEntry_WoodPillar_C",
+    "Level": 12,
+    "Points": 9
+  },
+  {
+    "Name": "Wooden Railing",
+    "ClassName": "EngramEntry_WoodRailing_C",
+    "Level": 14,
+    "Points": 3
+  },
+  {
+    "Name": "Wooden Ramp",
+    "ClassName": "EngramEntry_WoodRamp_C",
+    "Level": 12,
+    "Points": 3
+  },
+  {
+    "Name": "Wooden Roof Sloped",
+    "ClassName": "EngramEntry_WoodRoof_C",
+    "Level": 14,
+    "Points": 4
+  },
+  {
+    "Name": "Wooden Shield",
+    "ClassName": "EngramEntry_WoodShield_C",
+    "Level": 12,
+    "Points": 7
+  },
+  {
+    "Name": "Wooden Sign",
+    "ClassName": "EngramEntry_WoodSign_C",
+    "Level": 5,
+    "Points": 3
+  },
+  {
+    "Name": "Wooden Billboard",
+    "ClassName": "EngramEntry_WoodSign_Large_C",
+    "Level": 19,
+    "Points": 4
+  },
+  {
+    "Name": "Wooden Wall Sign",
+    "ClassName": "EngramEntry_WoodSign_Wall_C",
+    "Level": 21,
+    "Points": 2
+  },
+  {
+    "Name": "Wooden Wall Sloped Left",
+    "ClassName": "EngramEntry_WoodSlopedWall_Left_C",
+    "Level": 12,
+    "Points": 3
+  },
+  {
+    "Name": "Wooden Wall Sloped Right",
+    "ClassName": "EngramEntry_WoodSlopedWall_Right_C",
+    "Level": 12,
+    "Points": 3
+  },
+  {
+    "Name": "Wooden Spike Wall",
+    "ClassName": "EngramEntry_WoodSpikeWall_C",
+    "Level": 13,
+    "Points": 4
+  },
+  {
+    "Name": "Wooden Staircase",
+    "ClassName": "EngramEntry_WoodStairs_C",
+    "Level": 14,
+    "Points": 10
+  },
+  {
+    "Name": "Wooden Trapdoor",
+    "ClassName": "EngramEntry_WoodTrapdoor_C",
+    "Level": 13,
+    "Points": 6
+  },
+  {
+    "Name": "Wooden Wall",
+    "ClassName": "EngramEntry_WoodWall_C",
+    "Level": 11,
+    "Points": 7
+  },
+  {
+    "Name": "Wooden Doorframe",
+    "ClassName": "EngramEntry_WoodWallWithDoor_C",
+    "Level": 11,
+    "Points": 6
+  },
+  {
+    "Name": "Wooden Windowframe",
+    "ClassName": "EngramEntry_WoodWallWithWindow_C",
+    "Level": 14,
+    "Points": 9
+  },
+  {
+    "Name": "Wooden Window",
+    "ClassName": "EngramEntry_WoodWindow_C",
+    "Level": 14,
+    "Points": 6
+  },
+  {
+    "Name": "Zip-Line Anchor",
+    "ClassName": "EngramEntry_ZiplineAmmo_C",
+    "Level": 31,
+    "Points": 8
+  },
+  {
+    "Name": "Zip-Line Motor Attachment",
+    "ClassName": "EngramEntry_ZiplineMotor_C",
+    "Level": 54,
+    "Points": 34
+  }
+]
