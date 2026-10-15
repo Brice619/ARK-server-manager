@@ -5,15 +5,14 @@ using System.Text.Json;
 
 namespace ArkServerManager.Core.Tests;
 
-public sealed class SharedLaunchDriveHostTests
+public sealed class DirectNativeHostTests
 {
     [Fact]
-    public async Task ActualWindowsHostKeepsSharedLaunchDriveUntilBothMapProcessesStop()
+    public async Task ActualHostStartsAndRestartsWithoutGameFileSynchronizationOrDriveMappings()
     {
         if (!OperatingSystem.IsWindows()) return;
-        var root = Path.Combine(Path.GetTempPath(), "ark-shared-drive-host-" + Guid.NewGuid().ToString("N"));
+        var root = Path.Combine(Path.GetTempPath(), "ark-direct host with spaces-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(root);
-        var backend = new NativeWindowsLaunchDriveBackend();
         var records = Path.Combine(root, "app-settings", "native-launch-drives.json");
         var client = new LocalManagerClient(root);
         ManagedProcess? host = null;
@@ -47,6 +46,19 @@ public sealed class SharedLaunchDriveHostTests
                 c.AddCluster(new(cluster, "Fixture cluster", ArkEdition.ASA, definitions[0].Settings));
                 foreach (var definition in definitions) c.AddServer(definition);
             });
+            // Startup must not use game-package validation as a prerequisite. This
+            // intentionally unusable package manifest would fail any full synchronization.
+            var pool=Path.Combine(root,"GameFiles","ASA","Windows");Directory.CreateDirectory(pool);
+            var packageManifest=Path.Combine(pool,"package.json");
+            const string untouchedPackage="startup-must-not-read-or-repair-this-manifest";
+            await File.WriteAllTextAsync(packageManifest,untouchedPackage);
+            var markerSnapshots=new Dictionary<string,string>();
+            foreach(var definition in definitions)
+            {
+                var marker=Path.Combine(definition.Directory,SharedServerFiles.Marker);
+                var text=JsonSerializer.Serialize(new SharedServerFileRecord(1,root,ArkEdition.ASA,ServerPlatform.Windows,[]));
+                await File.WriteAllTextAsync(marker,text);markerSnapshots[marker]=text;
+            }
             var hostDirectory = Path.Combine(AppContext.BaseDirectory, "host-fixture");
             host = ManagedProcess.Start(new(Path.Combine(hostDirectory, "ArkServerManager.Host.exe"), hostDirectory,
                 ["--data-root", root], Path.Combine(root, "host.log")));
@@ -72,9 +84,16 @@ public sealed class SharedLaunchDriveHostTests
             var automaticStart = await ActionAsync("server-startup-run", null);
             Assert.True(automaticStart.Success);
             Assert.Equal(ids.Order(), automaticStart.Members.Select(m => m.ServerId).Order());
-            var shared = Assert.Single((await new AtomicJsonStore<WindowsLaunchDriveDocument>(records).LoadAsync())!.Drives);
-            Assert.Equal(LaunchDrivePhase.Active, shared.Phase);
-            Assert.Equal(Path.TrimEndingDirectorySeparator(WindowsNativePath.ResolveFinalExisting(root)), shared.Directory);
+            Assert.False(File.Exists(records));
+            Assert.Equal(untouchedPackage,await File.ReadAllTextAsync(packageManifest));
+            foreach(var marker in markerSnapshots)Assert.Equal(marker.Value,await File.ReadAllTextAsync(marker.Key));
+            var directProcesses=await new ServerProcessDiscovery().ScanAsync(deadline.Token);
+            foreach(var definition in definitions)
+            {
+                var observed=Assert.Single(directProcesses.Candidates,c=>c.Directory.Equals(definition.Directory,StringComparison.OrdinalIgnoreCase));
+                using var process=System.Diagnostics.Process.GetProcessById(observed.ProcessId);
+                Assert.StartsWith(definition.Directory,process.MainModule!.FileName,StringComparison.OrdinalIgnoreCase);
+            }
             foreach (var definition in definitions)
                 Assert.Equal(InstallationStopState.Running, (await new InstallationStopGuard().CheckAsync(definition.Directory)).State);
             // Exercise the real manager/lifecycle connection with two owned test processes.
@@ -241,20 +260,17 @@ public sealed class SharedLaunchDriveHostTests
                 }
                 await Task.Delay(50, deadline.Token);
             }
-            Assert.Equal(shared, Assert.Single((await new AtomicJsonStore<WindowsLaunchDriveDocument>(records).LoadAsync())!.Drives));
-            Assert.Equal([shared.Target], backend.Query(shared.Letter));
             var incidents = await new ActivityJournal(Path.Combine(root, "logs", "activity.jsonl")).ReadRecentAsync(100, ids[0], deadline.Token);
             Assert.Contains(incidents.Entries, entry => entry.Category == "server" && entry.ExitCode == 7);
             Assert.DoesNotContain("fixture-private", JsonSerializer.Serialize(incidents));
             Assert.DoesNotContain("replacement-admin-secret", JsonSerializer.Serialize(incidents));
             Assert.True((await ActionAsync("lifecycle-execute-member", new LifecycleRequest(ids[0], LifecycleAction.Stop))).Success);
-            Assert.Equal([shared.Target], backend.Query(shared.Letter));
-            Assert.Equal(shared, Assert.Single((await new AtomicJsonStore<WindowsLaunchDriveDocument>(records).LoadAsync())!.Drives));
             var statuses = await client.CallAsync<List<MemberOperationResult>>("lifecycle-status", null, TimeSpan.FromSeconds(5), deadline.Token);
             Assert.Equal(ServerState.Running, statuses.Single(s => s.ServerId == ids[1]).State);
             Assert.True((await ActionAsync("lifecycle-stop-all", null)).Success);
-            Assert.Empty(backend.Query(shared.Letter));
-            Assert.Empty((await new AtomicJsonStore<WindowsLaunchDriveDocument>(records).LoadAsync())!.Drives);
+
+            Assert.Equal(untouchedPackage,await File.ReadAllTextAsync(packageManifest));
+            foreach(var marker in markerSnapshots)Assert.Equal(marker.Value,await File.ReadAllTextAsync(marker.Key));
 
             async Task<BackgroundOperation> AccessAction(string operation, object? payload)
             {
@@ -285,13 +301,6 @@ public sealed class SharedLaunchDriveHostTests
                 }
                 finally { await host.DisposeAsync(); }
             }
-            if (File.Exists(records))
-                await new WindowsLaunchDrives(records, backend, async (directory, ct) =>
-                {
-                    var scan = await new ServerProcessDiscovery().ScanAsync(ct);
-                    return scan.NativeScanComplete && !scan.Candidates.Any(c => Path.GetRelativePath(root, c.Directory) is var relative
-                        && relative != ".." && !relative.StartsWith(".." + Path.DirectorySeparatorChar) && !Path.IsPathRooted(relative));
-                }).CleanupStoppedAsync();
             if (Directory.Exists(root)) Directory.Delete(root, true);
         }
     }

@@ -26,14 +26,6 @@ public sealed partial class MainWindow
             BackgroundOperation job;
             if (!lifecycleAttempted)
             {
-                if (OperatingSystem.IsWindows() && pendingLifecycle.Action is LifecycleAction.Start or LifecycleAction.Restart)
-                {
-                    lifecycleNotice = "Preparing running backups. Windows may ask you to approve the helper…"; Render();
-                    var capability = await client.CallAsync<WindowsSnapshotCapability>("windows-backup-prepare", null,
-                        TimeSpan.FromMinutes(2), lifetime.Token);
-                    if (!capability.Windows || !capability.Elevated || !capability.ProviderLoaded)
-                        throw new InvalidDataException("The backup helper is not ready.");
-                }
                 lifecycleAttempted = true;
                 job = await client.CallAsync<BackgroundOperation>(pendingLifecycleMemberOnly ? "lifecycle-execute-member" : "lifecycle-execute",
                     pendingLifecycle, TimeSpan.FromSeconds(8), lifetime.Token, lifecycleRequestId);
@@ -55,9 +47,12 @@ public sealed partial class MainWindow
                     await RefreshAsync(); break;
                 }
                 if (job.State is BackgroundOperationState.Failed or BackgroundOperationState.Canceled)
-                { lifecycleNotice = "Server action did not complete. Refresh server status before trying again."; pendingLifecycle = null; break; }
+                { lifecycleNotice = job.Error ?? "Server action did not complete. Refresh server status before trying again."; pendingLifecycle = null; break; }
                 await RefreshLifecycleDisplayAsync();
-                lifecycleNotice = job.Progress?.Message ?? "Server action is in progress…"; Render();
+                lifecycleNotice = job.Progress?.Message ?? "Server action is in progress…";
+                if(pendingLifecycle.Action is LifecycleAction.Start or LifecycleAction.Restart && managedRuntimeStatus.Any(s=>s.ServerId==pendingLifecycle.ServerId&&s.State==ServerState.Starting))
+                    lifecycleNotice="Starting ARK and waiting for its administration connection. Map and mod loading can take several minutes.";
+                Render();
                 await Task.Delay(1000, lifetime.Token);
                 job = await client.CallAsync<BackgroundOperation>("operation-status", new OperationStatusRequest(lifecycleRequestId), TimeSpan.FromSeconds(8), lifetime.Token);
             }
@@ -67,7 +62,7 @@ public sealed partial class MainWindow
             if (!lifecycleAttempted)
             {
                 pendingLifecycle = null;
-                lifecycleNotice = "Backup preparation could not be confirmed. The server action was not sent. Retry to check the helper and start again.";
+                lifecycleNotice = "Startup preparation failed: " + error.Message + " The server action was not sent.";
             }
             else lifecycleNotice = "Server action result unknown. Check the existing action to reconnect; it will not be sent again automatically.";
         }

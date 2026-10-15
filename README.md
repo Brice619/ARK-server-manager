@@ -16,9 +16,11 @@ Installers are distributed through [GitHub Releases](https://github.com/Brice619
 - Local network information, confirmed Windows Firewall setup, router guidance and optional router mapping.
 - Application update checks before opening, recovery to the installed version when an update fails, notifications and optional server/cluster startup selections.
 
-The native interface follows the approved server and cluster layouts. Tabs fade only their changing content; the header and navigation stay visible. Additional servers do not shrink existing cards. See [0.1.3 changes](docs/RELEASE-0.1.3.md).
+The native interface follows the approved server and cluster layouts. Tabs fade only their changing content; the header and navigation stay visible. Additional servers do not shrink existing cards. See [0.2.0 changes](docs/RELEASE-0.2.0.md).
 
 The normal installed app does not include the dummy server feature. Isolated sample fixtures belong to the development visual-review tool and are excluded from production builds.
+
+For LAN connection instructions, including Steam Favorites and the difference between game and query ports, see [Connect over your local network](docs/GETTING-STARTED.md#connect-over-your-local-network-lan).
 
 ## Installation and updates
 

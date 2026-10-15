@@ -2,6 +2,7 @@
 
 The user requested finishing the working application instead of continuing to expand unusual failure scenarios. The following work is recorded for later; these limits must remain visible in release notes.
 
+- A reported ASE LAN-browser regression on another PC remains unresolved. The server responds to direct queries and host-side LAN broadcast probes; these do not verify remote discovery or a game join. Steam Favorites instructions provide an alternate way to locate the server.
 - Native Linux testing is intentionally deferred. Linux is cross-built; ASA compatibility setup and Linux backup/system adapters have not been exercised on a Linux machine.
 - Windows signing is not configured. Installer and update files include checksums and dependency notices, but no purchased signing identity is bundled.
 - Full live player joining, transfers and every mod/map/platform combination have not been exercised. Crossplay remains constrained by ARK and mod support.

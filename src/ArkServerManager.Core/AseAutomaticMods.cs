@@ -19,14 +19,7 @@ public sealed class AseAutomaticMods(HttpClient http)
         RequireUnlinked(folder);
         await new SteamCmdBootstrap(http).EnsureAsync(folder, platform, ct);
         RequireUnlinked(folder);
-        // Confirm source game membership before asking the native installer to fetch an item.
-        var lookup = new SteamWorkshopMetadata(http);
-        foreach (var id in server.Mods)
-        {
-            var metadata = await lookup.GetAsync(id, ct);
-            if (metadata.Edition != ArkEdition.ASE || metadata.Id != ulong.Parse(id).ToString(System.Globalization.CultureInfo.InvariantCulture))
-                throw new InvalidDataException("The Workshop item could not be verified for ASE.");
-        }
+        // Compatibility is checked when mods are selected; ARK owns their installation.
     }
 
     private static void RequireUnlinked(string path)

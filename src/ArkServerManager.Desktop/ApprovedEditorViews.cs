@@ -250,6 +250,14 @@ public sealed partial class MainWindow
                 if(!IsReviewServer(server.Id)&&!designPreview)
                 {
                     var expected=loadedLaunchPreferences.GetValueOrDefault(server.Id)??await client!.CallAsync<ServerLaunchPreferencesState>("server-launch-preferences-read",server.Id,TimeSpan.FromSeconds(8),lifetime.Token);
+                    if(networkScopeDrafts.ContainsKey(server.Id))
+                    {
+                        if(!OperatingSystem.IsWindows())throw new InvalidOperationException("Automatic network access changes require Windows Firewall setup.");
+                        settingSaveNotice="Applying the network choice. Windows may request administrator approval…";
+                        Render();
+                        if(!await SetupFirewallAsync(server,scope))
+                        {settingSaveNotice=networkAddressNotice+" Network choice was not saved; check the pending firewall change before retrying.";return;}
+                    }
                     loadedLaunchPreferences[server.Id]=await client!.CallAsync<ServerLaunchPreferencesState>("server-launch-preferences-save",new ServerLaunchPreferencesEdit(expected,desired,scope),TimeSpan.FromSeconds(8),lifetime.Token);
                 }
                 else
@@ -259,10 +267,10 @@ public sealed partial class MainWindow
                 }
                 launchPreferenceDrafts.Remove(server.Id);networkScopeDrafts.Remove(server.Id);
             }
-            settingSaveNotice="Changes saved. They apply on the next start.";
+            settingSaveNotice="Changes saved. Configuration applies on the next start; network rules apply immediately.";
             if(!IsReviewServer(server.Id)&&!designPreview)await LoadScreenSettingsAsync(server);
         }
-        catch(Exception error)when(error is IOException or TimeoutException or ArgumentException or InvalidOperationException or JsonException or OperationCanceledException){settingSaveNotice=error is ArgumentException?error.Message:"Save did not complete. Unsaved settings are retained.";}
+        catch(Exception error)when(error is IOException or TimeoutException or ArgumentException or InvalidOperationException or JsonException or OperationCanceledException){settingSaveNotice=error is ArgumentException?error.Message:"Save did not complete: "+error.Message+" Unsaved settings are retained.";}
         finally{screenSettingsSaveBusy=false;if(!lifetime.IsCancellationRequested)Render();}
     }
     private void ConfigureEditorScrollbar(ScrollViewer viewer, bool arrows = true)

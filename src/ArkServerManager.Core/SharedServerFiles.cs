@@ -127,15 +127,6 @@ public sealed class SharedServerFiles(string managementRoot, ArkEdition edition,
         await new SharedServerFiles(record.ManagementRoot, record.Edition, record.Platform).RegisterAsync(request.Directory, ct);
     }
 
-    public static async Task RefreshBeforeStartAsync(string managementRoot, ServerDefinition server, ServerPlatform platform, CancellationToken ct)
-    {
-        var record = await ReadMarkerAsync(server.Directory, ct);
-        if (record is null) return; // Existing external installations retain their original ownership.
-        if (record.ManagementRoot != Path.GetFullPath(managementRoot) || record.Edition != server.Edition || record.Platform != platform)
-            throw new IOException("Shared package identity changed.");
-        await new SharedServerFiles(managementRoot, server.Edition, platform).ReuseAsync(server.Directory, ct);
-    }
-
     private async Task<SharedGamePackage?> ReadPackageAsync(CancellationToken ct)
     {
         RejectLinks(Manifest);

@@ -56,7 +56,7 @@ internal static class NativeAseSmoke
     }
 
     public static async Task<object> RunAsaModAsync(string sourceEvidence, string evidence, string modId, CancellationToken ct,
-        bool overrideModsDirectory = false, string? alternateLaunchRoot = null)
+        bool overrideModsDirectory = false)
     {
         if (!OperatingSystem.IsWindows() || !Path.IsPathFullyQualified(sourceEvidence) || !Path.IsPathFullyQualified(evidence))
             throw new ArgumentException("Choose absolute Windows verification paths.");
@@ -105,7 +105,7 @@ internal static class NativeAseSmoke
                 var observed = await new InstallationStopGuard().CheckAsync(server.Directory, token);
                 recognizedRunning = observed.State == InstallationStopState.Running;
                 if (!recognizedRunning) throw new IOException("Native process discovery did not recognize the original verification installation as running.");
-            }, alternateLaunchRoot: alternateLaunchRoot); }
+            }); }
         finally
         {
             if (overrideModsDirectory)
@@ -128,7 +128,7 @@ internal static class NativeAseSmoke
         return result;
     }
 
-    public static async Task<object> RunAseModAsync(string sourceEvidence, string evidence, string modId, CancellationToken ct, string? alternateLaunchRoot = null)
+    public static async Task<object> RunAseModAsync(string sourceEvidence, string evidence, string modId, CancellationToken ct)
     {
         if (!OperatingSystem.IsWindows() || !Path.IsPathFullyQualified(sourceEvidence) || !Path.IsPathFullyQualified(evidence))
             throw new ArgumentException("Choose absolute Windows verification paths.");
@@ -162,7 +162,7 @@ internal static class NativeAseSmoke
             http.DefaultRequestHeaders.UserAgent.ParseAdd("ARKServerManager-Verification/1.0");
             Console.WriteLine("Preparing the production ASE automatic Workshop installer.");
             await new AseAutomaticMods(http).PrepareAsync(definition, ServerPlatform.Windows, ct);
-            var runtime = await RunRegisteredAsync(definition, repository, evidence, admin, join, ct, alternateLaunchRoot: alternateLaunchRoot);
+            var runtime = await RunRegisteredAsync(definition, repository, evidence, admin, join, ct);
             var mods = Path.Combine(original.Directory, "ShooterGame", "Content", "Mods");
             var folder = Path.Combine(mods, modId);
             var result = new { Edition = "ASE", ModId = modId, Runtime = runtime,
@@ -265,7 +265,7 @@ internal static class NativeAseSmoke
 
     private static async Task<object> RunRegisteredAsync(ServerDefinition definition, CatalogRepository repository,
         string evidence, string admin, string join, CancellationToken ct, string resultName = "result.json",
-        Func<ServerDefinition, CancellationToken, Task>? afterReady = null, string? alternateLaunchRoot = null)
+        Func<ServerDefinition, CancellationToken, Task>? afterReady = null)
     {
         var directory = definition.Directory;
         var saved = Path.Combine(directory, "ShooterGame", "Saved");
@@ -274,12 +274,6 @@ internal static class NativeAseSmoke
             server =>
             {
                 var launch = NativeServerLaunchPlan.Build(server, new(ServerPlatform.Windows, true, null), Path.Combine(evidence, "console.log"));
-                if (alternateLaunchRoot is not null)
-                {
-                    if (!WindowsNativePath.ResolveFinalExisting(alternateLaunchRoot).Equals(WindowsNativePath.ResolveFinalExisting(server.Directory), StringComparison.OrdinalIgnoreCase))
-                        throw new IOException("The diagnostic launch drive does not identify the selected server folder.");
-                    launch = NativeServerLaunchPlan.WithWindowsLaunchRoot(launch, server.Directory, alternateLaunchRoot);
-                }
                 return launch with { Arguments = [.. launch.Arguments, "-MULTIHOME=127.0.0.1"], Secrets = [admin, join] };
             },
             (process, endpoint, token) => new ArkGracefulShutdown().RequestWithResponseConfirmationAsync(process, endpoint,

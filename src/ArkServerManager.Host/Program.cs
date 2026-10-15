@@ -36,8 +36,8 @@ string? linuxSnapshotCleanupProblem = null;
 string? nativeDriveCleanupProblem = null;
 var restoreCleanupProblems = new Dictionary<Guid, string>();
 var nativePlatform = OperatingSystem.IsWindows() ? ServerPlatform.Windows : ServerPlatform.Linux;
-var nativeLaunchDrives = OperatingSystem.IsWindows() ? new WindowsLaunchDrives(
-    Path.Combine(root, "app-settings", "native-launch-drives.json"), new NativeWindowsLaunchDriveBackend(),
+var nativeLaunchDrives = OperatingSystem.IsWindows() ? new LegacyWindowsLaunchDriveCleanup(
+    Path.Combine(root, "app-settings", "native-launch-drives.json"), new NativeLegacyWindowsLaunchDriveBackend(),
     async (directory, ct) =>
     {
         var scan = await new ServerProcessDiscovery().ScanAsync(ct);
@@ -191,7 +191,6 @@ var runtimeFactory = new RegisteredRconRuntimeFactory(repository,
         }
         var queuedUpdate = await pendingServerUpdates.OnStoppedAsync(server.Id, ct);
         if (queuedUpdate.Queued) throw new IOException(queuedUpdate.Message);
-        await SharedServerFiles.RefreshBeforeStartAsync(root, current, nativePlatform, ct);
         await pendingConfiguration.ApplyBeforeStartAsync(server.Id, ct);
         await ApplyPendingPresetAsync(server.Id, ct);
         await pendingSettings.ApplyBeforeStartAsync(server.Id, ct);
@@ -210,21 +209,13 @@ var runtimeFactory = new RegisteredRconRuntimeFactory(repository,
         }
         var launch = NativeServerLaunchPlan.BuildManaged(catalog, current.Id, root, nativePlatform, false,
             Path.Combine(current.Directory, "logs", "console.log"));
-        if (nativeLaunchDrives is not null && current.Mods.Count > 0)
-        {
-            // Maps inside the chosen management folder share one native drive.
-            var mappingRoot = WithinDirectory(root, current.Directory) ? root : current.Directory;
-            var alias = await nativeLaunchDrives.GetOrCreateAsync(mappingRoot, ct);
-            var aliasServer = Path.Combine(alias, Path.GetRelativePath(mappingRoot, current.Directory));
-            launch = NativeServerLaunchPlan.WithWindowsLaunchRoot(launch, current.Directory, aliasServer);
-        }
         return launch;
     },
     (process, endpoint, ct) => new ArkGracefulShutdown().RequestWithResponseConfirmationAsync(process, endpoint,
         response => response.Trim().Equals("World Saved", StringComparison.OrdinalIgnoreCase), ct),
     (id, incident) => activity.RecordIncidentAsync(id, incident),
     TimeSpan.FromSeconds(5), TimeSpan.FromMinutes(20), TimeSpan.FromSeconds(2), TimeSpan.FromMinutes(2),
-    RconResponseMode.SinglePacket, clusterRunningTime.Observe, fileOperationGate, AseInstalledModFiles.RequireAsync);
+    RconResponseMode.SinglePacket, clusterRunningTime.Observe, fileOperationGate);
 var lifecycle = new ServerLifecycleCoordinator(repository, runtimeFactory.Create,
     async (id, ct) =>
     {
@@ -426,7 +417,6 @@ pendingServerUpdates = new ServerUpdateWorkflow(Path.Combine(root, "app-settings
         var selected = (await repository.ReadAsync(ct)).Servers.Single(s => s.Id == id);
         if ((await new InstallationStopGuard().CheckAsync(selected.Directory, ct)).State != InstallationStopState.Stopped)
             throw new InvalidOperationException("Server updates require a verified stopped installation.");
-        await SharedServerFiles.RefreshBeforeStartAsync(root, selected, nativePlatform, ct);
         if (await ServerUpdateManagerOperations.InstalledBuildAsync(selected, ct) == build) return true;
         var tool = await EnsureSteamCmdAsync(ct);
         var installed = await new SteamCmdInstaller(tool, Path.Combine(root, "logs", "updates"))

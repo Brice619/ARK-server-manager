@@ -237,8 +237,9 @@ public sealed partial class MainWindow
         if (IsReviewServer(server.Id)) return "192.168.1.50:7777";
         var address = System.Net.NetworkInformation.NetworkInterface.GetAllNetworkInterfaces()
             .Where(n => n.OperationalStatus == System.Net.NetworkInformation.OperationalStatus.Up && n.NetworkInterfaceType != System.Net.NetworkInformation.NetworkInterfaceType.Loopback)
+            .OrderByDescending(n => n.GetIPProperties().GatewayAddresses.Any(g => g.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && !g.Address.Equals(System.Net.IPAddress.Any)))
             .SelectMany(n => n.GetIPProperties().UnicastAddresses).Select(a => a.Address)
-            .FirstOrDefault(a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)?.ToString() ?? "127.0.0.1";
+            .FirstOrDefault(a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork && !System.Net.IPAddress.IsLoopback(a) && !(a.GetAddressBytes()[0] == 169 && a.GetAddressBytes()[1] == 254))?.ToString() ?? "127.0.0.1";
         return address + ":" + server.Settings.GamePort;
     }
 

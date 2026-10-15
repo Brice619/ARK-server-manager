@@ -7,19 +7,6 @@ public sealed record NativeServerLaunchOptions(ServerPlatform Platform, bool Dis
 /// <summary>Prepares direct native launch tokens. Configuration synchronization and live edition validation are separate prerequisites.</summary>
 public static class NativeServerLaunchPlan
 {
-    public static ProcessLaunch WithWindowsLaunchRoot(ProcessLaunch launch, string serverDirectory, string launchRoot)
-    {
-        if (!OperatingSystem.IsWindows()) throw new PlatformNotSupportedException("Native launch drives require Windows.");
-        if (!WindowsNativePath.ResolveFinalExisting(serverDirectory).Equals(WindowsNativePath.ResolveFinalExisting(launchRoot), StringComparison.OrdinalIgnoreCase))
-            throw new IOException("The native launch path does not identify the selected installation.");
-        var relative = Path.GetRelativePath(serverDirectory, launch.Executable);
-        if (Path.IsPathRooted(relative) || relative == ".." || relative.StartsWith(".." + Path.DirectorySeparatorChar))
-            throw new IOException("The native executable is outside its selected installation.");
-        var executable = Path.Combine(launchRoot, relative);
-        if (!WindowsNativePath.ResolveFinalExisting(executable).Equals(WindowsNativePath.ResolveFinalExisting(launch.Executable), StringComparison.OrdinalIgnoreCase))
-            throw new IOException("The native launch executable changed.");
-        return launch with { Executable = executable, WorkingDirectory = Path.GetDirectoryName(executable)! };
-    }
     /// <summary>Explicit managed-storage route; imported clusters use their validated existing override through Build.</summary>
     public static ProcessLaunch BuildManaged(CatalogDocument catalog, Guid serverId, string managementRoot,
         ServerPlatform platform, bool disableBattlEye, string consoleLog)

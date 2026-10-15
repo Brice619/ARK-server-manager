@@ -60,50 +60,6 @@ try
     }
     else if (args is ["native-ase-cluster-smoke", var clusterRoot, var clusterEvidence])
         result = await NativeClusterSmoke.RunAsync(clusterRoot, clusterEvidence, cancellation.Token);
-    else if (args is ["native-ase-managed-drive-smoke", var aseDriveSource, var aseDriveEvidence, var aseDriveMod])
-    {
-        var selected = (await new CatalogRepository(Path.Combine(aseDriveSource, "catalog.json")).ReadAsync(cancellation.Token)).Servers.Single();
-        var backend = new NativeWindowsLaunchDriveBackend();
-        var drives = new WindowsLaunchDrives(Path.Combine(aseDriveEvidence + "-launch-path", "drives.json"), backend,
-            async (directory, ct) => (await new InstallationStopGuard().CheckAsync(directory, ct)).State == InstallationStopState.Stopped);
-        var alias = await drives.GetOrCreateAsync(selected.Directory, cancellation.Token);
-        try { result = await NativeAseSmoke.RunAseModAsync(aseDriveSource, aseDriveEvidence, aseDriveMod, cancellation.Token, alias); }
-        finally { await drives.CleanupStoppedAsync(CancellationToken.None); }
-        await File.WriteAllTextAsync(Path.Combine(aseDriveEvidence, "managed-drive-result.json"), JsonSerializer.Serialize(new
-            { MappingRemovedAfterNativeStop = backend.Query(alias[0]).Count == 0, DataMoved = false }), cancellation.Token);
-    }
-    else if (args is ["native-asa-managed-drive-smoke", var managedDriveSource, var managedDriveEvidence, var managedDriveMod])
-    {
-        var selected = (await new CatalogRepository(Path.Combine(managedDriveSource, "catalog.json")).ReadAsync(cancellation.Token)).Servers.Single();
-        var backend = new NativeWindowsLaunchDriveBackend();
-        var drives = new WindowsLaunchDrives(Path.Combine(managedDriveEvidence + "-launch-path", "drives.json"), backend,
-            async (directory, ct) => (await new InstallationStopGuard().CheckAsync(directory, ct)).State == InstallationStopState.Stopped);
-        var alias = await drives.GetOrCreateAsync(selected.Directory, cancellation.Token);
-        try { result = await NativeAseSmoke.RunAsaModAsync(managedDriveSource, managedDriveEvidence, managedDriveMod,
-            cancellation.Token, alternateLaunchRoot: alias); }
-        finally { await drives.CleanupStoppedAsync(CancellationToken.None); }
-        await File.WriteAllTextAsync(Path.Combine(managedDriveEvidence, "managed-drive-result.json"), JsonSerializer.Serialize(new
-            { MappingRemovedAfterNativeStop = backend.Query(alias[0]).Count == 0, DataMoved = false }), cancellation.Token);
-    }
-    else if (args is ["native-launch-drive-smoke", var driveServer, var driveEvidence])
-    {
-        if (!OperatingSystem.IsWindows() || !Path.IsPathFullyQualified(driveServer) || !Path.IsPathFullyQualified(driveEvidence))
-            throw new ArgumentException("Choose absolute Windows verification paths.");
-        if (Directory.Exists(driveEvidence) || File.Exists(driveEvidence)) throw new IOException("Choose a new drive evidence folder.");
-        var backend = new NativeWindowsLaunchDriveBackend();
-        var drives = new WindowsLaunchDrives(Path.Combine(driveEvidence, "drives.json"), backend,
-            async (directory, ct) => (await new InstallationStopGuard().CheckAsync(directory, ct)).State == InstallationStopState.Stopped);
-        var alias = await drives.GetOrCreateAsync(driveServer, cancellation.Token);
-        var resolved = backend.Resolve(alias);
-        var reused = await new WindowsLaunchDrives(Path.Combine(driveEvidence, "drives.json"), backend,
-            async (directory, ct) => (await new InstallationStopGuard().CheckAsync(directory, ct)).State == InstallationStopState.Stopped)
-            .GetOrCreateAsync(driveServer, cancellation.Token);
-        await drives.CleanupStoppedAsync(cancellation.Token);
-        result = new { Alias = alias, SamePhysicalDirectory = resolved.Equals(backend.Resolve(driveServer), StringComparison.OrdinalIgnoreCase),
-            ReloadReusedOwnedMapping = reused == alias, MappingRemovedAfterVerifiedStop = backend.Query(alias[0]).Count == 0,
-            DataMoved = false };
-        await File.WriteAllTextAsync(Path.Combine(driveEvidence, "result.json"), JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true }), cancellation.Token);
-    }
     else if (args is ["native-world-backup-smoke", var worldEvidence])
         result = await NativeWorldBackupSmoke.RunAsync(worldEvidence, cancellation.Token);
     else if (args is ["native-configuration-check", var configurationEvidence])
@@ -118,8 +74,6 @@ try
         result = await NativeAseSmoke.RunAsaModAsync(asaSourceEvidence, asaModEvidence, asaModId, cancellation.Token);
     else if (args is ["native-asa-mod-directory-smoke", var asaDirectorySource, var asaDirectoryEvidence, var asaDirectoryMod])
         result = await NativeAseSmoke.RunAsaModAsync(asaDirectorySource, asaDirectoryEvidence, asaDirectoryMod, cancellation.Token, overrideModsDirectory: true);
-    else if (args is ["native-asa-mod-drive-smoke", var asaDriveSource, var asaDriveEvidence, var asaDriveMod, var asaDriveRoot])
-        result = await NativeAseSmoke.RunAsaModAsync(asaDriveSource, asaDriveEvidence, asaDriveMod, cancellation.Token, alternateLaunchRoot: asaDriveRoot);
     else if (args is ["native-asa-mod-remove-smoke", var asaRemovalSource, var asaRemovalEvidence])
         result = await NativeAseSmoke.RunAsaRemovalAsync(asaRemovalSource, asaRemovalEvidence, cancellation.Token);
     else if (args is ["windows-snapshot-smoke", var snapshotHelper, var snapshotEvidence, var permissionMode]

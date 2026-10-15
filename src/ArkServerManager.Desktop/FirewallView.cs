@@ -10,28 +10,36 @@ public sealed partial class MainWindow
     private FirewallSelection? pendingFirewall;
     private Guid firewallRequestId;
     private bool firewallBusy;
-    private async Task SetupFirewallAsync(ServerDefinition server)
+    private async Task<bool> SetupFirewallAsync(ServerDefinition server, ServerNetworkScope? requestedScope = null)
     {
-        if (client is null || firewallBusy) return;
+        if (client is null || firewallBusy) return false;
+        var completed = false;
+        if (pendingFirewall is not null && (pendingFirewall.ServerId != server.Id || requestedScope is not null && pendingFirewall.Scope != requestedScope))
+            throw new InvalidOperationException("Finish checking the pending firewall change before applying another network choice.");
         firewallBusy = true;
         try
         {
             var reconnect = pendingFirewall is not null;
             if (!reconnect)
             {
-                var dialog = new Window { Title = "Set up Windows Firewall?", Width = 620, Height = 430,
-                    Background = Brush.Parse("#0F1921"), FontFamily = FontFamily, WindowStartupLocation = WindowStartupLocation.CenterOwner };
-                var panel = new StackPanel { Margin = new Thickness(28), Spacing = 18 };
-                panel.Children.Add(Label("Allow player connections", 25, true));
-                panel.Children.Add(Label(server.Settings.Name + " · UDP " + server.Settings.GamePort + ", " + (server.Settings.GamePort + 1) + ", " + server.Settings.QueryPort, 17));
-                var scope = new ComboBox { ItemsSource = new[] { "Local network only", "Internet connections" }, SelectedIndex = server.NetworkScope == ServerNetworkScope.Internet ? 1 : 0 };
-                panel.Children.Add(scope);
-                panel.Children.Add(Label("The rule applies to this server executable. Windows will request administrator access. Internet play also requires router setup. This setup does not open the administrator port.", 16));
-                panel.Children.Add(ActionButton("Apply firewall rule", () => dialog.Close(true), true));
-                panel.Children.Add(ActionButton("Cancel", () => dialog.Close(false))); dialog.Content = new ScrollViewer { Content = panel };
-                if (!await dialog.ShowDialog<bool>(this)) return;
+                var selectedScope = requestedScope ?? server.NetworkScope;
+                if (requestedScope is null)
+                {
+                    var dialog = new Window { Title = "Set up Windows Firewall?", Width = 620, Height = 430,
+                        Background = Brush.Parse("#0F1921"), FontFamily = FontFamily, WindowStartupLocation = WindowStartupLocation.CenterOwner };
+                    var panel = new StackPanel { Margin = new Thickness(28), Spacing = 18 };
+                    panel.Children.Add(Label("Allow player connections", 25, true));
+                    panel.Children.Add(Label(server.Settings.Name + " · UDP " + server.Settings.GamePort + ", " + (server.Settings.GamePort + 1) + ", " + server.Settings.QueryPort, 17));
+                    var scope = new ComboBox { ItemsSource = new[] { "Local network only", "Internet connections" }, SelectedIndex = server.NetworkScope == ServerNetworkScope.Internet ? 1 : 0 };
+                    panel.Children.Add(scope);
+                    panel.Children.Add(Label("The rule applies to this server executable. Windows will request administrator access. Internet play also requires router setup. This setup does not open the administrator port.", 16));
+                    panel.Children.Add(ActionButton("Apply firewall rule", () => dialog.Close(true), true));
+                    panel.Children.Add(ActionButton("Cancel", () => dialog.Close(false))); dialog.Content = new ScrollViewer { Content = panel };
+                    if (!await dialog.ShowDialog<bool>(this)) return false;
+                    selectedScope = scope.SelectedIndex == 1 ? ServerNetworkScope.Internet : ServerNetworkScope.LocalNetwork;
+                }
                 pendingFirewall = new(server.Id, server.Directory, server.Edition, server.Settings.GamePort, server.Settings.QueryPort,
-                    scope.SelectedIndex == 1 ? ServerNetworkScope.Internet : ServerNetworkScope.LocalNetwork, true);
+                    selectedScope, true);
                 firewallRequestId = Guid.NewGuid();
             }
             Render();
@@ -49,7 +57,7 @@ public sealed partial class MainWindow
                         && record.Directory == pendingFirewall.Directory && record.Scope == pendingFirewall.Scope)
                     {
                         networkAddressNotice = "The original firewall setup recorded completion. Check the current rule and player reachability; its live operation result is unavailable.";
-                        pendingFirewall = null;
+                        completed = true; pendingFirewall = null;
                     }
                     else networkAddressNotice = "The original firewall result is unavailable and recorded completion cannot be confirmed. Review Windows Firewall before another setup; this request has not been resent.";
                     break;
@@ -59,7 +67,7 @@ public sealed partial class MainWindow
                 {
                     var result = job.Result?.Deserialize<FirewallSetupResult>();
                     if (result is null || result.ServerId != pendingFirewall!.ServerId || result.Scope != pendingFirewall.Scope) throw new InvalidDataException();
-                    pendingFirewall = null; networkAddressNotice = "Windows firewall rule created. Player reachability still needs checking."; break;
+                    completed = true; pendingFirewall = null; networkAddressNotice = "Windows firewall rule applied."; break;
                 }
                 if (job.State is BackgroundOperationState.Failed or BackgroundOperationState.Canceled)
                 { pendingFirewall = null; networkAddressNotice = job.Error ?? "Firewall setup did not complete."; break; }
@@ -72,5 +80,6 @@ public sealed partial class MainWindow
         catch (Exception error) when (IsBasicSaveError(error))
         { networkAddressNotice = pendingFirewall is null ? "Firewall review could not open." : "Firewall outcome unknown. Check the original setup request."; }
         finally { firewallBusy = false; if (!lifetime.IsCancellationRequested) Render(); }
+        return completed;
     }
 }

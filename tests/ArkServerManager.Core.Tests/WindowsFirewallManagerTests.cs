@@ -4,10 +4,12 @@ namespace ArkServerManager.Core.Tests;
 public sealed class WindowsFirewallManagerTests
 {
     [Theory]
-    [InlineData(false, 0)]
-    [InlineData(false, 1)]
-    [InlineData(true, 0)]
-    public async Task SetupChecksCurrentPortsAndReportsExecutorFailure(bool stale, int exitCode)
+    [InlineData(false, 0, ServerNetworkScope.LocalNetwork)]
+    [InlineData(false, 0, ServerNetworkScope.Internet)]
+    [InlineData(false, 1, ServerNetworkScope.LocalNetwork)]
+    [InlineData(false, 1, ServerNetworkScope.Internet)]
+    [InlineData(true, 0, ServerNetworkScope.LocalNetwork)]
+    public async Task SetupChecksCurrentPortsAndReportsExecutorFailure(bool stale, int exitCode, ServerNetworkScope scope)
     {
         var root = Path.Combine(Path.GetTempPath(), "ark-firewall-job-" + Guid.NewGuid().ToString("N"));
         Directory.CreateDirectory(root);
@@ -25,11 +27,15 @@ public sealed class WindowsFirewallManagerTests
             var manager = new WindowsFirewallManagerOperations(repository, jobs, lifecycle, (script, _) =>
             {
                 executions++;
-                if (script.Contains("New-NetFirewallRule")) Assert.Contains("-LocalPort 7777,7778,27015", script);
+                if (script.Contains("New-NetFirewallRule"))
+                {
+                    Assert.Contains("-LocalPort 7777,7778,27015", script);
+                    Assert.Contains("-RemoteAddress "+(scope==ServerNetworkScope.LocalNetwork?"'LocalSubnet'":"'Any'"),script);
+                }
                 else { Assert.Contains("Remove-NetFirewallRule", script); Assert.Contains("Get-NetFirewallApplicationFilter", script); Assert.Contains("'ARK Server Manager'", script); }
                 return Task.FromResult(exitCode);
             }, managementRoot: root);
-            var selection = new FirewallSelection(server.Id, root, server.Edition, stale ? 7779 : 7777, 27015, ServerNetworkScope.LocalNetwork, true);
+            var selection = new FirewallSelection(server.Id, root, server.Edition, stale ? 7779 : 7777, 27015, scope, true);
             var request = new ManagerRequest(LocalManagerProtocol.Version, Guid.NewGuid(), "server-firewall-setup-start", JsonSerializer.SerializeToElement(selection));
             manager.Start(request); manager.Start(request);
             using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(5));

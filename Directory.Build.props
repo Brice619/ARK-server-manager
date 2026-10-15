@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>0.1.3</Version>
+    <Version>0.2.0</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildProjectName)' == 'ArkServerManager.Desktop' and '$(EnableDesignReview)' == 'true'">
     <BaseIntermediateOutputPath>obj/design-review/</BaseIntermediateOutputPath>

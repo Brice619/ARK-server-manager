@@ -34,6 +34,24 @@ Backups are created hourly while servers run and retained by runtime rather than
 
 Internet hosting may need firewall permission and router setup. The app provides local network information, Windows firewall setup and router guidance; not every router supports automatic mapping.
 
+## Connect over your local network (LAN)
+
+Start the map and wait for it to finish loading. On the server's Overview page, copy the connection address. Use the hosting computer's LAN address, such as `192.168.40.70`, rather than `127.0.0.1` when playing from another computer. The address shown here is an example; use your own server's address.
+
+For ARK: Survival Evolved on Steam:
+
+1. On the computer you play on, open Steam > View > Game Servers > Favorites.
+2. Click **+** and enter the hosting computer's LAN IP followed by the map's **Query port**, for example `192.168.40.70:27015`. Find that port in the map's Settings > Network. Each map can use a different query port.
+3. Save the favorite, open ARK's server browser, and select Favorites. Refresh if necessary, select your server, and join. Enter the join password if one is configured.
+
+The Overview connection address uses the **game port** (for example `192.168.40.70:7777`); Steam's Add server by IP uses the **query port** (typically `27015`). For a direct ASE connection without a join password, open the in-game console and enter `open 192.168.40.70:7777`, substituting your actual LAN address and game port.
+
+The playing computer must be able to reach the hosting computer on the local network. Guest Wi-Fi or device isolation can prevent this. On Windows, apply the app's firewall setup for local-network access. LAN play does not require router port forwarding. The app's Local/Internet choice controls its firewall rule's remote-address scope; it does not guarantee placement in ARK's LAN browser list or change router configuration by itself.
+
+A server can respond in Favorites while automatic LAN discovery does not list it. Use the saved LAN address to connect in that situation. Favorites are configured on each playing computer; adding one on the host does not add it on another PC. A responding listing confirms a query response, not a successful game join. Client edition, version and supported platforms must match the server. These Steam instructions apply to ASE; ASA uses its own in-game browser.
+
+Reference: [ARK console commands](https://ark.wiki.gg/wiki/Server_commands) documents the direct connection command and game port.
+
 ## App updates and limits
 
 The app checks for updates when launched. If an update fails, it opens the installed version with a notice. Closing the window can leave background server management running. Optional startup selections choose which servers or clusters start when the app opens.

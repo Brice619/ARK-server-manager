@@ -55,3 +55,14 @@
 
 - EnableDesignReview is an explicit development build option. The standard installed app must not expose --design-preview, dummy navigation, simulated lifecycle actions, or seeded sample records.
 - Retain isolated visual and action fixtures when they verify actual controls; do not treat them as production features. Production cleanup preserves existing user files, including prior preview files, unless the user explicitly requests their removal.
+
+## Filesystem boundaries
+
+- Never create, allocate, or map drive letters for game launches or tools. Launch from the registered original directory. Do not replace drive mappings with hidden filesystem aliases or relocate user installations without explicit instructions.
+- Removal-only migration may retire a mapping recorded as owned by an older app version after every dependent server is verified stopped; preserve unexpected targets and unrelated drives.
+
+## Necessity and startup behavior
+
+- Establish the concrete need for a change and what the existing system already handles before implementing it. Tests must verify the user requirement, not merely successful execution of the chosen mechanism.
+- Normal start, restart, and recovery must not scan, repair, republish, or synchronize the shared game-file installation. Keep game installation work in explicit creation, installation, update, or repair operations.
+- Do not start the user's server while diagnosing or verifying this startup change; use isolated process fixtures.

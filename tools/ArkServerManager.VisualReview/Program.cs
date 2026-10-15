@@ -18,6 +18,12 @@ if (args is not [var screen, var destination, var widthText, var heightText]
 }
 AppBuilder.Configure<App>().UseSkia().UseHeadless(new AvaloniaHeadlessPlatformOptions
     { UseHeadlessDrawing = false }).SetupWithoutStarting();
+if(screen is "network-access-save-check" or "startup-dispatch-check")
+{
+    var check=screen=="startup-dispatch-check"?MainWindow.CheckStartupDispatchForReviewAsync():MainWindow.CheckNetworkAccessSaveForReviewAsync();var until=DateTime.UtcNow.AddSeconds(20);
+    while(!check.IsCompleted){Dispatcher.UIThread.RunJobs();if(DateTime.UtcNow>until)throw new TimeoutException("Network settings action timed out.");Thread.Sleep(10);}
+    check.GetAwaiter().GetResult();Console.WriteLine(screen=="startup-dispatch-check"?"Start/restart dispatch without preparing or depending on the backup helper; no server launched.":"Network settings apply local/internet firewall rules, persist verified choices, and retain failed drafts.");return 0;
+}
 Window window = screen.StartsWith("cluster-shared-settings", StringComparison.Ordinal) ? MainWindow.CreateSharedSettingsDesignReview()
     : screen == "existing-server-registration" ? MainWindow.CreateExistingRegistrationDesignReview()
     : screen == "cluster-joining-confirmation" ? MainWindow.CreateJoiningConfirmationDesignReview()

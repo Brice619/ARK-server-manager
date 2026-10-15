@@ -17,7 +17,7 @@ public static class WindowsNativePath
         var native = image.ToString();
         if (native.StartsWith("\\Device\\Mup\\", StringComparison.OrdinalIgnoreCase))
             return ResolveFinalExisting("\\\\" + native[12..]);
-        var devices = new NativeWindowsLaunchDriveBackend();
+        var devices = new NativeLegacyWindowsLaunchDriveBackend();
         for (var letter = 'A'; letter <= 'Z'; letter++)
         {
             var targets = devices.Query(letter);
